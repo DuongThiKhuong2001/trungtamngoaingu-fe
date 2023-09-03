@@ -1,0 +1,173 @@
+<mat-card>
+  <form class="border" (ngSubmit)="submitForm()">
+    <div class="row">
+      <div class="col text-center p-2 mb-3 bg-light">
+        <span class="fs-3">Đăng ký tài khoản</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="hoTen" class="form-label">Họ và tên</label>
+        <input
+          type="text"
+          class="form-control"
+          id="hoTen"
+          [(ngModel)]="formData.hoTen"
+          name="hoTen"
+        />
+      </div>
+      <div class="col">
+        <label for="tenDangNhap" class="form-label">Tên đăng nhập</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tenDangNhap"
+          [(ngModel)]="formData.tenDangNhap"
+          name="tenDangNhap"
+        />
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="formData.email"
+            name="email"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="sdt" class="form-label">Số điện thoại</label>
+          <input
+            type="text"
+            class="form-control"
+            id="soDienThoai"
+            [(ngModel)]="formData.soDienThoai"
+            name="soDienThoai"
+          />
+          <div class="form-text"></div>
+        </div>
+        <div class="col">
+          <div class="m-1">Giới tính</div>
+          <div class="form-check form-check-inline">
+            <input
+              type="radio"
+              class="form-check-input"
+              value="Nam"
+              id="nam"
+              [(ngModel)]="formData.gioiTinh"
+              name="gender"
+            />
+            <label class="form-check-label" for="male">Nam</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              type="radio"
+              class="form-check-input"
+              value="Nu"
+              id="nu"
+              [(ngModel)]="formData.gioiTinh"
+              name="gender"
+            />
+            <label class="form-check-label" for="nu">Nữ</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            [(ngModel)]="formData.matKhau"
+            name="password"
+          />
+          <div class="form-text"></div>
+        </div>
+        <div class="col mb-3">
+          <label for="repeat" class="form-label">Nhập lại mật khẩu</label>
+          <input
+            type="password"
+            class="form-control"
+            id="repeat"
+            [(ngModel)]="formData.repeatPassword"
+            name="repeatPassword"
+          />
+          <div class="form-text"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="diachi" class="form-label">Địa chỉ</label>
+          <input
+            type="text"
+            class="form-control"
+            id="diachi"
+            [(ngModel)]="formData.diaChi"
+            name="diachi"
+          />
+          <div class="form-text"></div>
+        </div>
+        <div class="col mb-3">
+          <label for="diachi" class="form-label">SĐT người thân</label>
+          <input
+            type="text"
+            class="form-control"
+            id="sdtnt"
+            [(ngModel)]="formData.soDTNguoiThan"
+            name="soDTNguoiThan"
+          />
+          <div class="form-text"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="diachi" class="form-label">Lớp</label>
+          <input
+            type="number"
+            class="form-control"
+            id="lop"
+            [(ngModel)]="formData.lop"
+            name="lop"
+          />
+          <div class="form-text"></div>
+        </div>
+        <div class="col mb-3">
+          <label for="truongHoc" class="form-label">Trường học</label>
+          <input
+            type="text"
+            class="form-control"
+            id="truonghoc"
+            [(ngModel)]="formData.truongHoc"
+            name="truongHoc"
+          />
+          <div class="form-text"></div>
+        </div>
+      </div>
+      <div class="row">
+  <div class="col">
+    <label for="ngaySinh" class="form-label">Ngày sinh</label>
+    <input
+      type="date"
+      class="form-control"
+      id="ngaySinh"
+      [(ngModel)]="formData.ngaySinh"
+      name="ngaySinh"
+    />
+  </div>
+</div>
+
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Đăng ký</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-card>

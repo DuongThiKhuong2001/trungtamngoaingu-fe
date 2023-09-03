@@ -1,0 +1,17 @@
+.navbar-dark .nav-item .nav-link {
+  color: #ffffff;
+}
+
+.navbar-dark .nav-item .nav-link:hover {
+  background-color: rgba(18, 122, 190, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 0.25rem;
+  color: #dbcaca;
+  font-weight: bold;
+}
+
+.fa-li {
+  position: relative;
+  left: 0;
+}
+
