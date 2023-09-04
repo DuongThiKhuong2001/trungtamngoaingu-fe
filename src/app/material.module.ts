@@ -16,7 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /** ================== */
 
 import { HttpClientModule } from '@angular/common/http';
@@ -58,8 +58,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ScrollingModule,
     MatProgressSpinnerModule,
     MatTabsModule,
-
-
+    ReactiveFormsModule,
   ],
   exports: [
     MatToolbarModule,
@@ -84,7 +83,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSelectModule,
     ScrollingModule,
     MatProgressSpinnerModule,
-    MatTabsModule
-  ]
+    MatTabsModule,
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

@@ -1,3 +1,4 @@
+import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -44,6 +45,7 @@ import { HomeComponent } from './components/layouts/home/home.component';
     SidebarComponent,
     LoginComponent,
     LogoutComponent,
+    ChangePasswordComponent,
     LecturerComponent,
     LecturerHomeComponent,
     TestlComponent,

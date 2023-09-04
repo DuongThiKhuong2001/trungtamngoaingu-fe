@@ -11,6 +11,9 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
+  changePassword(oldPassword: string, newPassword: string) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient, private storageService: StorageService) {}
 
   login(taiKhoan: string, matKhau: string): Observable<any> {

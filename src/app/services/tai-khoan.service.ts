@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TaiKhoanService {
+  [x: string]: any;
   private apiBaseUrl = '/api/tai-khoan';
 
   constructor(private http: HttpClient) {}

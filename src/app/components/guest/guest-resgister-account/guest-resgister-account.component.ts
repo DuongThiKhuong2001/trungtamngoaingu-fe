@@ -35,7 +35,7 @@ export class GuestResgisterAccountComponent {
         console.log('Thành công');
       },
       error: (error) => {
-        console.error('Lỗi khi lấy thông tin sinh viên:', error);
+        console.error('Lỗi khi lấy thông tin học viên:', error);
       },
     });
   }

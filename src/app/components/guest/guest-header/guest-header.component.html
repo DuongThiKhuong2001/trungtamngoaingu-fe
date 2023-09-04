@@ -25,15 +25,14 @@
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="trang-chu">TRANG CHỦ</a>
+          <a class="nav-link" routerLink="trang-chu">Trang chủ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="lich-khai-giang">LỊCH KHAI GIẢNG</a>
+          <a class="nav-link" routerLink="lich-khai-giang">Lịch khai giảng</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="dang-ky-khoa-hoc">ĐĂNG KÝ KHÓA HỌC</a>
+          <a class="nav-link" routerLink="dang-ky-khoa-hoc">Đăng ký khóa học</a>
         </li>
-
       </ul>
       <!-- Left links -->
 
@@ -51,24 +50,26 @@
       </div>
     </div>
 
-
-
     <!-- <button mat-mini-fab color="primary"  [matMenuTriggerFor]="menu">
           <mat-icon>menu</mat-icon>
         </button> -->
-          <button
-          mat-button
-          [matMenuTriggerFor]="menu"
-          class="user mt-2 d-flex align-items-center"
-        >
-          <img src="" alt="" class="user-image mr-1 p-2" />
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="user mt-2 d-flex align-items-center"
+    >
+      <img src="" alt="" class="user-image mr-1 p-2" />
 
-         Xin chào! {{ loggedInUsername }}
-          <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
-        </button>
+      Xin chào! {{ loggedInUsername }}
+      <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+    </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/dang-nhap">Đăng nhập</button>
-      <button mat-menu-item routerLink="/trang-chu/dang-ky">Đăng ký</button>
+      <button mat-menu-item routerLink="/dang-nhap">
+        <mat-icon>login</mat-icon> Đăng nhập
+      </button>
+      <button mat-menu-item routerLink="/trang-chu/dang-ky">
+        <mat-icon>how_to_reg</mat-icon> Đăng ký
+      </button>
     </mat-menu>
     <!-- Collapsible wrapper -->
   </div>
