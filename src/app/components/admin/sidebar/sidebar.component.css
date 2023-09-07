@@ -41,6 +41,7 @@ mat-list-item span {
 mat-nav-list {
   border: 1px solid #ccc;
   border-radius: 10px;
+  
 }
 
 mat-nav-list a {
@@ -64,3 +65,4 @@ mat-nav-list span {
   background-color: rgba(255, 255, 255, 0.3);
   border-left: 5px solid #ddff00;
 }
+

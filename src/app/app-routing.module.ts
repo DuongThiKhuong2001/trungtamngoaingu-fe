@@ -1,3 +1,4 @@
+import { ListLecturerComponent } from './components/admin/list-lecturer/list-lecturer.component';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RootComponent } from './root.component';
@@ -28,14 +29,38 @@ const routes: Routes = [
         data: { titulo: 'Trang chủ' },
       },
       {
-        path: 'home',
-        component: AdminHomeComponent,
+        path: 'trang-chu',
+        component: TestComponent,
         data: {
           titulo: 'Trang chủ',
           breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
         },
       },
 
+      {
+        path: 'giao-vien',
+        component: ListLecturerComponent,
+        data: {
+          titulo: 'Giáo viên',
+          breadcrumbs: [{ label: 'Lấy danh sách giáo viên', url: '/' }],
+        },
+      },
+      {
+        path: 'hoc-vien',
+        component: TestComponent,
+        data: {
+          titulo: 'Học viên',
+          breadcrumbs: [{ label: 'Lấy danh sách học viên', url: '/' }],
+        },
+      },
+      {
+        path: 'nhan-vien',
+        component: TestComponent,
+        data: {
+          titulo: 'Nhân viên',
+          breadcrumbs: [{ label: 'Lấy danh sách nhân viên', url: '/' }],
+        },
+      },
       {
         path: 'bangtin',
         component: AdminHomeComponent,
@@ -44,8 +69,8 @@ const routes: Routes = [
         path: 'khoahoc',
         component: TestComponent,
         data: {
-          titulo: 'Trang chủ',
-          breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
+          titulo: 'Khóa học',
+          breadcrumbs: [{ label: 'Khóa học', url: '/' }],
         },
       },
       {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -30,14 +30,13 @@ export class TaiKhoanService {
     searchTerm: string,
     userRole: string
   ): Observable<any> {
-    const params = {
-      page: page.toString(),
-      size: size.toString(),
-      sortBy,
-      sortDir,
-      searchTerm,
-      userRole,
-    };
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString())
+      .set('sortBy', sortBy)
+      .set('sortDir', sortDir)
+      .set('searchTerm', searchTerm)
+      .set('userRole', userRole);
 
     return this.http.get(`${this.apiBaseUrl}/lay-danh-sach`, { params });
   }

@@ -29,6 +29,7 @@ import { AdminHeaderComponent } from './components/admin/admin-header/admin-head
 import { BreadcrumbsComponent } from './components/admin/breadcrumbs/breadcrumbs.component';
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { HomeComponent } from './components/layouts/home/home.component';
+import { ListLecturerComponent } from './components/admin/list-lecturer/list-lecturer.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { HomeComponent } from './components/layouts/home/home.component';
     ChangePasswordComponent,
     LecturerComponent,
     LecturerHomeComponent,
+    ListLecturerComponent,
     TestlComponent,
     StudentComponent,
 

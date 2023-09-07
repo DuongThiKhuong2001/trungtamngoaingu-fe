@@ -5,23 +5,26 @@
     <img src="https://api.logo.com/api/v2/images?logo=logo_517f290c-2655-4b5c-b818-a48cbf6c95be&format=webp&margins=0&quality=60&width=500&background=transparent&u=1691841197" alt="" width="100px" >
   </div>
   <mat-list-item>
-    <a routerLink="/home" routerLinkActive="active-link">
+    <a routerLink="/quan-tri-vien/trang-chu" routerLinkActive="active-link">
       <mat-icon>home</mat-icon> <span>TRANG CHỦ</span>
     </a>
   </mat-list-item>
   <mat-list-item>
     <a (click)="toggleMenu()" routerLinkActive="active-link">
-      <mat-icon>person</mat-icon> <span>QUẢN LÝ TÀI KHOẢN</span>
+      <mat-icon>person</mat-icon> <span> Danh mục</span>
       <mat-icon *ngIf="!showMenu">chevron_right</mat-icon>
       <mat-icon *ngIf="showMenu">expand_more</mat-icon>
     </a>
   </mat-list-item>
   <mat-nav-list class="sidenav-submenu" *ngIf="showMenu">
-    <a mat-list-item routerLink="/giaovien" routerLinkActive="active-link">
-      <span>GIÁO VIÊN</span>
+    <a mat-list-item routerLink="/quan-tri-vien/giao-vien" routerLinkActive="active-link">
+      <span>Giáo viên</span>
     </a>
-    <a mat-list-item routerLink="/hocvien" routerLinkActive="active-link">
-      <span>HỌC VIÊN</span>
+     <a mat-list-item routerLink="/quan-tri-vien/nhan-vien" routerLinkActive="active-link">
+      <span>Nhân viên</span>
+    </a>
+    <a mat-list-item routerLink="/quan-tri-vien/hoc-vien" routerLinkActive="active-link">
+      <span>Học viên</span>
     </a>
   </mat-nav-list>
    <mat-list-item>
@@ -49,7 +52,7 @@
       <mat-icon>classroom</mat-icon> <span>QUẢN LÝ TÀI LIỆU</span>
     </a>
   </mat-list-item>
-   <mat-list-item>
+   <!-- <mat-list-item>
     <a routerLink="/phonghoc" routerLinkActive="active-link">
       <mat-icon>classroom</mat-icon> <span>QUẢN LÝ LỊCH THI</span>
     </a>
@@ -63,7 +66,7 @@
     <a routerLink="/quanlydiem" routerLinkActive="active-link">
       <mat-icon>star</mat-icon> <span>QUẢN LÝ ĐIỂM</span>
     </a>
-  </mat-list-item>
+  </mat-list-item> -->
 </mat-list>
 
 
