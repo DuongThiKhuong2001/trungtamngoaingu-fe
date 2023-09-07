@@ -14,26 +14,25 @@ export class AuthService {
   changePassword(oldPassword: string, newPassword: string) {
     throw new Error('Method not implemented.');
   }
-  constructor(private http: HttpClient, private storageService: StorageService) {}
+  constructor(
+    private http: HttpClient,
+    private storageService: StorageService
+  ) {}
 
   login(taiKhoan: string, matKhau: string): Observable<any> {
     const body = {
       taiKhoan: taiKhoan,
-      matKhau: matKhau
+      matKhau: matKhau,
     };
 
-    return this.http.post(
-      `/api/tai-khoan/dang-nhap`,
-      body,
-      httpOptions
-    ).pipe(
-      tap(response => {
+    return this.http.post(`/api/tai-khoan/dang-nhap`, body, httpOptions).pipe(
+      tap((response) => {
         // Lưu thông tin người dùng vào cookie sau khi đăng nhập thành công
         this.storageService.saveUser(response);
       })
     );
   }
 
- //reset password
-
+  //reset password
+ 
 }

@@ -30,6 +30,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ToastrModule } from 'ngx-toastr';
 /** ================== */
 
 @NgModule({
@@ -84,6 +85,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ScrollingModule,
     MatProgressSpinnerModule,
     MatTabsModule,
+    ReactiveFormsModule,
   ],
 })
 export class MaterialModule {}

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/services/storage.service';
 import { GuestResgisterAccountComponent } from '../guest-resgister-account/guest-resgister-account.component';
+import { LoginComponent } from '../../auth/login/login.component';
 
 @Component({
   selector: 'app-guest-header',
@@ -26,17 +27,31 @@ export class GuestHeaderComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  // dangky() {
-  //   this.OpenFormDK();
-  // }
-  // OpenFormDK() {
-  //   var _popup = this.dialog.open(GuestResgisterAccountComponent, {
-  //     width: '40%',
-  //     enterAnimationDuration: '300ms',
-  //     exitAnimationDuration: '300ms',
-  //   });
-  //   _popup.afterClosed().subscribe((item) => {
-  //     // console.log(item)
-  //   });
-  // }
+  dangky() {
+    this.OpenFormDK();
+  }
+  OpenFormDK() {
+    var _popup = this.dialog.open(GuestResgisterAccountComponent, {
+      width: '40%',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+    _popup.afterClosed().subscribe((item) => {
+      // console.log(item)
+    });
+  }
+
+  dangnhap() {
+    this.OpenFormDN();
+  }
+  OpenFormDN() {
+    var _popup = this.dialog.open(LoginComponent, {
+    
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+    _popup.afterClosed().subscribe((item) => {
+      // console.log(item)
+    });
+  }
 }

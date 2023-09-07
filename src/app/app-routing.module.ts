@@ -22,19 +22,36 @@ const routes: Routes = [
     path: 'quan-tri-vien',
     component: AdminComponent,
     children: [
-      { path: '', component: Component, data: { titulo: 'Trang chủ' } },
+      {
+        path: '',
+        component: AdminHomeComponent,
+        data: { titulo: 'Trang chủ' },
+      },
       {
         path: 'home',
-        component: Component,
+        component: AdminHomeComponent,
         data: {
           titulo: 'Trang chủ',
           breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
         },
       },
 
-
-
-
+      {
+        path: 'bangtin',
+        component: AdminHomeComponent,
+      },
+      {
+        path: 'khoahoc',
+        component: TestComponent,
+        data: {
+          titulo: 'Trang chủ',
+          breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
+        },
+      },
+      {
+        path: 'lophoc',
+        component: AdminHomeComponent,
+      },
     ],
   },
 
