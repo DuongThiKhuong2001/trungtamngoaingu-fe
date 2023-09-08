@@ -13,6 +13,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { GuestComponent } from './components/guest/guest.component';
 import { GuestHomeComponent } from './components/guest/guest-home/guest-home.component';
 import { GuestResgisterAccountComponent } from './components/guest/guest-resgister-account/guest-resgister-account.component';
+import { ListStudentComponent } from './components/admin/list-student/list-student.component';
+import { ListStaffComponent } from './components/admin/list-staff/list-staff.component';
 
 const routes: Routes = [
   {
@@ -38,7 +40,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'giao-vien',
+        path: 'danh-sach-giao-vien',
         component: ListLecturerComponent,
         data: {
           titulo: 'Giáo viên',
@@ -46,16 +48,16 @@ const routes: Routes = [
         },
       },
       {
-        path: 'hoc-vien',
-        component: TestComponent,
+        path: 'danh-sach-hoc-vien',
+        component: ListStudentComponent,
         data: {
           titulo: 'Học viên',
           breadcrumbs: [{ label: 'Lấy danh sách học viên', url: '/' }],
         },
       },
       {
-        path: 'nhan-vien',
-        component: TestComponent,
+        path: 'danh-sach-nhan-vien',
+        component: ListStaffComponent,
         data: {
           titulo: 'Nhân viên',
           breadcrumbs: [{ label: 'Lấy danh sách nhân viên', url: '/' }],

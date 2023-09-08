@@ -3,27 +3,27 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
-import { GiaoVien } from 'src/app/models/GiaoVien';
 
 import { StorageService } from 'src/app/services/storage.service';
 import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
-import { DetailLecturerComponent } from './detail-lecturer/detail-lecturer.component';
+
 import { MatDialog } from '@angular/material/dialog';
+import { DetailStaffComponent } from './detail-staff/detail-staff.component';
+import { NhanVien } from 'src/app/models/NhanVien';
 
 @Component({
-  selector: 'app-list-student',
-  templateUrl: './list-lecturer.component.html',
-  styleUrls: ['./list-lecturer.component.css'],
+  selector: 'app-list-staff',
+  templateUrl: './list-staff.component.html',
+  styleUrls: ['./list-staff.component.css'],
 })
-export class ListLecturerComponent implements OnInit {
-  danhSachGiaoVien: MatTableDataSource<GiaoVien> = new MatTableDataSource();
+export class ListStaffComponent implements OnInit {
+  danhSachNhanVien: MatTableDataSource<NhanVien> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
     'hoten',
     'tendangnhap',
     'sdt',
     'gioitinh',
-    'trangthai',
     'hanhdong',
   ];
   length: number = 0;
@@ -39,14 +39,14 @@ export class ListLecturerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadDanhSachGiaoVien();
+    this.loadDanhSachStaff();
   }
 
   ngAfterViewInit() {
-    this.danhSachGiaoVien.paginator = this.paginator;
-    this.danhSachGiaoVien.sort = this.sort;
+    this.danhSachNhanVien.paginator = this.paginator;
+    this.danhSachNhanVien.sort = this.sort;
     this.paginator.page.subscribe(() => {
-      this.loadDanhSachGiaoVien(
+      this.loadDanhSachStaff(
         this.paginator.pageIndex,
         this.paginator.pageSize,
         this.sort.active,
@@ -55,7 +55,7 @@ export class ListLecturerComponent implements OnInit {
     });
 
     this.sort.sortChange.subscribe(() => {
-      this.loadDanhSachGiaoVien(
+      this.loadDanhSachStaff(
         this.paginator.pageIndex,
         this.paginator.pageSize,
         this.sort.active,
@@ -64,7 +64,7 @@ export class ListLecturerComponent implements OnInit {
     });
   }
 
-  loadDanhSachGiaoVien(
+  loadDanhSachStaff(
     page: number = 0,
     size: number = 10,
     sortBy: string = 'taiKhoan.ngayTao',
@@ -77,30 +77,30 @@ export class ListLecturerComponent implements OnInit {
         sortBy,
         sortDir,
         this.searchTerm,
-        'GiaoVien'
+        'NhanVien'
       )
       .subscribe((data) => {
-        this.danhSachGiaoVien = new MatTableDataSource<any>(data.content);
+        this.danhSachNhanVien = new MatTableDataSource<any>(data.content);
         this.paginator.length = data.totalElements;
         this.length = data.totalElements;
       });
   }
   onSearch() {
-    this.loadDanhSachGiaoVien();
+    this.loadDanhSachStaff();
   }
   refresh() {
     this.searchTerm = '';
     if (this.paginator) {
       this.paginator.firstPage();
     }
-    this.loadDanhSachGiaoVien();
+    this.loadDanhSachStaff();
   }
-  detail(lecturer: any | null): void {
+  detail(staff: any | null): void {
     // Bước 4: Mở dialog thay vì đặt selectedNotification
-    if (lecturer) {
-      var popup = this.dialog.open(DetailLecturerComponent, {
+    if (staff) {
+      var popup = this.dialog.open(DetailStaffComponent, {
         data: {
-          lecturer: lecturer,
+          staff: staff,
         },
         width: '40%',
         enterAnimationDuration: '300ms',

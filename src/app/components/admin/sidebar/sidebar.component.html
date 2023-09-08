@@ -6,67 +6,33 @@
   </div>
   <mat-list-item>
     <a routerLink="/quan-tri-vien/trang-chu" routerLinkActive="active-link">
-      <mat-icon>home</mat-icon> <span>TRANG CHỦ</span>
+      <mat-icon>home</mat-icon> <span>Trang chủ</span>
     </a>
   </mat-list-item>
   <mat-list-item>
     <a (click)="toggleMenu()" routerLinkActive="active-link">
-      <mat-icon>person</mat-icon> <span> Danh mục</span>
+      <mat-icon>category </mat-icon> <span> Danh mục</span>
       <mat-icon *ngIf="!showMenu">chevron_right</mat-icon>
       <mat-icon *ngIf="showMenu">expand_more</mat-icon>
     </a>
   </mat-list-item>
   <mat-nav-list class="sidenav-submenu" *ngIf="showMenu">
-    <a mat-list-item routerLink="/quan-tri-vien/giao-vien" routerLinkActive="active-link">
+    <a mat-list-item routerLink="/quan-tri-vien/danh-sach-giao-vien" routerLinkActive="active-link">
       <span>Giáo viên</span>
     </a>
-     <a mat-list-item routerLink="/quan-tri-vien/nhan-vien" routerLinkActive="active-link">
+     <a mat-list-item routerLink="/quan-tri-vien/danh-sach-nhan-vien" routerLinkActive="active-link">
       <span>Nhân viên</span>
     </a>
-    <a mat-list-item routerLink="/quan-tri-vien/hoc-vien" routerLinkActive="active-link">
+    <a mat-list-item routerLink="/quan-tri-vien/danh-sach-hoc-vien" routerLinkActive="active-link">
       <span>Học viên</span>
     </a>
   </mat-nav-list>
-   <mat-list-item>
-    <a routerLink="/bangtin" routerLinkActive="active-link">
-      <mat-icon>classroom</mat-icon> <span>QUẢN LÝ BẢNG TIN</span>
-    </a>
-  </mat-list-item>
   <mat-list-item>
     <a routerLink="/quan-tri-vien/khoahoc" routerLinkActive="active-link">
       <mat-icon>local_library</mat-icon> <span>QUẢN LÝ KHÓA HỌC</span>
     </a>
   </mat-list-item>
-  <mat-list-item>
-    <a routerLink="/lophoc" routerLinkActive="active-link">
-      <mat-icon>layers</mat-icon> <span>QUẢN LÝ LỚP HỌC</span>
-    </a>
-  </mat-list-item>
-   <mat-list-item>
-    <a routerLink="/phonghoc" routerLinkActive="active-link">
-      <mat-icon>classroom</mat-icon> <span>QUẢN LÝ PHÒNG HỌC</span>
-    </a>
-  </mat-list-item>
-   <mat-list-item>
-    <a routerLink="/phonghoc" routerLinkActive="active-link">
-      <mat-icon>classroom</mat-icon> <span>QUẢN LÝ TÀI LIỆU</span>
-    </a>
-  </mat-list-item>
-   <!-- <mat-list-item>
-    <a routerLink="/phonghoc" routerLinkActive="active-link">
-      <mat-icon>classroom</mat-icon> <span>QUẢN LÝ LỊCH THI</span>
-    </a>
-  </mat-list-item>
-   <mat-list-item>
-    <a routerLink="/phonghoc" routerLinkActive="active-link">
-      <mat-icon>classroom</mat-icon> <span>QUẢN LÝ KỸ NĂNG</span>
-    </a>
-  </mat-list-item>
-  <mat-list-item>
-    <a routerLink="/quanlydiem" routerLinkActive="active-link">
-      <mat-icon>star</mat-icon> <span>QUẢN LÝ ĐIỂM</span>
-    </a>
-  </mat-list-item> -->
+
 </mat-list>
 
 

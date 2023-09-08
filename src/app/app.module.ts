@@ -30,7 +30,11 @@ import { BreadcrumbsComponent } from './components/admin/breadcrumbs/breadcrumbs
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { HomeComponent } from './components/layouts/home/home.component';
 import { ListLecturerComponent } from './components/admin/list-lecturer/list-lecturer.component';
-
+import { DetailLecturerComponent } from './components/admin/list-lecturer/detail-lecturer/detail-lecturer.component';
+import { DetailStudentComponent } from './components/admin/list-student/detail-student/detail-student.component';
+import { ListStudentComponent } from './components/admin/list-student/list-student.component';
+import { ListStaffComponent } from './components/admin/list-staff/list-staff.component';
+import { DetailStaffComponent } from './components/admin/list-staff/detail-staff/detail-staff.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,21 +54,20 @@ import { ListLecturerComponent } from './components/admin/list-lecturer/list-lec
     LecturerComponent,
     LecturerHomeComponent,
     ListLecturerComponent,
+    ListStudentComponent,
+    DetailStudentComponent,
+    ListStaffComponent,
+    DetailStudentComponent,
     TestlComponent,
+    DetailStaffComponent,
     StudentComponent,
-
+    DetailLecturerComponent,
     StudentHomeComponent,
     GuestComponent,
     GuestFooterComponent,
     GuestHeaderComponent,
     GuestHomeComponent,
     GuestResgisterAccountComponent,
-
-
-
-
-
-
   ],
   imports: [
     BrowserModule,

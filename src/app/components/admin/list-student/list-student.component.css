@@ -45,10 +45,10 @@ mat-label {
 }
 
 /* Định dạng dòng tiêu đề của bảng */
-
-.mat-header-cell{
-  color: black;
+.mat-header-row {
+  background-color: #e0e0e0;
 }
+
 /* Định dạng cột STT */
 .mat-cell.stt {
   font-weight: bold;

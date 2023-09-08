@@ -10,7 +10,7 @@
     <mat-icon (click)="onSearch()" matSuffix color="search">search</mat-icon>
     <mat-icon (click)="refresh()" matSuffix color="search">refresh</mat-icon>
   </mat-form-field>
-  <mat-table [dataSource]="danhSachGiaoVien" matSort class="mat-elevation-z8">
+  <mat-table [dataSource]="danhSachHocVien" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="stt">
       <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
       <mat-cell *matCellDef="let i = index">{{ i + 1 }}</mat-cell>
@@ -20,39 +20,33 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Họ tên</mat-header-cell
       >
-      <mat-cell *matCellDef="let giaoVien">{{
-        giaoVien.taiKhoan?.hoTen
+      <mat-cell *matCellDef="let hocVien">{{
+        hocVien.taiKhoan?.hoTen
       }}</mat-cell>
     </ng-container>
      <ng-container matColumnDef="tendangnhap">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Tên đăng nhập</mat-header-cell
       >
-      <mat-cell *matCellDef="let giaoVien">{{
-        giaoVien.taiKhoan?.tenDangNhap
+      <mat-cell *matCellDef="let hocVien">{{
+        hocVien.taiKhoan?.tenDangNhap
       }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="gioitinh">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Giới tính</mat-header-cell>
-      <mat-cell *matCellDef="let giaoVien">
-        {{ giaoVien.taiKhoan?.gioiTinh }}
+      <mat-cell *matCellDef="let hocVien">
+        {{ hocVien.taiKhoan?.gioiTinh }}
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="sdt">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Số điện thoại</mat-header-cell>
-      <mat-cell *matCellDef="let sinhVien">
-        {{ sinhVien.taiKhoan?.soDienThoai }}
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="trangthai">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Trạng thái</mat-header-cell>
-      <mat-cell *matCellDef="let sinhVien">
-       
+      <mat-cell *matCellDef="let hocVien">
+        {{ hocVien.taiKhoan?.soDienThoai }}
       </mat-cell>
     </ng-container>
      <ng-container matColumnDef="hanhdong">
       <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-      <mat-cell *matCellDef="let sinhVien" (click)="detail(sinhVien)">
+      <mat-cell *matCellDef="let hocVien" (click)="detail(hocVien)">
          <mat-icon>infor </mat-icon>
 
       </mat-cell>
