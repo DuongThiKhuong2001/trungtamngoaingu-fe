@@ -29,7 +29,7 @@
   </mat-nav-list>
   <mat-list-item>
     <a routerLink="/quan-tri-vien/khoahoc" routerLinkActive="active-link">
-      <mat-icon>local_library</mat-icon> <span>QUẢN LÝ KHÓA HỌC</span>
+      <mat-icon>local_library</mat-icon> <span>Phân công chức vụ</span>
     </a>
   </mat-list-item>
 
@@ -42,18 +42,13 @@
     <img src="https://api.logo.com/api/v2/images?logo=logo_517f290c-2655-4b5c-b818-a48cbf6c95be&format=webp&margins=0&quality=60&width=500&background=transparent&u=1691841197" alt="" width="100px" >
   </div>
   <mat-list-item>
-    <a routerLink="/home" routerLinkActive="active-link">
-      <mat-icon>home</mat-icon> <span>HOME học viên</span>
-    </a>
-  </mat-list-item>
-   <mat-list-item>
-    <a routerLink="/phonghoc" routerLinkActive="active-link">
-      <mat-icon>person</mat-icon> <span>QUẢN LÝ HỒ SƠ</span>
+    <a routerLink="/hoc-vien/trang-chu" routerLinkActive="active-link">
+      <mat-icon>home</mat-icon> <span>Trang chủ</span>
     </a>
   </mat-list-item>
   <mat-list-item>
     <a (click)="toggleMenu()" routerLinkActive="active-link">
-      <mat-icon>person</mat-icon> <span>QUẢN LÝ TÀI KHOẢN</span>
+      <mat-icon>category</mat-icon> <span>Danh mục</span>
       <mat-icon *ngIf="!showMenu">chevron_right</mat-icon>
       <mat-icon *ngIf="showMenu">expand_more</mat-icon>
     </a>
@@ -67,21 +62,11 @@
     </a>
   </mat-nav-list>
   <mat-list-item>
-    <a routerLink="khoahoc" routerLinkActive="active-link">
-      <mat-icon>local_library</mat-icon> <span>XEM KHÓA HỌC</span>
-    </a>
-  </mat-list-item>
-  <mat-list-item>
-    <a routerLink="/lophoc" routerLinkActive="active-link">
-      <mat-icon>layers</mat-icon> <span>ĐĂNG KÝ KHÓA HỌC</span>
+    <a routerLink="/hoc-vien/khoa-hoc" routerLinkActive="active-link">
+      <mat-icon>local_library</mat-icon> <span>Xem khóa học</span>
     </a>
   </mat-list-item>
 
-  <mat-list-item>
-    <a routerLink="/quanlydiem" routerLinkActive="active-link">
-      <mat-icon>star</mat-icon> <span>XEM KẾT QUẢ THI</span>
-    </a>
-  </mat-list-item>
 </mat-list>
 
 

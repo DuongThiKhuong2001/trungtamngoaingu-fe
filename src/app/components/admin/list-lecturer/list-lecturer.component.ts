@@ -9,6 +9,7 @@ import { StorageService } from 'src/app/services/storage.service';
 import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
 import { DetailLecturerComponent } from './detail-lecturer/detail-lecturer.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AddLecturerComponent } from './add-lecturer/add-lecturer.component';
 
 @Component({
   selector: 'app-list-student',
@@ -16,6 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./list-lecturer.component.css'],
 })
 export class ListLecturerComponent implements OnInit {
+
   danhSachGiaoVien: MatTableDataSource<GiaoVien> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
@@ -40,6 +42,7 @@ export class ListLecturerComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDanhSachGiaoVien();
+    // this.loadNotifications();
   }
 
   ngAfterViewInit() {
@@ -111,5 +114,32 @@ export class ListLecturerComponent implements OnInit {
       //   this.loadNotifications();
       // });
     }
+  }
+  addlecturer(): void {
+    // Bước 4: Mở dialog thay vì đặt selectedNotification
+
+      var popup = this.dialog.open(AddLecturerComponent, {
+
+        width: '50%',
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '300ms',
+      });
+      // popup.afterClosed().subscribe((item) => {
+      //   // console.log(item)
+      //   this.loadNotifications();
+      // });
+
+  }
+  updateUserStatus(status: string, tenDangNhap: string): void {
+    this.taiKhoanService.updateStatus(status, tenDangNhap).subscribe({
+      next: (data) => {
+        this.toastr.success('Status updated successfully', 'Success');
+        this.loadDanhSachGiaoVien();
+      },
+      error: (error) => {
+        this.toastr.error('An error occurred while updating status', 'Error');
+        console.error('Error updating status:', error);
+      },
+    });
   }
 }

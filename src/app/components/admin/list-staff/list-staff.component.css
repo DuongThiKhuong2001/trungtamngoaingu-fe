@@ -9,7 +9,11 @@
   margin: 16px;
 
 }
-
+.mat-mdc-table .mdc-data-table__header-row {
+  background-color: #1a1e1f;
+  border-radius: 100%;
+  color: beige;
+}
 /* Định dạng ô tìm kiếm */
 /* Định dạng ô tìm kiếm */
 .mat-form-field.search {

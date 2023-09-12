@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -35,17 +37,47 @@ export class LoginComponent implements OnInit {
   submit(): void {
     const { username, password } = this.form;
 
+    // this.authService.login(username, password).subscribe({
+    //   next: (data) => {
+    //     // this.storageService.saveUser(data);
+    //     this.isLoginFailed = false;
+    //     this.isLoggedIn = true;
+    //     this.loggedInUsername = data.tenTaiKhoan;
+    //     this.router.navigate(['']);
+    //   },
+    //   error: (err) => {
+    //     this.errorMessage = err.error.message;
+    //     this.isLoginFailed = true;
+    //   },
+    // });
     this.authService.login(username, password).subscribe({
       next: (data) => {
-        // this.storageService.saveUser(data);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.loggedInUsername = data.tenTaiKhoan;
-        this.router.navigate(['']);
+        console.log(data);
+        if (data.message === 'account-warning') {
+          this.errorMessage =
+            'Sai thông tin tài khoản hoặc mật khẩu!';
+          this.isLoginFailed = true;
+          this.router.navigate(['/dang-nhap']);
+        } else if (data.message === 'account-block') {
+          this.errorMessage = 'Tài khoản bị khóa!!!';
+          this.isLoginFailed = true;
+          this.router.navigate(['/dang-nhap']);
+        } else {
+          this.storageService.saveUser(data);
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.router.navigate(['']);
+          this.toastr.success('Đăng nhập thành công');
+        }
       },
       error: (err) => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
+        console.log(err.error);
+        if (err.status === 504) {
+          // this.router.navigate(['/dang-nhap']);
+          console.log('Bao tri')
+        } else {
+          console.log(err);
+        }
       },
     });
   }

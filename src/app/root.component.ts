@@ -32,6 +32,9 @@ export class RootComponent {
       if (this.role === 'GiaoVien') {
         this.router.navigate(['/giao-vien']);
       }
+       if (this.role === 'NhanVien') {
+         this.router.navigate(['/nhan-vien']);
+       }
     } else {
       this.router.navigate(['/trang-chu']);
     }

@@ -5,7 +5,7 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'app-student',
   template: `<app-admin-header></app-admin-header>
- 
+
 `,
   styles: ['']
 })
@@ -19,7 +19,7 @@ export class StudentComponent {
     const user = this.storageService.getUser();
     this.roles = user.quyen;
     if (!this.isLoggedIn || this.roles !== 'HocVien') {
-       this.router.navigate(['/dang-nhap']);
+       this.router.navigate(['/403']);
     }
   }
 }

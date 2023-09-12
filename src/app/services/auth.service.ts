@@ -25,14 +25,9 @@ export class AuthService {
       matKhau: matKhau,
     };
 
-    return this.http.post(`/api/tai-khoan/dang-nhap`, body, httpOptions).pipe(
-      tap((response) => {
-        // Lưu thông tin người dùng vào cookie sau khi đăng nhập thành công
-        this.storageService.saveUser(response);
-      })
-    );
+    return this.http.post(`/api/tai-khoan/dang-nhap`, body, httpOptions)
   }
 
   //reset password
- 
+
 }

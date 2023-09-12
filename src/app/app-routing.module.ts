@@ -15,6 +15,8 @@ import { GuestHomeComponent } from './components/guest/guest-home/guest-home.com
 import { GuestResgisterAccountComponent } from './components/guest/guest-resgister-account/guest-resgister-account.component';
 import { ListStudentComponent } from './components/admin/list-student/list-student.component';
 import { ListStaffComponent } from './components/admin/list-staff/list-staff.component';
+import { Page403Component } from './components/page-error/page403/page403.component';
+import { Page404Component } from './components/page-error/page404/page404.component';
 
 const routes: Routes = [
   {
@@ -63,10 +65,7 @@ const routes: Routes = [
           breadcrumbs: [{ label: 'Lấy danh sách nhân viên', url: '/' }],
         },
       },
-      {
-        path: 'bangtin',
-        component: AdminHomeComponent,
-      },
+
       {
         path: 'khoahoc',
         component: TestComponent,
@@ -75,10 +74,6 @@ const routes: Routes = [
           breadcrumbs: [{ label: 'Khóa học', url: '/' }],
         },
       },
-      {
-        path: 'lophoc',
-        component: AdminHomeComponent,
-      },
     ],
   },
 
@@ -86,9 +81,27 @@ const routes: Routes = [
     path: 'hoc-vien',
     component: StudentComponent,
     children: [
-      { path: '', component: StudentHomeComponent },
-      { path: 'trang-chu', component: StudentHomeComponent },
-      { path: 'test', component: TestComponent },
+      {
+        path: '',
+        component: StudentHomeComponent,
+        data: { titulo: 'Trang chủ' },
+      },
+      {
+        path: 'trang-chu',
+        component: TestComponent,
+        data: {
+          titulo: 'Trang chủ',
+          breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
+        },
+      },
+      {
+        path: 'khoa-hoc',
+        component: TestComponent,
+        data: {
+          titulo: 'Khóa học',
+          breadcrumbs: [{ label: 'Các khóa học', url: '/' }],
+        },
+      },
     ],
   },
 
@@ -112,6 +125,8 @@ const routes: Routes = [
     path: 'dang-nhap',
     component: LoginComponent,
   },
+  { path: '403', component: Page403Component },
+  { path: '**', component: Page404Component },
 ];
 
 @NgModule({

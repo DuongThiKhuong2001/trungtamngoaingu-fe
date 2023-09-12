@@ -32,7 +32,7 @@
   </div>
    <div class="table-row">
     <div class="table-cell"><strong>SĐT người thân:</strong></div>
-    <div class="table-cell">{{ data.student.taiKhoan?.ngaySinh  | date : "HH:mm:ss dd/MM/yyyy"}}</div>
+    <div class="table-cell">{{ data.student.taiKhoan?.soDienThoai }}</div>
   </div>
 
   <div class="table-row">
@@ -46,5 +46,5 @@
 </div>
 
 <div mat-dialog-actions>
-  <button mat-raised-button color="warn" (click)="closePopup()">Đóng</button>
+  <button style="margin-left: 200px; width: 120px;margin-bottom: 8px;" mat-raised-button color="warn" (click)="closePopup()">Đóng</button>
 </div>

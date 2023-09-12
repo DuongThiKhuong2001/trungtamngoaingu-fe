@@ -51,7 +51,7 @@ mat-nav-list a {
 }
 
 mat-nav-list a:hover {
-  background-color:#8956cc;
+  background-color:#072f9e;
   border-radius: 20px;
 }
 
@@ -63,7 +63,7 @@ mat-nav-list span {
 }
 
 .active-link {
-  background-color: #8956cc;
+  background-color: #072f9e;
   border-left: 5px solid #e0d107;
 }
 

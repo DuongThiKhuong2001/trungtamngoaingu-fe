@@ -74,3 +74,11 @@ mat-paginator {
 .mat-paginator .mat-paginator-range-actions .mat-paginator-navigation-icon {
   font-size: 24px;
 }
+.mat-mdc-table .mdc-data-table__header-row {
+  background-color: #1a1e1f;
+  border-radius: 100%;
+  color: beige;
+}.align-right-button {
+  float: right;
+  /* Align the button to the right */
+}

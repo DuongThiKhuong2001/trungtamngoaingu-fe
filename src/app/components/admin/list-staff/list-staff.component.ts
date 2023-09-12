@@ -24,6 +24,7 @@ export class ListStaffComponent implements OnInit {
     'tendangnhap',
     'sdt',
     'gioitinh',
+    'trangthai',
     'hanhdong',
   ];
   length: number = 0;
@@ -111,5 +112,17 @@ export class ListStaffComponent implements OnInit {
       //   this.loadNotifications();
       // });
     }
+  }
+  updateUserStatus(status: string, tenDangNhap: string): void {
+    this.taiKhoanService.updateStatus(status, tenDangNhap).subscribe({
+      next: (data) => {
+        this.toastr.success('Cập nhật trạng thái thành công!', 'Success');
+        this.loadDanhSachStaff();
+      },
+      error: (error) => {
+        this.toastr.error('Xảy ra lỗi khi cập nhật trạng thái!', 'Error');
+        console.error('Error updating status:', error);
+      },
+    });
   }
 }

@@ -7,7 +7,9 @@
       <mat-toolbar-row>
         <button class="toggle-icon" (click)="opened = !opened">
           <mat-icon class="toggle">menu</mat-icon>
-        </button>
+        </button><div class="demo-section">
+        <mat-icon routerLink=""  matBadgeColor="warn" matBadgeSize="small" aria-hidden="false">notifications</mat-icon>
+      </div>
         <span class="example-spacer"></span>
         <button
           mat-button
@@ -26,6 +28,7 @@
     </mat-toolbar>
 
     <mat-menu #menu="matMenu">
+
       <button
         mat-menu-item
         class="example-icon"
@@ -42,6 +45,7 @@
       >
         <mat-icon>lock</mat-icon> Đổi mật khẩu
       </button>
+
     </mat-menu>
     <app-breadcrumbs></app-breadcrumbs>
     <router-outlet></router-outlet>

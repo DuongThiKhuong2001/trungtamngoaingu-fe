@@ -10,6 +10,12 @@
     <mat-icon (click)="onSearch()" matSuffix color="search">search</mat-icon>
     <mat-icon (click)="refresh()" matSuffix color="search">refresh</mat-icon>
   </mat-form-field>
+    <button mat-stroked-button color="primary" class="align-right-button"  (click)="addlecturer()">
+  Thêm tài khoản <mat-icon>add</mat-icon>
+</button>
+
+
+
   <mat-table [dataSource]="danhSachGiaoVien" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="stt">
       <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
@@ -24,7 +30,7 @@
         giaoVien.taiKhoan?.hoTen
       }}</mat-cell>
     </ng-container>
-     <ng-container matColumnDef="tendangnhap">
+    <ng-container matColumnDef="tendangnhap">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Tên đăng nhập</mat-header-cell
       >
@@ -33,28 +39,51 @@
       }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="gioitinh">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Giới tính</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Giới tính</mat-header-cell
+      >
       <mat-cell *matCellDef="let giaoVien">
         {{ giaoVien.taiKhoan?.gioiTinh }}
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="sdt">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Số điện thoại</mat-header-cell>
-      <mat-cell *matCellDef="let sinhVien">
-        {{ sinhVien.taiKhoan?.soDienThoai }}
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Số điện thoại</mat-header-cell
+      >
+      <mat-cell *matCellDef="let giaoVien">
+        {{ giaoVien.taiKhoan?.soDienThoai }}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="trangthai">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Trạng thái</mat-header-cell>
-      <mat-cell *matCellDef="let sinhVien">
-       
-      </mat-cell>
-    </ng-container>
-     <ng-container matColumnDef="hanhdong">
-      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-      <mat-cell *matCellDef="let sinhVien" (click)="detail(sinhVien)">
-         <mat-icon>infor </mat-icon>
+     <ng-container matColumnDef="trangthai">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Trạng thái</mat-header-cell
+      >
+      <mat-cell *matCellDef="let giaoVien">
+        {{ giaoVien.taiKhoan?.trangThai }}
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button
+            mat-menu-item
+            (click)="updateUserStatus('Mo', giaoVien.taiKhoan?.tenDangNhap)"
+          ><mat-icon>check_circle</mat-icon> Mở
 
+          </button>
+          <button
+            mat-menu-item
+            (click)="updateUserStatus('Khoa', giaoVien.taiKhoan?.tenDangNhap)"
+          >
+          <mat-icon>lock</mat-icon> Khóa
+          </button>
+        </mat-menu>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="hanhdong">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef="let giaoVien" (click)="detail(giaoVien)">
+        <mat-icon>infor </mat-icon>
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

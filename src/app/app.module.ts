@@ -35,6 +35,13 @@ import { DetailStudentComponent } from './components/admin/list-student/detail-s
 import { ListStudentComponent } from './components/admin/list-student/list-student.component';
 import { ListStaffComponent } from './components/admin/list-staff/list-staff.component';
 import { DetailStaffComponent } from './components/admin/list-staff/detail-staff/detail-staff.component';
+import { NotificationDiglogComponent } from './components/notification/notification-diglog/notification-diglog.component';
+import { AddLecturerComponent } from './components/admin/list-lecturer/add-lecturer/add-lecturer.component';
+import { Page403Component } from './components/page-error/page403/page403.component';
+import { PageErrorComponent } from './components/page-error/page-error.component';
+import { Page404Component } from './components/page-error/page404/page404.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,12 +75,20 @@ import { DetailStaffComponent } from './components/admin/list-staff/detail-staff
     GuestHeaderComponent,
     GuestHomeComponent,
     GuestResgisterAccountComponent,
+    NotificationDiglogComponent,
+    NotificationDiglogComponent,
+    AddLecturerComponent,
+    Page403Component,
+    PageErrorComponent,
+    Page404Component
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 1500,
       progressBar: true,
