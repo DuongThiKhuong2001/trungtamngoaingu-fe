@@ -33,9 +33,10 @@ export class AdminComponent {
     this.isLoggedIn = this.storageService.isLoggedIn();
     const user = this.storageService.getUser();
     this.roles = user.quyen;
-    if (!this.isLoggedIn || this.roles !== 'QuanTriVien') {
-      //console.log(user);
-      this.router.navigate(['/403']);
-    }
+   if (!this.isLoggedIn) {
+     this.router.navigate(['/dang-nhap']);
+   } else if (this.roles !== 'QuanTriVien') {
+     this.router.navigate(['/403']);
+   }
   }
 }

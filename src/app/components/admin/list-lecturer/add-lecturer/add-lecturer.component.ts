@@ -1,3 +1,4 @@
+import { TaiKhoanService } from './../../../../services/tai-khoan.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DetailLecturerComponent } from '../detail-lecturer/detail-lecturer.component';
@@ -10,8 +11,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-lecturer.component.css'],
 })
 export class AddLecturerComponent implements OnInit {
+  [x: string]: any;
   selectedNenTang: any;
-  isFileRequiredError = false;
   nenTangList: any[] = [];
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -20,7 +21,8 @@ export class AddLecturerComponent implements OnInit {
     },
     private dialogRef: MatDialogRef<DetailLecturerComponent>,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private taiKhoanService: TaiKhoanService
   ) {}
 
   get formControls() {
@@ -34,27 +36,44 @@ export class AddLecturerComponent implements OnInit {
   }
 
   myform = this.formBuilder.group({
-    hoTen: ['', Validators.required],
-    tenDangNhap: ['', Validators.required],
-    matKhau: ['', Validators.required],
-    email: ['', Validators.required],
+    hoTen: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern(/^.*\s.*$/),
+      ],
+    ],
+    tenDangNhap: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d).{6,8}$/),
+      ],
+    ],
+    matKhau: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/),
+      ],
+    ],
+    email: ['', [Validators.required, Validators.email]],
     diaChi: ['', Validators.required],
     gioiTinh: ['', Validators.required],
-    sdt: ['', Validators.required],
-    picker: ['', Validators.required],
+    soDienThoai: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+    ngaySinh: [new Date(), Validators.required],
+    quyen: ['GiaoVien'],
+    kinhNghiem: ['', Validators.required],
   });
 
   savelecturer() {
     if (this.myform.valid) {
-      const formData = new FormData();
-      formData.append('hoTen', this.myform.value.hoTen as string);
-      formData.append('tenDangNhap', this.myform.value.tenDangNhap as string);
-      formData.append('matKhau', this.myform.value.matKhau as string);
-      formData.append('email', this.myform.value.email as string);
-      formData.append('diaChi', this.myform.value.email as string);
-      formData.append('gioiTinh', this.myform.value.email as string);
-      formData.append('sdt', this.myform.value.sdt as string);
-      formData.append('picker', this.myform.value.picker as string);
+      const formData = this.myform.value;
+      this.taiKhoanService.createAccount(formData).subscribe(() => {
+        this.closePopup();
+        this.toastr.success('Thêm thành công!');
+      });
     }
   }
 }

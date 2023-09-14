@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.storageService.isLoggedIn()) {
+    this.isLoggedIn = this.storageService.isLoggedIn();
+    if (this.isLoggedIn) {
       this.isLoggedIn = true;
       this.router.navigate(['']);
     }
@@ -37,25 +38,11 @@ export class LoginComponent implements OnInit {
   submit(): void {
     const { username, password } = this.form;
 
-    // this.authService.login(username, password).subscribe({
-    //   next: (data) => {
-    //     // this.storageService.saveUser(data);
-    //     this.isLoginFailed = false;
-    //     this.isLoggedIn = true;
-    //     this.loggedInUsername = data.tenTaiKhoan;
-    //     this.router.navigate(['']);
-    //   },
-    //   error: (err) => {
-    //     this.errorMessage = err.error.message;
-    //     this.isLoginFailed = true;
-    //   },
-    // });
     this.authService.login(username, password).subscribe({
       next: (data) => {
-        console.log(data);
+        //console.log(data);
         if (data.message === 'account-warning') {
-          this.errorMessage =
-            'Sai thông tin tài khoản hoặc mật khẩu!';
+          this.errorMessage = 'Sai thông tin tài khoản hoặc mật khẩu!';
           this.isLoginFailed = true;
           this.router.navigate(['/dang-nhap']);
         } else if (data.message === 'account-block') {
@@ -74,15 +61,11 @@ export class LoginComponent implements OnInit {
         console.log(err.error);
         if (err.status === 504) {
           // this.router.navigate(['/dang-nhap']);
-          console.log('Bao tri')
+          console.log('Bao tri');
         } else {
           console.log(err);
         }
       },
     });
   }
-
-  // register() {
-  //   this.router.navigate(['/dangky']);
-  // }
 }

@@ -18,8 +18,12 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    const excludedUrls = [
+      '/api/tai-khoan/dang-nhap',
+
+    ];
     const user = this.storageService.getUser();
-    if (user != null) {
+    if (user != null && !excludedUrls.some((url) => req.url.includes(url))) {
       req = this.addTokenHeader(req, user.token);
     }
     return next.handle(req).pipe(

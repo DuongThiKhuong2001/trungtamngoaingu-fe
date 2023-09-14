@@ -41,6 +41,7 @@ import { Page403Component } from './components/page-error/page403/page403.compon
 import { PageErrorComponent } from './components/page-error/page-error.component';
 import { Page404Component } from './components/page-error/page404/page404.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,7 @@ import { HttpClientModule } from '@angular/common/http';
       progressBar: true,
     }),
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

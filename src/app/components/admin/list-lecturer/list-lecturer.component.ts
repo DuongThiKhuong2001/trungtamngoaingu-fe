@@ -17,7 +17,6 @@ import { AddLecturerComponent } from './add-lecturer/add-lecturer.component';
   styleUrls: ['./list-lecturer.component.css'],
 })
 export class ListLecturerComponent implements OnInit {
-
   danhSachGiaoVien: MatTableDataSource<GiaoVien> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
@@ -42,7 +41,6 @@ export class ListLecturerComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDanhSachGiaoVien();
-    // this.loadNotifications();
   }
 
   ngAfterViewInit() {
@@ -99,36 +97,27 @@ export class ListLecturerComponent implements OnInit {
     this.loadDanhSachGiaoVien();
   }
   detail(lecturer: any | null): void {
-    // Bước 4: Mở dialog thay vì đặt selectedNotification
     if (lecturer) {
       var popup = this.dialog.open(DetailLecturerComponent, {
         data: {
           lecturer: lecturer,
         },
-        width: '40%',
-        enterAnimationDuration: '300ms',
-        exitAnimationDuration: '300ms',
-      });
-      // popup.afterClosed().subscribe((item) => {
-      //   // console.log(item)
-      //   this.loadNotifications();
-      // });
-    }
-  }
-  addlecturer(): void {
-    // Bước 4: Mở dialog thay vì đặt selectedNotification
-
-      var popup = this.dialog.open(AddLecturerComponent, {
-
         width: '50%',
         enterAnimationDuration: '300ms',
         exitAnimationDuration: '300ms',
       });
-      // popup.afterClosed().subscribe((item) => {
-      //   // console.log(item)
-      //   this.loadNotifications();
-      // });
-
+    }
+  }
+  addlecturer(): void {
+    var popup = this.dialog.open(AddLecturerComponent, {
+      width: '50%',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+    popup.afterClosed().subscribe((item) => {
+      // console.log(item)
+      this.loadDanhSachGiaoVien();
+    });
   }
   updateUserStatus(status: string, tenDangNhap: string): void {
     this.taiKhoanService.updateStatus(status, tenDangNhap).subscribe({

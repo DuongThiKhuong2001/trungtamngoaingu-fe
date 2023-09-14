@@ -15,8 +15,8 @@ export class TaiKhoanService {
     return this.http.post(`${this.apiBaseUrl}/dang-nhap`, loginRequest);
   }
 
-  createAccount(taiKhoanRequest: any): Observable<string> {
-    return this.http.post<string>(
+  createAccount(taiKhoanRequest: any): Observable<any> {
+    return this.http.post<any>(
       `${this.apiBaseUrl}/them-moi`,
       taiKhoanRequest
     );

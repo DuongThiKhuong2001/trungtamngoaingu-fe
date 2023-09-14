@@ -21,7 +21,7 @@ export class RootComponent {
 
       const user = this.storageService.getUser();
       this.role = user.quyen;
-      console.log(this.role)
+      // console.log(this.role)
       this.username = user.tenTaiKhoan;
       if (this.role === 'QuanTriVien') {
         this.router.navigate(['/quan-tri-vien']);
@@ -40,9 +40,6 @@ export class RootComponent {
     }
   }
 
-  logout(): void {
-    this.storageService.signOut();
-    window.location.reload();
-  }
+
 
 }
