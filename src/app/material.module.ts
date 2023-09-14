@@ -24,7 +24,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 //show dialog
 import {MatDialogModule} from "@angular/material/dialog"
 import { MatSelectModule } from '@angular/material/select';
-import { MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 
 /** Back-to-top + MatIconModule + MatButtonModule*/
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -62,6 +62,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatTabsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     MatToolbarModule,
@@ -88,6 +89,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatProgressSpinnerModule,
     MatTabsModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 export class MaterialModule {}

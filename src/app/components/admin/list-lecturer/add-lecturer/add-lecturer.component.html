@@ -56,20 +56,20 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Số điện thoại</mat-label>
-      <input matInput formControlName="soDienThoai" />
+      <input matInput formControlName="sdt" />
       <mat-error
         *ngIf="formControls.sdt.errors?.['required'] && formControls.sdt.touched"
       >
         Địa chỉ là bắt buộc!
       </mat-error>
     </mat-form-field>
-    <!-- <mat-form-field>
+    <mat-form-field>
   <mat-label>Choose a date</mat-label>
   <input matInput [matDatepicker]="picker">
   <mat-hint>MM/DD/YYYY</mat-hint>
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
-</mat-form-field> -->
+</mat-form-field>
   </div>
   <div mat-dialog-actions>
     <button mat-raised-button type="submit" color="primary">Lưu</button>

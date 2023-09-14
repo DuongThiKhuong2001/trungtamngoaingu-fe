@@ -41,6 +41,7 @@ export class AddLecturerComponent implements OnInit {
     diaChi: ['', Validators.required],
     gioiTinh: ['', Validators.required],
     sdt: ['', Validators.required],
+    picker: ['', Validators.required],
   });
 
   savelecturer() {
@@ -53,6 +54,7 @@ export class AddLecturerComponent implements OnInit {
       formData.append('diaChi', this.myform.value.email as string);
       formData.append('gioiTinh', this.myform.value.email as string);
       formData.append('sdt', this.myform.value.sdt as string);
+      formData.append('picker', this.myform.value.picker as string);
     }
   }
 }
