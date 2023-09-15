@@ -102,7 +102,7 @@ export class ListLecturerComponent implements OnInit {
         data: {
           lecturer: lecturer,
         },
-        width: '50%',
+        width: '40%',
         enterAnimationDuration: '300ms',
         exitAnimationDuration: '300ms',
       });
@@ -110,7 +110,7 @@ export class ListLecturerComponent implements OnInit {
   }
   addlecturer(): void {
     var popup = this.dialog.open(AddLecturerComponent, {
-      width: '50%',
+      width: '45%',
       enterAnimationDuration: '300ms',
       exitAnimationDuration: '300ms',
     });

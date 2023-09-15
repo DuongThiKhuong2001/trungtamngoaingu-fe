@@ -1,23 +1,23 @@
-import { TaiKhoanService } from './../../../../services/tai-khoan.service';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DetailLecturerComponent } from '../detail-lecturer/detail-lecturer.component';
+import { DetailStaffComponent } from '../detail-staff/detail-staff.component';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
 
 @Component({
-  selector: 'app-add-lecturer',
-  templateUrl: './add-lecturer.component.html',
-  styleUrls: ['./add-lecturer.component.css'],
+  selector: 'app-add-staff',
+  templateUrl: './add-staff.component.html',
+  styleUrls: ['./add-staff.component.css'],
 })
-export class AddLecturerComponent implements OnInit {
+export class AddStaffComponent implements OnInit {
   [x: string]: any;
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
       lecturer: any;
     },
-    private dialogRef: MatDialogRef<DetailLecturerComponent>,
+    private dialogRef: MatDialogRef<DetailStaffComponent>,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private taiKhoanService: TaiKhoanService
@@ -61,7 +61,7 @@ export class AddLecturerComponent implements OnInit {
     gioiTinh: ['', Validators.required],
     soDienThoai: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
     ngaySinh: [new Date(), Validators.required],
-    quyen: ['GiaoVien'],
+    quyen: ['NhanVien'],
     kinhNghiem: ['', Validators.required],
   });
 

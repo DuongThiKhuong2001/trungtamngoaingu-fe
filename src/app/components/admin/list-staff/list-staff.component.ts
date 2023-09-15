@@ -10,6 +10,7 @@ import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailStaffComponent } from './detail-staff/detail-staff.component';
 import { NhanVien } from 'src/app/models/NhanVien';
+import { AddStaffComponent } from './add-staff/add-staff.component';
 
 @Component({
   selector: 'app-list-staff',
@@ -107,11 +108,19 @@ export class ListStaffComponent implements OnInit {
         enterAnimationDuration: '300ms',
         exitAnimationDuration: '300ms',
       });
-      // popup.afterClosed().subscribe((item) => {
-      //   // console.log(item)
-      //   this.loadNotifications();
-      // });
     }
+  }
+
+  addstaff(): void {
+    var popup = this.dialog.open(AddStaffComponent, {
+      width: '45%',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+    popup.afterClosed().subscribe((item) => {
+      // console.log(item)
+      this.loadDanhSachStaff();
+    });
   }
   updateUserStatus(status: string, tenDangNhap: string): void {
     this.taiKhoanService.updateStatus(status, tenDangNhap).subscribe({

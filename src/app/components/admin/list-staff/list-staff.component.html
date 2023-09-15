@@ -10,6 +10,9 @@
     <mat-icon (click)="onSearch()" matSuffix color="search">search</mat-icon>
     <mat-icon (click)="refresh()" matSuffix color="search">refresh</mat-icon>
   </mat-form-field>
+   <button mat-stroked-button color="primary" class="align-right-button"  (click)="addstaff()">
+  Thêm tài khoản <mat-icon>add</mat-icon>
+</button>
   <mat-table [dataSource]="danhSachNhanVien" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="stt">
       <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
@@ -48,21 +51,21 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Trạng thái</mat-header-cell
       >
-      <mat-cell *matCellDef="let giaoVien">
-        {{ giaoVien.taiKhoan?.trangThai }}
+      <mat-cell *matCellDef="let nhanVien">
+        {{ nhanVien.taiKhoan?.trangThai }}
         <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
           <button
             mat-menu-item
-            (click)="updateUserStatus('Mo', giaoVien.taiKhoan?.tenDangNhap)"
+            (click)="updateUserStatus('Mo', nhanVien.taiKhoan?.tenDangNhap)"
           ><mat-icon>check_circle</mat-icon>Mở
 
           </button>
           <button
             mat-menu-item
-            (click)="updateUserStatus('Khoa', giaoVien.taiKhoan?.tenDangNhap)"
+            (click)="updateUserStatus('Khoa', nhanVien.taiKhoan?.tenDangNhap)"
           >
           <mat-icon>lock</mat-icon> Khóa
           </button>

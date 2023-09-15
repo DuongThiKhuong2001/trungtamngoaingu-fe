@@ -46,9 +46,10 @@ mat-label {
 
 /* Định dạng dòng tiêu đề của bảng */
 
-.mat-header-cell{
+.mat-header-cell {
   color: black;
 }
+
 /* Định dạng cột STT */
 .mat-cell.stt {
   font-weight: bold;
@@ -74,14 +75,17 @@ mat-paginator {
 .mat-paginator .mat-paginator-range-actions .mat-paginator-navigation-icon {
   font-size: 24px;
 }
+
 .mat-mdc-table .mdc-data-table__header-row {
   background-color: #1a1e1f;
   border-radius: 100%;
   color: beige;
 }
+
 .align-right-button {
   float: right;
-  justify-content: flex-end; /* Đặt nút bên phải */
-   /* Khoảng cách phía dưới */
-    margin-left: auto;
+  justify-content: flex-end;
+  /* Đặt nút bên phải */
+  /* Khoảng cách phía dưới */
+  margin-left: auto;
 }
