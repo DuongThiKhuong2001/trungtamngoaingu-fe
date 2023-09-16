@@ -61,6 +61,7 @@ export class GuestResgisterAccountComponent {
   });
 
   submitForm() {
+    if (this.formDatas.valid) {
       const formData = this.formDatas.value;
       this.taiKhoanService.createAccount(formData).subscribe({
         next: (data) => {
@@ -70,15 +71,15 @@ export class GuestResgisterAccountComponent {
           } else if (data.message && data.message === 'email-exist') {
             this.toastr.error('Email đã tồn tại!');
           } else {
-
             this.toastr.success('Thêm thành công!');
-           this.router.navigate(['trang-chu']);
+            this.router.navigate(['trang-chu']);
           }
         },
         error: (error) => {
           console.error('Lỗi khi lấy thông tin học viên:', error);
         },
       });
+    }
     }
 
   }

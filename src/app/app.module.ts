@@ -44,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AddStaffComponent } from './components/admin/list-staff/add-staff/add-staff.component';
 import { AddStudentComponent } from './components/admin/list-student/add-student/add-student.component';
+import { RoleStaffComponent } from './components/admin/list-staff/role-staff/role-staff.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { AddStudentComponent } from './components/admin/list-student/add-student
     PageErrorComponent,
     Page404Component,
     AddStaffComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    RoleStaffComponent
 
   ],
   imports: [

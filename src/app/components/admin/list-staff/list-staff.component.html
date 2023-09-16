@@ -76,7 +76,12 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
       <mat-cell *matCellDef="let nhanvien" (click)="detail(nhanvien)">
          <mat-icon>infor </mat-icon>
-
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="vaitro">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef="let nhanvien" (click)="vaitro(nhanvien)">
+         <mat-icon>account_circle </mat-icon>
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

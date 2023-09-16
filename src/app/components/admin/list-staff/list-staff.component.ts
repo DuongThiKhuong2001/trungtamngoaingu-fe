@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DetailStaffComponent } from './detail-staff/detail-staff.component';
 import { NhanVien } from 'src/app/models/NhanVien';
 import { AddStaffComponent } from './add-staff/add-staff.component';
+import { RoleStaffComponent } from './role-staff/role-staff.component';
 
 @Component({
   selector: 'app-list-staff',
@@ -27,6 +28,7 @@ export class ListStaffComponent implements OnInit {
     'gioitinh',
     'trangthai',
     'hanhdong',
+    'vaitro',
   ];
   length: number = 0;
   searchTerm: string = '';
@@ -122,6 +124,21 @@ export class ListStaffComponent implements OnInit {
       this.loadDanhSachStaff();
     });
   }
+
+  vaitro(staff: any | null): void {
+
+    if (staff) {
+      var popup = this.dialog.open(RoleStaffComponent, {
+        data: {
+          staff: staff,
+        },
+        width: '40%',
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '300ms',
+      });
+    }
+  }
+
   updateUserStatus(status: string, tenDangNhap: string): void {
     this.taiKhoanService.updateStatus(status, tenDangNhap).subscribe({
       next: (data) => {

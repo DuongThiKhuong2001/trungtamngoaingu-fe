@@ -22,7 +22,7 @@ export class LogoutComponent {
   }
   accept() {
     this.storageService.signOut();
-    this.router.navigate(['/dang-nhap']);
+    this.router.navigate(['dang-nhap']);
     this.toastr.success('Bạn đã đăng xuất!');
   }
 }

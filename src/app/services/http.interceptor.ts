@@ -9,10 +9,11 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { StorageService } from './storage.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
-  constructor(private storageService: StorageService) {}
+  constructor(private storageService: StorageService, private router: Router) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -28,8 +29,10 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     }
     return next.handle(req).pipe(
       catchError((error) => {
+
         if (error.status === 401) {
-          this.storageService.signOut(); // Log the user out on 401 error
+          this.storageService.signOut();
+          this.router.navigate(['/dang-nhap']);// Log the user out on 401 error
         }
         return throwError(() => error);
       })

@@ -34,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'trang-chu',
-        component: TestComponent,
+        component: AdminHomeComponent,
         data: {
           titulo: 'Trang chủ',
           breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
@@ -88,7 +88,7 @@ const routes: Routes = [
       },
       {
         path: 'trang-chu',
-        component: TestComponent,
+        component: StudentHomeComponent,
         data: {
           titulo: 'Trang chủ',
           breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
@@ -109,8 +109,20 @@ const routes: Routes = [
     path: 'giao-vien',
     component: LecturerComponent,
     children: [
-      { path: '', component: LecturerHomeComponent },
-      { path: 'trang-chu', component: LecturerHomeComponent },
+      {
+        path: '',
+        component: LecturerHomeComponent,
+        data: { titulo: 'Trang chủ' },
+      },
+
+      {
+        path: 'trang-chu',
+        component: LecturerHomeComponent,
+        data: {
+          titulo: 'Trang chủ',
+          breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
+        },
+      },
     ],
   },
   {

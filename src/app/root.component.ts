@@ -50,13 +50,13 @@ export class RootComponent {
             }
           }
           if (data.message && data.message === 'error') {
-            this.storageService.xoaCookie();
+            this.storageService.signOut();
             this.router.navigate(['trang-chu']);
 
           }
           if (data.message && data.message === 'empty') {
 
-            this.storageService.xoaCookie();
+            this.storageService.signOut();
           }
         },
         error: (err) => {

@@ -32,39 +32,44 @@ export class StorageService {
   }
 
   public getUser(): any {
-    const encryptedAccessToken = this.cookieService.get('token');
-    const encryptedUsername = this.cookieService.get('tenTaiKhoan');
-    const encryptedRole = this.cookieService.get('quyen');
-    // Giải mã từng trường khi đọc từ cookie
-    const token = CryptoJS.AES.decrypt(
-      encryptedAccessToken,
-      SECRET_KEY
-    ).toString(CryptoJS.enc.Utf8);
-    const tenTaiKhoan = CryptoJS.AES.decrypt(
-      encryptedUsername,
-      SECRET_KEY
-    ).toString(CryptoJS.enc.Utf8);
-    const quyen = CryptoJS.AES.decrypt(encryptedRole, SECRET_KEY).toString(
-      CryptoJS.enc.Utf8
-    );
+    try {
+      const encryptedAccessToken = this.cookieService.get('token');
+      const encryptedUsername = this.cookieService.get('tenTaiKhoan');
+      const encryptedRole = this.cookieService.get('quyen');
+      // Giải mã từng trường khi đọc từ cookie
+      const token = CryptoJS.AES.decrypt(
+        encryptedAccessToken,
+        SECRET_KEY
+      ).toString(CryptoJS.enc.Utf8);
+      const tenTaiKhoan = CryptoJS.AES.decrypt(
+        encryptedUsername,
+        SECRET_KEY
+      ).toString(CryptoJS.enc.Utf8);
+      const quyen = CryptoJS.AES.decrypt(encryptedRole, SECRET_KEY).toString(
+        CryptoJS.enc.Utf8
+      );
 
-    // Tạo đối tượng user từ các trường đã được giải mã
-    const user = {
-      token,
-      tenTaiKhoan,
-      quyen,
-    };
-    return user;
+      // Tạo đối tượng user từ các trường đã được giải mã
+      const user = {
+        token,
+        tenTaiKhoan,
+        quyen,
+      };
+      return user;
+    }catch(error){
+      this.cookieService.deleteAll();
+      console.error('Lỗi khi giải mã cookie:', error);
+      return null;
+    }
   }
 
   public isLoggedIn(): boolean {
     return this.cookieService.check('token');
   }
 
-  public signOut(): void {
+  public signOut() {
     this.cookieService.deleteAll();
+    console.log('hhh');
   }
-  public xoaCookie(): void {
-    this.cookieService.deleteAll();
-  }
+ 
 }

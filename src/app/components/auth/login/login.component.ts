@@ -44,12 +44,12 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['']);
         }
         if (data.message && data.message === 'error') {
-          this.storageService.xoaCookie();
+          this.storageService.signOut();
           console.log('Thông tin xác thực sai! Vui lòng đăng nhập lại!');
         }
         if (data.message && data.message === 'empty') {
           console.log(data);
-          this.storageService.xoaCookie();
+          this.storageService.signOut();
 
         }
       },
