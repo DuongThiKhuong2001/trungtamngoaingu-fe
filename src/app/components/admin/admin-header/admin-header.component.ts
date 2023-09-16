@@ -48,11 +48,19 @@ export class AdminHeaderComponent {
   }
 
   // Mã cho hàm mở dialog để đăng xuất
+  // Mã cho hàm mở dialog để đăng xuất
   dangXuat(): void {
-    this.dialog.open(LogoutComponent, {
+    let dialogRef = this.dialog.open(LogoutComponent, {
       width: '350px',
       enterAnimationDuration: '300ms',
       exitAnimationDuration: '300ms',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'accept') {
+        this.storageService.signOut();
+        this.router.navigate(['dang-nhap']);
+      }
     });
   }
 
