@@ -59,14 +59,21 @@ export class GuestResgisterAccountComponent {
     truongHoc: [],
     repeatPassword: ['', Validators.required],
   });
- 
+
   submitForm() {
       const formData = this.formDatas.value;
       this.taiKhoanService.createAccount(formData).subscribe({
-        next: (response) => {
-          this.toastr.success('Bạn đã đăng ký thành công!');
-            this.router.navigate(['/trang-chu']);
+        next: (data) => {
+          //console.log(data);
+          if (data.message && data.message === 'username-exist') {
+            this.toastr.error('Tên đăng nhập đã tồn tại!');
+          } else if (data.message && data.message === 'email-exist') {
+            this.toastr.error('Email đã tồn tại!');
+          } else {
 
+            this.toastr.success('Thêm thành công!');
+           this.router.navigate(['trang-chu']);
+          }
         },
         error: (error) => {
           console.error('Lỗi khi lấy thông tin học viên:', error);

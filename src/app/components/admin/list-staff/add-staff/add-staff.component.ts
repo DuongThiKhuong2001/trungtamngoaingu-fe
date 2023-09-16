@@ -56,21 +56,32 @@ export class AddStaffComponent implements OnInit {
         Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/),
       ],
     ],
-    email: ['', [Validators.required, Validators.email]],
+    email: [null, [Validators.required, Validators.email]],
     diaChi: ['', Validators.required],
     gioiTinh: ['', Validators.required],
-    soDienThoai: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+    soDienThoai: [null, [Validators.required, Validators.pattern('^[0-9]{10}$')]],
     ngaySinh: [new Date(), Validators.required],
     quyen: ['NhanVien'],
     kinhNghiem: ['', Validators.required],
   });
 
-  savelecturer() {
+  savestaff() {
     if (this.myform.valid) {
       const formData = this.myform.value;
-      this.taiKhoanService.createAccount(formData).subscribe(() => {
-        this.closePopup();
-        this.toastr.success('Thêm thành công!');
+      this.taiKhoanService.createAccount(formData).subscribe({
+        next: (data) => {
+         //console.log(data);
+          if (data.message && data.message === 'username-exist') {
+            this.toastr.error('Tên đăng nhập đã tồn tại!');
+          }else
+          if (data.message && data.message === 'email-exist') {
+            this.toastr.error('Email đã tồn tại!');
+          } else {
+            this.closePopup();
+            this.toastr.success('Thêm thành công!');
+          }
+        },
+
       });
     }
   }

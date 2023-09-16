@@ -79,3 +79,10 @@ mat-paginator {
   border-radius: 100%;
   color: beige;
 }
+.align-right-button {
+  float: right;
+  justify-content: flex-end;
+  /* Đặt nút bên phải */
+  /* Khoảng cách phía dưới */
+  margin-left: auto;
+}

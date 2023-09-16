@@ -8,6 +8,7 @@ import { StorageService } from 'src/app/services/storage.service';
 import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
 import { DetailStudentComponent } from './detail-student/detail-student.component';
 import { HocVien } from 'src/app/models/HocVien';
+import { AddStudentComponent } from './add-student/add-student.component';
 
 @Component({
   selector: 'app-list-student',
@@ -105,11 +106,19 @@ export class ListStudentComponent implements OnInit {
         enterAnimationDuration: '300ms',
         exitAnimationDuration: '300ms',
       });
-      // popup.afterClosed().subscribe((item) => {
-      //   // console.log(item)
-      //   this.loadNotifications();
-      // });
     }
+  }
+
+  addstudent(): void {
+    var popup = this.dialog.open(AddStudentComponent, {
+      width: '45%',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+    popup.afterClosed().subscribe((item) => {
+      // console.log(item)
+      this.loadDanhSachHocVien();
+    });
   }
   updateUserStatus(status: string, tenDangNhap: string): void {
     this.taiKhoanService.updateStatus(status, tenDangNhap).subscribe({

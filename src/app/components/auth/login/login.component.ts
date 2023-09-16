@@ -1,3 +1,4 @@
+import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
@@ -24,17 +25,37 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private storageService: StorageService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private taiKhoanService: TaiKhoanService
   ) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.storageService.isLoggedIn();
-    if (this.isLoggedIn) {
-      this.isLoggedIn = true;
-      this.router.navigate(['']);
-    }
+    this.testLogin();
   }
+  testLogin(): void {
+    const user = this.storageService.getUser();
+    const body = {
+      token: user.token,
+    };
+    this.taiKhoanService.testLogin(body).subscribe({
+      next: (data) => {
+        if (data.message && data.message === 'ok') {
+          this.isLoggedIn = true;
+          this.router.navigate(['']);
+        }
+        if (data.message && data.message === 'error') {
+          this.storageService.xoaCookie();
+          console.log('Thông tin xác thực sai! Vui lòng đăng nhập lại!');
+        }
+        if (data.message && data.message === 'empty') {
+          console.log(data);
+          this.storageService.xoaCookie();
 
+        }
+      },
+      error: (err) => {},
+    });
+  }
   submit(): void {
     const { username, password } = this.form;
 

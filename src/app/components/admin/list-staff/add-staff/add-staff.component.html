@@ -1,4 +1,4 @@
-<form [formGroup]="myform" (ngSubmit)="savelecturer()">
+<form [formGroup]="myform" (ngSubmit)="savestaff()">
   <h1 mat-dialog-title>Thêm Tài khoản Nhân viên</h1>
   <div mat-dialog-content>
     <mat-form-field appearance="outline" class="full-width">
@@ -37,10 +37,10 @@
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Email</mat-label>
       <input formControlName="email" matInput required />
-      <mat-error *ngIf="formControls.email.errors?.['required'] ">
+      <mat-error *ngIf="formControls.email?.errors?.['required'] ">
         Email là bắt buộc!
       </mat-error>
-      <mat-error *ngIf="formControls.email.errors?.['email']">
+      <mat-error *ngIf="formControls.email?.errors?.['email']">
         Email không đúng định dạng!
       </mat-error>
     </mat-form-field>
@@ -59,7 +59,7 @@
       <mat-error
         *ngIf="formControls.kinhNghiem.errors?.['required'] || formControls.kinhNghiem.touched"
       >
-        Chuyên ngành là bắt buộc!
+       Kinh nghiệm là bắt buộc!
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">

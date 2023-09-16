@@ -1,23 +1,23 @@
-import { TaiKhoanService } from './../../../../services/tai-khoan.service';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DetailLecturerComponent } from '../detail-lecturer/detail-lecturer.component';
+import { DetailStaffComponent } from '../../list-staff/detail-staff/detail-staff.component';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
 
 @Component({
-  selector: 'app-add-lecturer',
-  templateUrl: './add-lecturer.component.html',
-  styleUrls: ['./add-lecturer.component.css'],
+  selector: 'app-add-student',
+  templateUrl: './add-student.component.html',
+  styleUrls: ['./add-student.component.css'],
 })
-export class AddLecturerComponent implements OnInit {
+export class AddStudentComponent implements OnInit {
   [x: string]: any;
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
       lecturer: any;
     },
-    private dialogRef: MatDialogRef<DetailLecturerComponent>,
+    private dialogRef: MatDialogRef<DetailStaffComponent>,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private taiKhoanService: TaiKhoanService
@@ -56,21 +56,25 @@ export class AddLecturerComponent implements OnInit {
         Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/),
       ],
     ],
-    email: ['', [Validators.required, Validators.email]],
+    email: [null, [Validators.required, Validators.email]],
     diaChi: ['', Validators.required],
     gioiTinh: ['', Validators.required],
-    soDienThoai: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+    soDienThoai: [
+      null,
+      [Validators.required, Validators.pattern('^[0-9]{10}$')],
+    ],
     ngaySinh: [new Date(), Validators.required],
-    quyen: ['GiaoVien'],
-    kinhNghiem: ['', Validators.required],
+    quyen: ['HocVien'],
+    lop: [''],
+    truong: [''],
   });
 
-  savelecturer() {
+  savestudent() {
     if (this.myform.valid) {
       const formData = this.myform.value;
       this.taiKhoanService.createAccount(formData).subscribe({
         next: (data) => {
-          console.log(data);
+          //console.log(data);
           if (data.message && data.message === 'username-exist') {
             this.toastr.error('Tên đăng nhập đã tồn tại!');
           } else if (data.message && data.message === 'email-exist') {

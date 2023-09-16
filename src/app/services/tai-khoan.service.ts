@@ -16,10 +16,7 @@ export class TaiKhoanService {
   }
 
   createAccount(taiKhoanRequest: any): Observable<any> {
-    return this.http.post<any>(
-      `${this.apiBaseUrl}/them-moi`,
-      taiKhoanRequest
-    );
+    return this.http.post<any>(`${this.apiBaseUrl}/them-moi`, taiKhoanRequest);
   }
 
   getAllUsersByRole(
@@ -64,5 +61,8 @@ export class TaiKhoanService {
       `${this.apiBaseUrl}/cap-nhat/${username}`,
       taiKhoanRequest
     );
+  }
+  testLogin(request: any): Observable<any> {
+    return this.http.post<any>(`/api/tai-khoan/kiem-tra-dang-nhap`, request);
   }
 }

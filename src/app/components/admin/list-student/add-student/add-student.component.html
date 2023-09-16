@@ -1,9 +1,9 @@
-<form [formGroup]="myform" (ngSubmit)="savelecturer()">
-  <h1 mat-dialog-title>Thêm Tài khoản Giáo viên</h1>
+<form [formGroup]="myform" (ngSubmit)="savestudent()">
+  <h1 mat-dialog-title>Thêm Tài khoản Học viên</h1>
   <div mat-dialog-content>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Họ tên</mat-label>
-      <input formControlName="hoTen" matInput required />
+      <input  formControlName="hoTen" matInput required />
       <mat-error
         *ngIf="formControls.hoTen.errors?.['required']"
       >
@@ -37,10 +37,10 @@
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Email</mat-label>
       <input formControlName="email" matInput required />
-      <mat-error *ngIf="formControls.email.errors?.['required'] ">
+      <mat-error *ngIf="formControls.email?.errors?.['required'] ">
         Email là bắt buộc!
       </mat-error>
-      <mat-error *ngIf="formControls.email.errors?.['email']">
+      <mat-error *ngIf="formControls.email?.errors?.['email']">
         Email không đúng định dạng!
       </mat-error>
     </mat-form-field>
@@ -54,13 +54,17 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Kinh nghiệm</mat-label>
-      <input formControlName="kinhNghiem" matInput required />
-      <mat-error
-        *ngIf="formControls.kinhNghiem.errors?.['required'] || formControls.kinhNghiem.touched"
+      <mat-label>Trường học</mat-label>
+      <input formControlName="truong" matInput required />
+      <!-- <mat-error
+        *ngIf="formControls.truong.errors?.['required'] || formControls.truong.touched"
       >
         Chuyên ngành là bắt buộc!
-      </mat-error>
+      </mat-error> -->
+    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Lớp</mat-label>
+      <input formControlName="lop" matInput required />
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Giới tính</mat-label>
@@ -71,7 +75,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Số điện thoại</mat-label>
-      <input  type="text"  matInput required formControlName="soDienThoai" />
+      <input matInput formControlName="soDienThoai" />
       <mat-error *ngIf="formControls.soDienThoai.errors?.['required'] ">
         Số điện thoại là bắt buộc!
       </mat-error>
