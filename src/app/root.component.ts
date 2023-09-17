@@ -42,7 +42,7 @@ export class RootComponent {
                 this.router.navigate(['/giao-vien']);
                 break;
               case 'NhanVien':
-                this.router.navigate(['/nhan-vien']);
+                this.router.navigate(['/quan-tri-vien']);
                 break;
               default:
                 this.router.navigate(['trang-chu']);

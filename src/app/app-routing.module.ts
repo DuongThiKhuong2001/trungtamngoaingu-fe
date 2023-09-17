@@ -17,6 +17,7 @@ import { ListStudentComponent } from './components/admin/list-student/list-stude
 import { ListStaffComponent } from './components/admin/list-staff/list-staff.component';
 import { Page403Component } from './components/page-error/page403/page403.component';
 import { Page404Component } from './components/page-error/page404/page404.component';
+import { DetailStaffComponent } from './components/admin/list-staff/detail-staff/detail-staff.component';
 
 const routes: Routes = [
   {
@@ -64,7 +65,9 @@ const routes: Routes = [
           titulo: 'Nhân viên',
           breadcrumbs: [{ label: 'Lấy danh sách nhân viên', url: '/' }],
         },
+
       },
+      
 
       {
         path: 'khoahoc',

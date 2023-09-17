@@ -23,7 +23,10 @@ export class AdminHomeComponent implements OnInit {
   ngOnInit(): void {
     this.testLogin();
   }
-  testLogin(): void {
+  xoa() {
+    this.storageService.signOut()
+  }
+    testLogin(): void {
     const user = this.storageService.getUser();
     this.role = user.quyen;
     this.token = user.token;

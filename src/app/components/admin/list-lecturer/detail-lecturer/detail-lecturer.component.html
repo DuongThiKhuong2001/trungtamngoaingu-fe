@@ -1,6 +1,7 @@
 <h1 mat-dialog-title>Thông tin chi tiết<hr></h1>
 
 <div mat-dialog-content class="table-container">
+  <mat-card>
   <div class="table-row">
     <div class="table-cell"><strong>Họ Tên:</strong></div>
     <div class="table-cell">{{ data.lecturer.taiKhoan?.hoTen }}</div>
@@ -42,6 +43,7 @@
     <div class="table-cell"><strong>Ngày Cập nhật:</strong></div>
     <div class="table-cell">{{ data.lecturer.taiKhoan?.ngayCapNhat  | date : "HH:mm:ss dd/MM/yyyy" }}</div>
   </div>
+  </mat-card>
 </div>
 
 <div mat-dialog-actions>

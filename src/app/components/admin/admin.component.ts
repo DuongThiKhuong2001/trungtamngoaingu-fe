@@ -35,7 +35,8 @@ export class AdminComponent {
     this.roles = user.quyen;
    if (!this.isLoggedIn) {
      this.router.navigate(['/dang-nhap']);
-   } else if (this.roles !== 'QuanTriVien') {
+   } else if (this.roles !== 'QuanTriVien' && this.roles !=='NhanVien')
+   {
      this.router.navigate(['/403']);
    }
   }

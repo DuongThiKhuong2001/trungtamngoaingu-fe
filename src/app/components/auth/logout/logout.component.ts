@@ -21,9 +21,9 @@ export class LogoutComponent {
     this.dialogRef.close('Closed using function');
   }
   accept() {
-    // this.storageService.signOut();
-    // this.router.navigate(['dang-nhap']);
-    // this.toastr.success('Bạn đã đăng xuất!');
+    this.storageService.signOut();
+    this.router.navigate(['dang-nhap']);
+    this.toastr.success('Bạn đã đăng xuất!');
     this.dialogRef.close('accept');
   }
 }

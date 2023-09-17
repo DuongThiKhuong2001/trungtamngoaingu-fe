@@ -30,12 +30,12 @@ mat-input {
 mat-icon {
   cursor: pointer;
   font-size: 24px;
-  color: #666;
+  color: #064b8b;
 }
 
 /* Hover effect cho biểu tượng tìm kiếm và làm mới */
 mat-icon:hover {
-  color: #333;
+  color: #12135c;
 }
 
 /* Định dạng tiêu đề bảng */

@@ -58,8 +58,8 @@ export class AdminHeaderComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'accept') {
-        this.storageService.signOut();
-        this.router.navigate(['dang-nhap']);
+        // this.storageService.signOut();
+        // this.router.navigate(['dang-nhap']);
       }
     });
   }

@@ -56,7 +56,7 @@ export class StorageService {
         quyen,
       };
       return user;
-    }catch(error){
+    } catch (error) {
       this.cookieService.deleteAll();
       console.error('Lỗi khi giải mã cookie:', error);
       return null;
@@ -68,8 +68,9 @@ export class StorageService {
   }
 
   public signOut() {
-    this.cookieService.deleteAll();
+    this.cookieService.delete('token', '/');
+    this.cookieService.delete('quyen', '/');
+    this.cookieService.delete('tenTaiKhoan', '/');
     console.log('hhh');
   }
- 
 }

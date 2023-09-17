@@ -3,8 +3,12 @@
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-}
 
+}
+mat-card{
+  overflow-y: scroll !important;
+  height: 300px !important;
+}
 .table-row {
   display: table-row;
 }
@@ -22,7 +26,7 @@
 .mat-dialog-title hr {
   border-top: 1px solid #ddd;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .mat-raised-button {
