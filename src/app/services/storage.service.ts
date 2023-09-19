@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import * as CryptoJS from 'crypto-js';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
 
 const SECRET_KEY = 'khuóngdasdasdasdasdsa';
 
@@ -10,9 +10,10 @@ const SECRET_KEY = 'khuóngdasdasdasdasdsa';
   providedIn: 'root',
 })
 export class StorageService {
-  constructor(private cookieService: CookieService) {}
+  constructor(private cookieService: CookieService, private http: HttpClient) {}
   public saveUser(user: any): void {
-    this.cookieService.deleteAll();
+    this.cookieService.deleteAll('/'); // chỉ đặt thuộc tính path khi xóa tất cả cookies
+
     const { tenTaiKhoan, quyen, token } = user;
 
     // Mã hóa từng trường trước khi lưu vào cookie
@@ -25,10 +26,16 @@ export class StorageService {
       SECRET_KEY
     ).toString();
     const encryptedRole = CryptoJS.AES.encrypt(quyen, SECRET_KEY).toString();
-    // Lưu từng trường đã được mã hóa vào cookie
-    this.cookieService.set('token', encryptedAccessToken, { expires: 7 });
-    this.cookieService.set('quyen', encryptedRole, { expires: 7 });
-    this.cookieService.set('tenTaiKhoan', encryptedUsername, { expires: 7 });
+
+    const cookieOptions = {
+      expires: 7,
+      path: '/',
+    };
+
+    // Lưu từng trường đã được mã hóa vào cookie với chỉ thuộc tính path
+    this.cookieService.set('token', encryptedAccessToken, cookieOptions);
+    this.cookieService.set('quyen', encryptedRole, cookieOptions);
+    this.cookieService.set('tenTaiKhoan', encryptedUsername, cookieOptions);
   }
 
   public getUser(): any {
@@ -68,7 +75,7 @@ export class StorageService {
   }
 
   public signOut() {
-    this.cookieService.deleteAll('/', 'localhost');
+    this.cookieService.deleteAll('/');
     console.log('hhh');
   }
 }

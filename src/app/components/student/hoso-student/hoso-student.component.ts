@@ -1,9 +1,9 @@
-import { AuthService } from './../../../services/auth.service';
-import { TaiKhoanService } from './../../../services/tai-khoan.service';
+// hoso-student.component.ts
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute } from '@angular/router';
-import { HocVienService } from 'src/app/services/hoc-vien.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HocVien } from 'src/app/models/HocVien';
+import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-hoso-student',
@@ -11,43 +11,41 @@ import { HocVienService } from 'src/app/services/hoc-vien.service';
   styleUrls: ['./hoso-student.component.css'],
 })
 export class HosoStudentComponent implements OnInit {
-  tenDangNhap!: string;
-  hocVien: any;
-  displayedColumns: string[] = [
-    'tenDangNhap',
-    'hoTen',
-    'email',
-    'soDienThoai',
-    'diaChi',
-    'gioiTinh',
-    'ngaySinh',
-    'lop',
-    'soDTNguoiThan',
-    'truongHoc',
-    // Thêm các cột thông tin khác nếu cần
-  ];
+  dataHV!: HocVien;
+
   constructor(
-    private route: ActivatedRoute,
+    private router: Router,
     private taiKhoanService: TaiKhoanService,
-    private authService: AuthService
+    private storageService: StorageService
   ) {}
 
   ngOnInit(): void {
-    // Lấy tham số tenDangNhap từ URL
-    this.route.paramMap.subscribe((params) => {
-      const tenDangNhap = params.get('tenDangNhap');
-      if (tenDangNhap !== null) {
-        this.tenDangNhap = tenDangNhap;
-        // Gọi service để lấy thông tin học viên dựa trên tenDangNhap
-        this.taiKhoanService
-          .getUserDetails(this.tenDangNhap)
-          .subscribe((data) => {
-            this.hocVien = data;
-          });
-      } else {
-        // Xử lý trường hợp tenDangNhap là null
-        // Ví dụ: Hiển thị thông báo lỗi hoặc thực hiện các xử lý khác
-      }
+    this.getUserData();
+  }
+
+  getUserData(): void {
+    const user = this.storageService.getUser();
+    if (user) {
+      this.loadDataForUser(user);
+    } else {
+      // Xử lý trường hợp không có người dùng hoặc lỗi xảy ra khi lấy dữ liệu.
+      // Hiển thị thông báo hoặc xử lý khác tùy theo yêu cầu của bạn.
+    }
+  }
+
+  loadDataForUser(user: any): void {
+    // Gọi API hoặc xử lý dữ liệu dựa trên thông tin người dùng.
+    // Ví dụ: Gọi API từ taiKhoanService để lấy thông tin học viên dựa trên user.token.
+    this.taiKhoanService.getUserDetails(user.tenTaiKhoan).subscribe({
+      next: (data: HocVien) => {
+        console.log(data)
+        this.dataHV = data;
+      },
+      error: (error) => {
+        // Xử lý lỗi khi không thể lấy thông tin học viên.
+        console.error('Lỗi khi lấy thông tin học viên:', error);
+        // Hiển thị thông báo lỗi hoặc xử lý khác tùy theo yêu cầu của bạn.
+      },
     });
   }
 }

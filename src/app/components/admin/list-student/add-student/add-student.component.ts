@@ -46,7 +46,7 @@ export class AddStudentComponent implements OnInit {
       '',
       [
         Validators.required,
-        Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d).{6,8}$/),
+        Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d).{6,10}$/),
       ],
     ],
     matKhau: [

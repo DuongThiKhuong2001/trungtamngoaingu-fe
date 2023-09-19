@@ -1,43 +1,39 @@
 <p>hoso</p>
+<mat-card>
+  <div class="container content-home" *ngIf="dataHV; else NoData">
+    <div class="left-section">
+      <mat-card class="student-info-card">
+        <mat-card-header class="center-title">
+          <mat-card-title>THÔNG TIN HỌC VIÊN</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              <span class="label">Họ tên:</span>
+              <span class="field-infor">{{ dataHV.taiKhoan.hoTen }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span class="label">Ngày sinh:</span>
+              <span class="field-infor">{{ dataHV.taiKhoan.ngaySinh }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span class="label">Giới Tính:</span>
+              <span class="field-infor">{{ dataHV.taiKhoan.gioiTinh }}</span>
+            </mat-list-item>
+            <!-- Tương tự cho các thông tin khác -->
+          </mat-list>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" [routerLink]="['/']">
+            Xem thêm...
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <!-- Additional mat-card for family info, advisory info can go here -->
+    </div>
+  </div>
 
-
-<div *ngIf="hocVien">
-  <h2>Thông tin học viên</h2>
-  <table mat-table [dataSource]="[hocVien]" class="mat-elevation-z8">
-    <!-- Cột Tên đăng nhập -->
-    <ng-container matColumnDef="tenDangNhap">
-      <th mat-header-cell *matHeaderCellDef>Tên đăng nhập</th>
-      <td mat-cell *matCellDef="let element">{{ element.taiKhoan?.tenDangNhap }}</td>
-    </ng-container>
-
-    <!-- Cột Họ và tên -->
-    <ng-container matColumnDef="hoTen">
-      <th mat-header-cell *matHeaderCellDef>Họ và tên</th>
-      <td mat-cell *matCellDef="let element">{{ element.taiKhoan?.hoTen }}</td>
-    </ng-container>
-
-    <!-- Các cột thông tin khác -->
-    <!-- Tương tự như trên cho từng cột thông tin -->
-
-    <!-- Định nghĩa cột ngày sinh -->
-    <ng-container matColumnDef="ngaySinh">
-      <th mat-header-cell *matHeaderCellDef>Ngày sinh</th>
-      <td mat-cell *matCellDef="let element">{{ element.taiKhoan?.ngaySinh }}</td>
-    </ng-container>
-
-    <!-- Các cột thông tin khác -->
-
-    <!-- Định nghĩa cột Trường học -->
-    <ng-container matColumnDef="truongHoc">
-      <th mat-header-cell *matHeaderCellDef>Trường học</th>
-      <td mat-cell *matCellDef="let element">{{ element.truongHoc }}</td>
-    </ng-container>
-
-    <!-- Tương tự cho các cột thông tin khác -->
-
-    <!-- Các hàng dữ liệu -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</div>
+  <ng-template #NoData>
+  </ng-template>
+</mat-card>
 
