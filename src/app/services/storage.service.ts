@@ -68,9 +68,7 @@ export class StorageService {
   }
 
   public signOut() {
-    this.cookieService.delete('token', '/');
-    this.cookieService.delete('quyen', '/');
-    this.cookieService.delete('tenTaiKhoan', '/');
+    this.cookieService.deleteAll('/', 'localhost');
     console.log('hhh');
   }
 }

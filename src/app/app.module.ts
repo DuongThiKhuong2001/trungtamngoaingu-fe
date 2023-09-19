@@ -45,6 +45,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AddStaffComponent } from './components/admin/list-staff/add-staff/add-staff.component';
 import { AddStudentComponent } from './components/admin/list-student/add-student/add-student.component';
 import { RoleStaffComponent } from './components/admin/list-staff/role-staff/role-staff.component';
+import { HosoStudentComponent } from './components/student/hoso-student/hoso-student.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { RoleStaffComponent } from './components/admin/list-staff/role-staff/rol
     Page404Component,
     AddStaffComponent,
     AddStudentComponent,
-    RoleStaffComponent
+    RoleStaffComponent,
+    HosoStudentComponent
 
   ],
   imports: [

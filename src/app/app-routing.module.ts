@@ -18,6 +18,7 @@ import { ListStaffComponent } from './components/admin/list-staff/list-staff.com
 import { Page403Component } from './components/page-error/page403/page403.component';
 import { Page404Component } from './components/page-error/page404/page404.component';
 import { DetailStaffComponent } from './components/admin/list-staff/detail-staff/detail-staff.component';
+import { HosoStudentComponent } from './components/student/hoso-student/hoso-student.component';
 
 const routes: Routes = [
   {
@@ -65,9 +66,7 @@ const routes: Routes = [
           titulo: 'Nhân viên',
           breadcrumbs: [{ label: 'Lấy danh sách nhân viên', url: '/' }],
         },
-
       },
-      
 
       {
         path: 'khoahoc',
@@ -80,6 +79,8 @@ const routes: Routes = [
     ],
   },
 
+
+  //hoc vien
   {
     path: 'hoc-vien',
     component: StudentComponent,
@@ -103,6 +104,14 @@ const routes: Routes = [
         data: {
           titulo: 'Khóa học',
           breadcrumbs: [{ label: 'Các khóa học', url: '/' }],
+        },
+      },
+      {
+        path: 'ho-so',
+        component: HosoStudentComponent,
+        data: {
+          titulo: 'Hồ sơ',
+          breadcrumbs: [{ label: 'Hồ sơ cá nhân', url: '/' }],
         },
       },
     ],

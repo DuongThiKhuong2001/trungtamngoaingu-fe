@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { StorageService } from 'src/app/services/storage.service';
 import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
 
@@ -15,16 +16,19 @@ export class AdminHomeComponent implements OnInit {
   constructor(
     private storageService: StorageService,
     private router: Router,
-    private taiKhoanService: TaiKhoanService
+    private taiKhoanService: TaiKhoanService,
+    private cookie: CookieService
   ) {}
   toggleMenu() {
     this.showMenu = !this.showMenu;
+
   }
   ngOnInit(): void {
     this.testLogin();
   }
   xoa() {
-    this.storageService.signOut()
+    this.storageService.signOut();
+    this.cookie.deleteAll()
   }
     testLogin(): void {
     const user = this.storageService.getUser();
