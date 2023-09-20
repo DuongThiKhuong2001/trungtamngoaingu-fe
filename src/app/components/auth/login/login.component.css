@@ -180,6 +180,18 @@ button[type="submit"] {
   /* Khoảng cách dưới */
 }
 
-.right {
-  margin-left: 150px;
+
+.right a {
+  display: flex;
+  align-items: center;
+  margin-left: 200px;
+  /* Canh giữa icon và văn bản */
+}
+
+.right mat-icon {
+
+  font-size: 16px;
+  /* Điều chỉnh kích thước font cho mat-icon */
+  margin-right: 5px;
+  /* Tạo khoảng cách giữa mat-icon và văn bản */
 }

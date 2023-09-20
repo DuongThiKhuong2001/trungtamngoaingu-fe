@@ -1,6 +1,10 @@
-.container.content-home {
-  display: flex;
-  padding: 2rem;
+mat-list-item {
+  border-style: dashed;
+  border-color: #aeb2b8;
+  border-width: 1px;
+  /* Màu và độ rộng gạch có thể tùy chỉnh */
+  padding-bottom: 10px;
+  /* Khoảng cách dưới mỗi mục */
 }
 
 .left-section {
@@ -16,15 +20,8 @@
   /* Space between right and left section */
 }
 
-.student-info-card {
-  max-width: 800px;
-  width: 100%;
-  margin-bottom: 1rem;
-  /* Space at the bottom of the student info card */
-}
-
 .field-infor {
-  font-weight: 700;
+  font-weight: 500;
   color: #0E4A92;
   margin-left: 10px;
 }
@@ -32,7 +29,7 @@
 .label {
   display: inline-block;
   width: 120px;
-  background-color: #F0F0F0;
+  background-color: #e0dbdb;
 }
 
 mat-card-header mat-card-title {
@@ -40,54 +37,62 @@ mat-card-header mat-card-title {
 
 }
 
+.card-title {
+
+  font-size: 20px;
+  /* Điều chỉnh kích thước tiêu đề theo ý muốn */
+  font-weight: bold;
+  /* Điều chỉnh độ đậm của tiêu đề theo ý muốn */
+  color: #0E4A92;
+  /* Điều chỉnh màu tiêu đề theo ý muốn */
+  text-align: center;
+  /* Đặt văn bản ở giữa tiêu đề */
+  padding: 10px;
+  /* Điều chỉnh khoảng cách xung quanh tiêu đề */
+}
+
 .center-title {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+
 }
 
-
-mat-card-actions {
-  justify-content: center;
+mat-card .student-info-card {
+  border: 1px solid #aeb2b8;
+  box-shadow: 0 0 100px rgba(97, 147, 240, 0.878);
+  /* Add a 1px solid blue border */
 }
 
-.tile-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-mat-grid-tile img {
-  width: 15%;
-  margin-bottom: 10px;
-}
-
-mat-grid-tile span {
-  display: block;
-  text-align: center;
-  color: black;
-  border-radius: 3px;
-}
-
-mat-grid-tile {
-  box-sizing: border-box;
-  box-shadow: 0 0 5px rgba(217, 215, 215, 0.6);
-  /* Tạo bóng mờ màu cam */
+mat-card {
+  border: 1px solid #aeb2b8;
+  /* Add a 1px solid blue border */
+  padding: 20px;
+  /* Increase the padding to make the card larger */
+  margin: 20px;
+  /* Add margin to create space around the card */
 }
 
 .container.content-home {
   display: flex;
   padding: 2rem;
   flex-direction: column;
-  /* Thay đổi định dạng cột */
+  justify-content: center;
+  align-items: center;
+
 }
 
 @media (min-width: 900px) {
   .container.content-home {
     flex-direction: row;
-    /* Trở lại định dạng hàng khi màn hình đủ lớn */
   }
+
+}
+
+
+.info-columns {
+  display: flex;
+  justify-content: space-between;
+
 }

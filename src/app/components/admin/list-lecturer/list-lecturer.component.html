@@ -48,7 +48,7 @@
     </ng-container>
     <ng-container matColumnDef="sdt">
       <mat-header-cell *matHeaderCellDef mat-sort-header
-        >Số điện thoại</mat-header-cell
+        >SĐT</mat-header-cell
       >
       <mat-cell *matCellDef="let giaoVien">
         {{ giaoVien.taiKhoan?.soDienThoai }}
@@ -81,7 +81,7 @@
     </ng-container>
 
     <ng-container matColumnDef="hanhdong">
-      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Xem chi tiết</mat-header-cell>
       <mat-cell *matCellDef="let giaoVien" (click)="detail(giaoVien)">
         <mat-icon>infor </mat-icon>
       </mat-cell>

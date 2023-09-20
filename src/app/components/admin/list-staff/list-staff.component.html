@@ -42,7 +42,7 @@
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="sdt">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Số điện thoại</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>SĐT</mat-header-cell>
       <mat-cell *matCellDef="let nhanVien">
         {{ nhanVien.taiKhoan?.soDienThoai }}
       </mat-cell>
@@ -73,13 +73,13 @@
       </mat-cell>
     </ng-container>
      <ng-container matColumnDef="hanhdong">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Chi tiết</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Xem chi tiết</mat-header-cell>
       <mat-cell *matCellDef="let nhanvien" (click)="detail(nhanvien)">
          <mat-icon>infor </mat-icon>
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="vaitro">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Thêm vai trò</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Vai trò</mat-header-cell>
       <mat-cell *matCellDef="let nhanvien" (click)="vaitro(nhanvien)">
          <mat-icon>add_circle </mat-icon>
       </mat-cell>
