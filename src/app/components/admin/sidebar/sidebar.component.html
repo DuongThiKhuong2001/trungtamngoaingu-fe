@@ -86,25 +86,11 @@
     </a>
   </mat-list-item>
    <mat-list-item>
-    <a routerLink="/phonghoc" routerLinkActive="active-link">
-      <mat-icon>person</mat-icon> <span>QUẢN LÝ HỒ SƠ</span>
+    <a routerLink="/giao-vien/ho-so" routerLinkActive="active-link">
+      <mat-icon>person</mat-icon> <span>Hồ sơ</span>
     </a>
   </mat-list-item>
-  <mat-list-item>
-    <a (click)="toggleMenu()" routerLinkActive="active-link">
-      <mat-icon>person</mat-icon> <span>QUẢN LÝ TÀI KHOẢN</span>
-      <mat-icon *ngIf="!showMenu">chevron_right</mat-icon>
-      <mat-icon *ngIf="showMenu">expand_more</mat-icon>
-    </a>
-  </mat-list-item>
-  <mat-nav-list class="sidenav-submenu" *ngIf="showMenu">
-    <a mat-list-item routerLink="/giaovien" routerLinkActive="active-link">
-      <span>GIÁO VIÊN</span>
-    </a>
-    <a mat-list-item routerLink="/hocvien" routerLinkActive="active-link">
-      <span>HỌC VIÊN</span>
-    </a>
-  </mat-nav-list>
+
   <mat-list-item>
     <a routerLink="/khoahoc" routerLinkActive="active-link">
       <mat-icon>local_library</mat-icon> <span>XEM KHÓA HỌC</span>

@@ -19,6 +19,7 @@ import { Page403Component } from './components/page-error/page403/page403.compon
 import { Page404Component } from './components/page-error/page404/page404.component';
 import { DetailStaffComponent } from './components/admin/list-staff/detail-staff/detail-staff.component';
 import { HosoStudentComponent } from './components/student/hoso-student/hoso-student.component';
+import { HosoLecturerComponent } from './components/lecturer/hoso-lecturer/hoso-lecturer.component';
 
 const routes: Routes = [
   {
@@ -79,7 +80,6 @@ const routes: Routes = [
     ],
   },
 
-
   //hoc vien
   {
     path: 'hoc-vien',
@@ -116,7 +116,7 @@ const routes: Routes = [
       },
     ],
   },
-
+  //giao vien
   {
     path: 'giao-vien',
     component: LecturerComponent,
@@ -135,8 +135,17 @@ const routes: Routes = [
           breadcrumbs: [{ label: 'Trang chủ', url: '/' }],
         },
       },
+      {
+        path: 'ho-so',
+        component: HosoLecturerComponent,
+        data: {
+          titulo: 'Hồ sơ',
+          breadcrumbs: [{ label: 'Hồ sơ cá nhân', url: '/' }],
+        },
+      },
     ],
   },
+
   {
     path: 'trang-chu',
     component: GuestComponent,

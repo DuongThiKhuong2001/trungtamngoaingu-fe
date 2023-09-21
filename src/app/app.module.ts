@@ -47,6 +47,9 @@ import { AddStaffComponent } from './components/admin/list-staff/add-staff/add-s
 import { AddStudentComponent } from './components/admin/list-student/add-student/add-student.component';
 import { RoleStaffComponent } from './components/admin/list-staff/role-staff/role-staff.component';
 import { HosoStudentComponent } from './components/student/hoso-student/hoso-student.component';
+import { HosoLecturerComponent } from './components/lecturer/hoso-lecturer/hoso-lecturer.component';
+import { StaffComponent } from './components/staff/staff.component';
+import { HosoStaffComponent } from './components/staff/hoso-staff/hoso-staff.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +93,10 @@ import { HosoStudentComponent } from './components/student/hoso-student/hoso-stu
     AddStaffComponent,
     AddStudentComponent,
     RoleStaffComponent,
-    HosoStudentComponent
+    HosoStudentComponent,
+    HosoLecturerComponent,
+    StaffComponent,
+    HosoStaffComponent
 
   ],
   imports: [

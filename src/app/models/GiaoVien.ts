@@ -4,4 +4,6 @@ export interface GiaoVien {
   maTaiKhoan: number;
   namNhapHoc: string;
   taiKhoan: TaiKhoan;
+  quyen: string;
+  kinhNghiem: string;
 }

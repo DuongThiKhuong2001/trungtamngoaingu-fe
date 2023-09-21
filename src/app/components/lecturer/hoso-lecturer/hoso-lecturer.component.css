@@ -4,25 +4,26 @@ mat-list-item {
   border-width: 1px;
   /* Màu và độ rộng gạch có thể tùy chỉnh */
   padding-bottom: 10px;
-  width: 100%;
   /* Khoảng cách dưới mỗi mục */
 }
 
-mat-card-content {
-  width: 100%;
-  /* Đảm bảo rằng nội dung chiếm toàn bộ chiều rộng của mat-card */
-  display: flex;
-  /* Sử dụng flexbox để căn giữa nội dung theo chiều ngang */
-  justify-content: center;
-  /* Căn giữa nội dung theo chiều ngang */
-  align-items: center;
-  /* Căn giữa nội dung theo chiều dọc */
+.left-section {
+  flex: 2;
+  padding-right: 1rem;
+  /* Space between left and right section */
 }
+
+.right-section {
+  flex: 2;
+  /* This will take up twice as much space as the left section */
+  padding-left: 1rem;
+  /* Space between right and left section */
+}
+
 .field-infor {
   font-weight: 500;
   color: #0E4A92;
   margin-left: 10px;
-  width: 100%;
 }
 
 .label {
@@ -37,7 +38,7 @@ mat-card-header mat-card-title {
 }
 
 .card-title {
- margin-bottom: 20px;
+
   font-size: 20px;
   /* Điều chỉnh kích thước tiêu đề theo ý muốn */
   font-weight: bold;
@@ -46,7 +47,7 @@ mat-card-header mat-card-title {
   /* Điều chỉnh màu tiêu đề theo ý muốn */
   text-align: center;
   /* Đặt văn bản ở giữa tiêu đề */
-  padding: 5px;
+  padding: 10px;
   /* Điều chỉnh khoảng cách xung quanh tiêu đề */
 }
 
@@ -54,14 +55,14 @@ mat-card-header mat-card-title {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  height: 100%;
 
 }
 
 mat-card .student-info-card {
   border: 1px solid #aeb2b8;
   box-shadow: 0 0 100px rgba(97, 147, 240, 0.878);
-
+  /* Add a 1px solid blue border */
 }
 
 mat-card {
@@ -80,7 +81,6 @@ mat-card {
   justify-content: center;
   align-items: center;
 
-
 }
 
 @media (min-width: 900px) {
@@ -94,7 +94,5 @@ mat-card {
 .info-columns {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
-
 
 }
