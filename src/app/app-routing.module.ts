@@ -20,6 +20,7 @@ import { Page404Component } from './components/page-error/page404/page404.compon
 import { DetailStaffComponent } from './components/admin/list-staff/detail-staff/detail-staff.component';
 import { HosoStudentComponent } from './components/student/hoso-student/hoso-student.component';
 import { HosoLecturerComponent } from './components/lecturer/hoso-lecturer/hoso-lecturer.component';
+import { TypeClassComponent } from './components/admin/type-class/type-class.component';
 
 const routes: Routes = [
   {
@@ -70,11 +71,11 @@ const routes: Routes = [
       },
 
       {
-        path: 'khoahoc',
-        component: TestComponent,
+        path: 'loai-lop',
+        component: TypeClassComponent,
         data: {
-          titulo: 'Khóa học',
-          breadcrumbs: [{ label: 'Khóa học', url: '/' }],
+          titulo: 'Loại lớp',
+          breadcrumbs: [{ label: 'Loại lớp', url: '/' }],
         },
       },
     ],

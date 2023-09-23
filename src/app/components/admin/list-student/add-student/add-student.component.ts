@@ -10,27 +10,23 @@ import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
   templateUrl: './add-student.component.html',
   styleUrls: ['./add-student.component.css'],
 })
-export class AddStudentComponent implements OnInit {
-  [x: string]: any;
+export class AddStudentComponent {
   constructor(
-    @Inject(MAT_DIALOG_DATA)
-    public data: {
-      lecturer: any;
-    },
-    private dialogRef: MatDialogRef<DetailStaffComponent>,
+    private dialogRef: MatDialogRef<AddStudentComponent>,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private taiKhoanService: TaiKhoanService
-  ) {}
+) {}
+
+
 
   get formControls() {
     return this.myform.controls;
   }
 
-  ngOnInit(): void {}
 
   closePopup() {
-    this.dialogRef.close('Closed using function');
+    this.dialogRef.close();
   }
 
   myform = this.formBuilder.group({

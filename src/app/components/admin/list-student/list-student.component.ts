@@ -115,7 +115,7 @@ export class ListStudentComponent implements OnInit {
       enterAnimationDuration: '300ms',
       exitAnimationDuration: '300ms',
     });
-    popup.afterClosed().subscribe((item) => {
+    popup.afterClosed().subscribe(() => {
       // console.log(item)
       this.loadDanhSachHocVien();
     });

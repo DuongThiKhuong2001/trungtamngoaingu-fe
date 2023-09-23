@@ -87,7 +87,6 @@ mat-card {
   .container.content-home {
     flex-direction: row;
   }
-
 }
 
 
@@ -97,4 +96,32 @@ mat-card {
   flex-direction: row;
 
 
+}
+
+@media (max-width: 899px) {
+  .container.content-home {
+    padding: 1rem;
+    /* Giảm khoảng cách xung quanh container */
+  }
+
+  .info-columns {
+    flex-direction: column;
+    /* Đặt các cột chồng lên nhau khi màn hình thu nhỏ */
+  }
+
+  .info-column {
+    width: 100%;
+    /* Chiếm toàn bộ chiều rộng của container */
+    margin-bottom: 1rem;
+    /* Thêm khoảng cách giữa các cột */
+  }
+
+  .label {
+    width: auto;
+    /* Đặt chiều rộng của nhãn để tự động */
+    display: block;
+    /* Chuyển nhãn thành một dòng riêng biệt */
+    margin-bottom: 0.5rem;
+    /* Thêm khoảng cách giữa các nhãn */
+  }
 }

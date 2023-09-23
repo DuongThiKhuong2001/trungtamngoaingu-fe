@@ -13,7 +13,7 @@ export class DetailStaffComponent {
     public data: {
       staff: any;
     },
-    private dialogRef: MatDialogRef<DetailLecturerComponent>
+    private dialogRef: MatDialogRef<DetailStaffComponent>
   ) {}
 
   closePopup() {

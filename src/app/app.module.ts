@@ -1,3 +1,4 @@
+import { TypeClassComponent } from './components/admin/type-class/type-class.component';
 
 import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
 import { NgModule } from '@angular/core';
@@ -50,6 +51,9 @@ import { HosoStudentComponent } from './components/student/hoso-student/hoso-stu
 import { HosoLecturerComponent } from './components/lecturer/hoso-lecturer/hoso-lecturer.component';
 import { StaffComponent } from './components/staff/staff.component';
 import { HosoStaffComponent } from './components/staff/hoso-staff/hoso-staff.component';
+import { AddTypeclassComponent } from './components/admin/type-class/add-typeclass/add-typeclass.component';
+import { EditTypeclassComponent } from './components/admin/type-class/edit-typeclass/edit-typeclass.component';
+import { DeleteTypeclassComponent } from './components/admin/type-class/delete-typeclass/delete-typeclass.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +100,11 @@ import { HosoStaffComponent } from './components/staff/hoso-staff/hoso-staff.com
     HosoStudentComponent,
     HosoLecturerComponent,
     StaffComponent,
-    HosoStaffComponent
+    HosoStaffComponent,
+    TypeClassComponent,
+    AddTypeclassComponent,
+    EditTypeclassComponent,
+    DeleteTypeclassComponent
 
   ],
   imports: [

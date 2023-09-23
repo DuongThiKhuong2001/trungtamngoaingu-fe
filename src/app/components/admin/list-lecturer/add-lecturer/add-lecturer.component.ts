@@ -11,13 +11,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-lecturer.component.css'],
 })
 export class AddLecturerComponent implements OnInit {
-  [x: string]: any;
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
       lecturer: any;
     },
-    private dialogRef: MatDialogRef<DetailLecturerComponent>,
+    private dialogRef: MatDialogRef<AddLecturerComponent>,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private taiKhoanService: TaiKhoanService

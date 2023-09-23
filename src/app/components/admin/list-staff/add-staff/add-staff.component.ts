@@ -11,13 +11,8 @@ import { TaiKhoanService } from 'src/app/services/tai-khoan.service';
   styleUrls: ['./add-staff.component.css'],
 })
 export class AddStaffComponent implements OnInit {
-  [x: string]: any;
   constructor(
-    @Inject(MAT_DIALOG_DATA)
-    public data: {
-      lecturer: any;
-    },
-    private dialogRef: MatDialogRef<DetailStaffComponent>,
+    private dialogRef: MatDialogRef<AddStaffComponent>,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private taiKhoanService: TaiKhoanService
