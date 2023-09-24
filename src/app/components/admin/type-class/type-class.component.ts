@@ -113,9 +113,8 @@ export class TypeClassComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'accept') {
-         this.loadDL();
         // Handle any further actions if needed after deletion
-      }
+      }  this.loadDL();
     });
   }
 }

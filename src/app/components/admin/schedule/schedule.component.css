@@ -32,14 +32,17 @@ mat-icon {
   font-size: 24px;
   color: #064b8b;
 }
+
 /* Đổi màu của biểu tượng "delete" sang màu đỏ */
 mat-icon.delete {
   color: red;
 }
+
 /* Đổi màu của biểu tượng "delete" sang màu đỏ khi hover */
 mat-icon.delete:hover {
   color: red;
 }
+
 /* Hover effect cho biểu tượng tìm kiếm và làm mới */
 mat-icon:hover {
   color: #12135c;

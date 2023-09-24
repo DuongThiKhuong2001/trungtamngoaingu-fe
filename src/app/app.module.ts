@@ -54,6 +54,10 @@ import { HosoStaffComponent } from './components/staff/hoso-staff/hoso-staff.com
 import { AddTypeclassComponent } from './components/admin/type-class/add-typeclass/add-typeclass.component';
 import { EditTypeclassComponent } from './components/admin/type-class/edit-typeclass/edit-typeclass.component';
 import { DeleteTypeclassComponent } from './components/admin/type-class/delete-typeclass/delete-typeclass.component';
+import { ScheduleComponent } from './components/admin/schedule/schedule.component';
+import { AddScheduleComponent } from './components/admin/schedule/add-schedule/add-schedule.component';
+import { EditScheduleComponent } from './components/admin/schedule/edit-schedule/edit-schedule.component';
+import { DeleteScheduleComponent } from './components/admin/schedule/delete-schedule/delete-schedule.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +108,11 @@ import { DeleteTypeclassComponent } from './components/admin/type-class/delete-t
     TypeClassComponent,
     AddTypeclassComponent,
     EditTypeclassComponent,
-    DeleteTypeclassComponent
+    DeleteTypeclassComponent,
+    ScheduleComponent,
+    AddScheduleComponent,
+    EditScheduleComponent,
+    DeleteScheduleComponent
 
   ],
   imports: [

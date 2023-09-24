@@ -21,6 +21,7 @@ import { DetailStaffComponent } from './components/admin/list-staff/detail-staff
 import { HosoStudentComponent } from './components/student/hoso-student/hoso-student.component';
 import { HosoLecturerComponent } from './components/lecturer/hoso-lecturer/hoso-lecturer.component';
 import { TypeClassComponent } from './components/admin/type-class/type-class.component';
+import { ScheduleComponent } from './components/admin/schedule/schedule.component';
 
 const routes: Routes = [
   {
@@ -76,6 +77,14 @@ const routes: Routes = [
         data: {
           titulo: 'Loại lớp',
           breadcrumbs: [{ label: 'Loại lớp', url: '/' }],
+        },
+      },
+      {
+        path: 'lich-hoc',
+        component: ScheduleComponent,
+        data: {
+          titulo: 'Lịch học',
+          breadcrumbs: [{ label: 'Lịch học', url: '/' }],
         },
       },
     ],

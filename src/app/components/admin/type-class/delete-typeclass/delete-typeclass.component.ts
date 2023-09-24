@@ -31,24 +31,35 @@ export class DeleteTypeclassComponent {
 
   accept() {
     // Pass maLoaiLop to the method and handle the response using subscribe
-    this.loaiLopService.xoaLoaiLop(this.maLoaiLop).subscribe(
-      (response) => {
-        // Check if the deletion was successful
+    this.loaiLopService.xoaLoaiLop(this.maLoaiLop).subscribe({
+      next: (response) => {
         if (response) {
           this.toastr.success('Bạn đã Xóa thành công!');
           this.dialogRef.close('accept');
+           
         } else {
           // Handle the case where the deletion failed
           this.toastr.error('Xóa không thành công. Vui lòng thử lại sau.');
         }
       },
-      (error) => {
-        // Handle any errors that occur during the HTTP request
-        console.error('Error deleting LoaiLop:', error);
-        this.toastr.error(
-          'Có lỗi xảy ra khi xóa LoaiLop. Vui lòng thử lại sau.'
-        );
-      }
-    );
+        error: (error) => {
+          console.error('Error deleting LoaiLop:', error);
+        },
+    })
+
+    //   (
+    //   (response) => {
+    //     // Check if the deletion was successful
+    //
+    //   },
+    //   (error) => {
+    //     // Handle any errors that occur during the HTTP request
+    //     console.error('Error deleting LoaiLop:', error);
+    //     this.toastr.error(
+    //       'Có lỗi xảy ra khi xóa LoaiLop. Vui lòng thử lại sau.'
+    //     );
+    //   }
+    // );
   }
 }
+
