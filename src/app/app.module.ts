@@ -58,6 +58,10 @@ import { ScheduleComponent } from './components/admin/schedule/schedule.componen
 import { AddScheduleComponent } from './components/admin/schedule/add-schedule/add-schedule.component';
 import { EditScheduleComponent } from './components/admin/schedule/edit-schedule/edit-schedule.component';
 import { DeleteScheduleComponent } from './components/admin/schedule/delete-schedule/delete-schedule.component';
+import { CourseComponent } from './components/admin/course/course.component';
+import { EditCourseComponent } from './components/admin/course/edit-course/edit-course.component';
+import { DeleteCourseComponent } from './components/admin/course/delete-course/delete-course.component';
+import { AddCourseComponent } from './components/admin/course/add-course/add-course.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +116,11 @@ import { DeleteScheduleComponent } from './components/admin/schedule/delete-sche
     ScheduleComponent,
     AddScheduleComponent,
     EditScheduleComponent,
-    DeleteScheduleComponent
+    DeleteScheduleComponent,
+    CourseComponent,
+    EditCourseComponent,
+    DeleteCourseComponent,
+    AddCourseComponent
 
   ],
   imports: [
