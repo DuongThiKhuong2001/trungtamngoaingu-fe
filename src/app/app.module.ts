@@ -62,6 +62,7 @@ import { CourseComponent } from './components/admin/course/course.component';
 import { EditCourseComponent } from './components/admin/course/edit-course/edit-course.component';
 import { DeleteCourseComponent } from './components/admin/course/delete-course/delete-course.component';
 import { AddCourseComponent } from './components/admin/course/add-course/add-course.component';
+import { DetailCourseComponent } from './components/admin/course/detail-course/detail-course.component';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { AddCourseComponent } from './components/admin/course/add-course/add-cou
     CourseComponent,
     EditCourseComponent,
     DeleteCourseComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    DetailCourseComponent
 
   ],
   imports: [

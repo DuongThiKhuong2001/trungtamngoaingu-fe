@@ -76,6 +76,6 @@ export class StorageService {
 
   public signOut() {
     this.cookieService.deleteAll('/');
-    console.log('hhh');
+   
   }
 }

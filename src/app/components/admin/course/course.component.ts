@@ -9,6 +9,7 @@ import { KhoaHocService } from 'src/app/services/khoa-hoc.service';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { DeleteCourseComponent } from './delete-course/delete-course.component';
+import { DetailCourseComponent } from './detail-course/detail-course.component';
 
 @Component({
   selector: 'app-course',
@@ -22,8 +23,7 @@ export class CourseComponent {
     'tenkhoahoc',
     'ngaybatdau',
     'ngayketthuc',
-    'sua',
-    'xoa',
+    'action',
   ];
   length: number = 0;
   searchTerm: string = '';
@@ -37,6 +37,9 @@ export class CourseComponent {
     private dialog: MatDialog
   ) {}
 
+  ngOnInit(): void {
+    this.loadDanhSachKhoaHoc();
+  }
   ngAfterViewInit() {
     this.danhSachKhoaHoc.paginator = this.paginator;
     this.danhSachKhoaHoc.sort = this.sort;
@@ -62,13 +65,12 @@ export class CourseComponent {
   loadDanhSachKhoaHoc(
     page: number = 0,
     size: number = 10,
-    sortBy: string = 'maKhoaHoc',
+    sortBy: string = '',
     sortDir: string = 'ASC'
   ) {
     this.khoahocService
       .getKhoaHocList(page, size, sortBy, sortDir, this.searchTerm)
       .subscribe((data: any) => {
-         console.log(data);
         this.danhSachKhoaHoc = new MatTableDataSource<KhoaHoc>(data.content);
         this.paginator.length = data.totalElements;
         this.length = data.totalElements;
@@ -125,5 +127,19 @@ export class CourseComponent {
       }
       this.loadDanhSachKhoaHoc();
     });
+  }
+
+  detail(khoaHoc: any | null): void {
+    // Bước 4: Mở dialog thay vì đặt selectedNotification
+    if (khoaHoc) {
+      var popup = this.dialog.open(DetailCourseComponent, {
+        data: {
+          khoaHoc: khoaHoc,
+        },
+        width: '40%',
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '300ms',
+      });
+    }
   }
 }

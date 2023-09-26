@@ -23,6 +23,7 @@ import { HosoLecturerComponent } from './components/lecturer/hoso-lecturer/hoso-
 import { TypeClassComponent } from './components/admin/type-class/type-class.component';
 import { ScheduleComponent } from './components/admin/schedule/schedule.component';
 import { CourseComponent } from './components/admin/course/course.component';
+import { RegisterCourseComponent } from './components/student/register-course/register-course.component';
 
 const routes: Routes = [
   {
@@ -118,8 +119,8 @@ const routes: Routes = [
         },
       },
       {
-        path: 'khoa-hoc',
-        component: TestComponent,
+        path: 'dang-ky-khoa-hoc',
+        component: RegisterCourseComponent,
         data: {
           titulo: 'Khóa học',
           breadcrumbs: [{ label: 'Các khóa học', url: '/' }],

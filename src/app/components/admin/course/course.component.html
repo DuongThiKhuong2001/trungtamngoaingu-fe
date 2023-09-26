@@ -35,36 +35,31 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Ngày bắt đầu</mat-header-cell
       >
-      <mat-cell *matCellDef="let KhoaHoc">{{ KhoaHoc.ngayBatDau }}</mat-cell>
+      <mat-cell *matCellDef="let KhoaHoc">{{ KhoaHoc.ngayBatDau  | date : " dd/MM/yyyy"}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="ngayketthuc">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Ngày kết thúc</mat-header-cell
       >
       <mat-cell *matCellDef="let KhoaHoc">
-        {{ KhoaHoc.ngayKetThuc }}
+        {{ KhoaHoc.ngayKetThuc  | date : " dd/MM/yyyy"}}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="sua">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Sửa</mat-header-cell>
-      <mat-cell *matCellDef="let KhoaHoc" (click)="editschedule(KhoaHoc)">
-        <button mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
+   <ng-container matColumnDef="action">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Thao tác</mat-header-cell>
+  <mat-cell *matCellDef="let KhoaHoc">
+    <button mat-icon-button (click)="detail(KhoaHoc)">
+      <mat-icon>info</mat-icon>
+    </button>
+    <button mat-icon-button (click)="editschedule(KhoaHoc)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="modeleteschedule(KhoaHoc.maKhoaHoc)">
+      <mat-icon class="delete">delete</mat-icon>
+    </button>
+  </mat-cell>
+</ng-container>
 
-    <ng-container matColumnDef="xoa">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Xóa</mat-header-cell>
-      <mat-cell
-        *matCellDef="let KhoaHoc"
-        (click)="modeleteschedule(KhoaHoc.maLichHoc)"
-      >
-        <button mat-icon-button>
-          <mat-icon class="delete">delete</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
