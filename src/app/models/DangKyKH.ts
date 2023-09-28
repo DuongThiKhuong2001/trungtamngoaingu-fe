@@ -1,7 +1,15 @@
-
-import { TaiKhoan } from './TaiKhoan';
+import { HocVien } from './HocVien';
 import { KhoaHoc } from './KhoaHoc';
 export interface DangKyKH {
-  maHocVien: TaiKhoan;
-  maKhoaHoc: KhoaHoc;
+  maDangKy: number;
+  trangThaiHocPhi: string;
+  hocVien: HocVien;
+  khoaHoc: KhoaHoc;
+  ngayDangKy: Date;
+  
+}
+
+export enum TrangThaiHocPhi {
+  CHUA_DONG = 'CHUA_DONG',
+  DA_DONG = 'DA_DONG',
 }

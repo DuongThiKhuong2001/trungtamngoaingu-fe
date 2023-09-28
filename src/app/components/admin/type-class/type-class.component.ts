@@ -21,11 +21,10 @@ export class TypeClassComponent implements OnInit {
   danhSachLoaiLop: MatTableDataSource<LoaiLop> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
-    'tenloailop',
-    'decuong',
-    'hocphi',
-    'sua',
-    'xoa',
+    'tenLoaiLop',
+    'deCuong',
+    'hocPhi',
+    'actions'
   ];
   length: number = 0;
   searchTerm: string = '';

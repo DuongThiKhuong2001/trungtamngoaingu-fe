@@ -63,6 +63,8 @@ import { EditCourseComponent } from './components/admin/course/edit-course/edit-
 import { DeleteCourseComponent } from './components/admin/course/delete-course/delete-course.component';
 import { AddCourseComponent } from './components/admin/course/add-course/add-course.component';
 import { DetailCourseComponent } from './components/admin/course/detail-course/detail-course.component';
+import { RegisterCourseComponent } from './components/student/register-course/register-course.component';
+import { QldkComponent } from './components/admin/qldk/qldk.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +124,9 @@ import { DetailCourseComponent } from './components/admin/course/detail-course/d
     EditCourseComponent,
     DeleteCourseComponent,
     AddCourseComponent,
-    DetailCourseComponent
+    DetailCourseComponent,
+    RegisterCourseComponent,
+    QldkComponent
 
   ],
   imports: [

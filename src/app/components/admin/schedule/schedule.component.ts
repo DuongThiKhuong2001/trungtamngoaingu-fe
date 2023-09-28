@@ -20,11 +20,11 @@ export class ScheduleComponent {
   danhSachLichHoc: MatTableDataSource<LichHoc> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
-    'malichhoc',
-    'kihieu',
-    'mota',
-    'sua',
-    'xoa',
+    // 'maLichHoc',
+    'kiHieu',
+    'moTa',
+    'actions',
+
   ];
   length: number = 0;
   searchTerm: string = '';

@@ -19,12 +19,12 @@ export class ListStudentComponent implements OnInit {
   danhSachHocVien: MatTableDataSource<HocVien> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
-    'hoten',
-    'tendangnhap',
-    'sdt',
-    'gioitinh',
-    'trangthai',
-    'hanhdong',
+    'hoTen',
+    'tenDangNhap',
+    'soDienThoai',
+    'gioiTinh',
+    'trangThai',
+    'actions',
   ];
   length: number = 0;
   searchTerm: string = '';

@@ -25,19 +25,19 @@
       <mat-cell *matCellDef="let i = index">{{ i + 1 }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="tenkhoahoc">
+    <ng-container matColumnDef="tenKhoaHoc">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Tên khóa học</mat-header-cell
       >
       <mat-cell *matCellDef="let KhoaHoc">{{ KhoaHoc.tenKhoaHoc }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="ngaybatdau">
+    <ng-container matColumnDef="ngayBatDau">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Ngày bắt đầu</mat-header-cell
       >
       <mat-cell *matCellDef="let KhoaHoc">{{ KhoaHoc.ngayBatDau  | date : " dd/MM/yyyy"}}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="ngayketthuc">
+    <ng-container matColumnDef="ngayKetThuc">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Ngày kết thúc</mat-header-cell
       >
@@ -46,7 +46,7 @@
       </mat-cell>
     </ng-container>
    <ng-container matColumnDef="action">
-  <mat-header-cell *matHeaderCellDef mat-sort-header>Thao tác</mat-header-cell>
+  <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
   <mat-cell *matCellDef="let KhoaHoc">
     <button mat-icon-button (click)="detail(KhoaHoc)">
       <mat-icon>info</mat-icon>

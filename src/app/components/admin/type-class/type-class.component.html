@@ -25,19 +25,19 @@
       <mat-cell *matCellDef="let i = index">{{ i + 1 }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="tenloailop">
+    <ng-container matColumnDef="tenLoaiLop">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Tên loại lớp</mat-header-cell
       >
       <mat-cell *matCellDef="let LoaiLop">{{ LoaiLop.tenLoaiLop }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="decuong">
+    <ng-container matColumnDef="deCuong">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Đề cương</mat-header-cell
       >
       <mat-cell *matCellDef="let LoaiLop">{{ LoaiLop.deCuong }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="hocphi">
+    <ng-container matColumnDef="hocPhi">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Học phí</mat-header-cell
       >
@@ -45,24 +45,18 @@
         {{ LoaiLop.hocPhi }}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="sua">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Sửa</mat-header-cell>
-      <mat-cell *matCellDef="let LoaiLop" (click)="editTypeclass(LoaiLop)">
-        <mat-icon>edit</mat-icon>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef="let LoaiLop">
+        <button mat-icon-button (click)="editTypeclass(LoaiLop)">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button (click)="modeleteTypeclass(LoaiLop.maLoaiLop)">
+          <mat-icon class="delete">delete</mat-icon>
+        </button>
       </mat-cell>
     </ng-container>
-
-    <ng-container matColumnDef="xoa">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Xóa</mat-header-cell>
-      <mat-cell
-        *matCellDef="let LoaiLop"
-        (click)="modeleteTypeclass(LoaiLop.maLoaiLop)"
-      >
-        <mat-icon class="delete">delete</mat-icon>
-
-      </mat-cell>
-    </ng-container>
-
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row
       matRipple

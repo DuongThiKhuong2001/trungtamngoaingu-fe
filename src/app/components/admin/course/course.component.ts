@@ -20,9 +20,9 @@ export class CourseComponent {
   danhSachKhoaHoc: MatTableDataSource<KhoaHoc> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
-    'tenkhoahoc',
-    'ngaybatdau',
-    'ngayketthuc',
+    'tenKhoaHoc',
+    'ngayBatDau',
+    'ngayKetThuc',
     'action',
   ];
   length: number = 0;

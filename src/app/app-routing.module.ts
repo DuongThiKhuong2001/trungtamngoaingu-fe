@@ -24,6 +24,7 @@ import { TypeClassComponent } from './components/admin/type-class/type-class.com
 import { ScheduleComponent } from './components/admin/schedule/schedule.component';
 import { CourseComponent } from './components/admin/course/course.component';
 import { RegisterCourseComponent } from './components/student/register-course/register-course.component';
+import { QldkComponent } from './components/admin/qldk/qldk.component';
 
 const routes: Routes = [
   {
@@ -94,6 +95,14 @@ const routes: Routes = [
         component: CourseComponent,
         data: {
           titulo: 'Khóa học',
+          breadcrumbs: [{ label: 'Khóa học', url: '/' }],
+        },
+      },
+      {
+        path: 'quan-ly-dang-ky-khoa-hoc',
+        component: QldkComponent,
+        data: {
+          titulo: 'QL Đăng ký Khóa học',
           breadcrumbs: [{ label: 'Khóa học', url: '/' }],
         },
       },

@@ -8,5 +8,6 @@ export interface KhoaHoc {
   ngayBatDau: string;
   ngayKetThuc: string;
   moTa: LichHoc;
-  tenLoaiLop: LoaiLop
+  tenLoaiLop: LoaiLop,
+  
 }
