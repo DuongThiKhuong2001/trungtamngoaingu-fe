@@ -22,13 +22,13 @@ export class ListStaffComponent implements OnInit {
   danhSachNhanVien: MatTableDataSource<NhanVien> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
-    'hoten',
-    'tendangnhap',
-    'sdt',
-    'gioitinh',
-    'trangthai',
-    'hanhdong',
-    'vaitro',
+    'hoTen',
+    'tenDangNhap',
+    'soDienThoai',
+    'gioiTinh',
+    'trangThai',
+    'actions',
+    'vaiTro',
   ];
   length: number = 0;
   searchTerm: string = '';

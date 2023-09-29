@@ -24,7 +24,7 @@ export class TypeClassComponent implements OnInit {
     'tenLoaiLop',
     'deCuong',
     'hocPhi',
-    'actions'
+    'actions',
   ];
   length: number = 0;
   searchTerm: string = '';
@@ -113,7 +113,8 @@ export class TypeClassComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'accept') {
         // Handle any further actions if needed after deletion
-      }  this.loadDL();
+      }
+      this.loadDL();
     });
   }
 }

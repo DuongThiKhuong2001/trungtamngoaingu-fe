@@ -10,6 +10,7 @@ import { KhoaHoc } from 'src/app/models/KhoaHoc';
 import { DangKyKhoaHocService } from 'src/app/services/dang-ky-khoa-hoc.service';
 import { KhoaHocService } from 'src/app/services/khoa-hoc.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { HuyDangkyComponent } from '../huy-dangky/huy-dangky.component';
 
 @Component({
   selector: 'app-register-course',
@@ -21,10 +22,10 @@ export class RegisterCourseComponent {
   danhSachKhoaHoc: MatTableDataSource<KhoaHoc> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
-    'tenkhoahoc',
-    'ngaybatdau',
-    'ngayketthuc',
-    'action',
+    'tenKhoaHoc',
+    'ngayBatDau',
+    'ngayKetThuc',
+    'actions',
   ];
   length: number = 0;
   searchTerm: string = '';
@@ -44,12 +45,12 @@ export class RegisterCourseComponent {
 
   ngOnInit(): void {
     const user = this.storageService.getUser();
-      this.loggedInUsername = user.tenTaiKhoan;
+    this.loggedInUsername = user.tenTaiKhoan;
 
-      if (!user) {
-        this.toastr.error('Không tìm thấy tên đăng nhập', 'Lỗi');
-        return;
-      }
+    if (!user) {
+      this.toastr.error('Không tìm thấy tên đăng nhập', 'Lỗi');
+      return;
+    }
     this.loadDanhSachKhoaHoc();
   }
   ngAfterViewInit() {
@@ -73,7 +74,6 @@ export class RegisterCourseComponent {
       );
     });
   }
-
 
   loadDanhSachKhoaHoc(
     page: number = 0,
@@ -148,4 +148,20 @@ export class RegisterCourseComponent {
   //     },
   //   });
   // }
+
+  openHuyDK(maDangKy: number): void {
+    const dialogRef = this.dialog.open(HuyDangkyComponent, {
+      width: '350px',
+      data: { maDangKy }, // Pass the maLoaiLop value to the dialog
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'accept') {
+        // Handle any further actions if needed after deletion
+      }
+      this.loadDanhSachKhoaHoc();
+    });
+  }
 }

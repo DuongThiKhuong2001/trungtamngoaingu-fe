@@ -65,6 +65,8 @@ import { AddCourseComponent } from './components/admin/course/add-course/add-cou
 import { DetailCourseComponent } from './components/admin/course/detail-course/detail-course.component';
 import { RegisterCourseComponent } from './components/student/register-course/register-course.component';
 import { QldkComponent } from './components/admin/qldk/qldk.component';
+import { DeleteQldkComponent } from './components/admin/qldk/delete-qldk/delete-qldk.component';
+import { HuyDangkyComponent } from './components/student/huy-dangky/huy-dangky.component';
 
 @NgModule({
   declarations: [
@@ -126,7 +128,9 @@ import { QldkComponent } from './components/admin/qldk/qldk.component';
     AddCourseComponent,
     DetailCourseComponent,
     RegisterCourseComponent,
-    QldkComponent
+    QldkComponent,
+    DeleteQldkComponent,
+    HuyDangkyComponent
 
   ],
   imports: [

@@ -40,7 +40,7 @@
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let DangKyKH">
         <button mat-icon-button>
           <mat-icon>info</mat-icon>
@@ -48,9 +48,9 @@
         <button mat-icon-button>
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button>
-          <mat-icon class="delete">delete</mat-icon>
-        </button>
+       <button mat-icon-button (click)="modeleteqldk(DangKyKH.maDangKy)">
+      <mat-icon class="delete">delete</mat-icon>
+    </button>
       </mat-cell>
     </ng-container>
 

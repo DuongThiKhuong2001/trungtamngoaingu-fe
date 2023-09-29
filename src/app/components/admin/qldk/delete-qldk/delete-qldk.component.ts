@@ -1,41 +1,39 @@
+import { DangKyKhoaHocService } from './../../../../services/dang-ky-khoa-hoc.service';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DeleteScheduleComponent } from '../../schedule/delete-schedule/delete-schedule.component';
-import { KhoaHocService } from 'src/app/services/khoa-hoc.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-delete-course',
-  templateUrl: './delete-course.component.html',
-  styleUrls: ['./delete-course.component.css'],
+  selector: 'app-delete-qldk',
+  templateUrl: './delete-qldk.component.html',
+  styleUrls: ['./delete-qldk.component.css'],
 })
-export class DeleteCourseComponent {
-  maKhoaHoc: number;
+export class DeleteQldkComponent {
+  maDangKy: number;
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data: { maKhoaHoc: number },
-    public dialogRef: MatDialogRef<DeleteScheduleComponent>,
+    public data: { maDangKy: number },
+    public dialogRef: MatDialogRef<DeleteQldkComponent>,
     private router: Router,
     private toastr: ToastrService,
-    private khoahocService: KhoaHocService
+    private dangKyKhoaHocService: DangKyKhoaHocService
   ) {
-    console.log('maKhoaHoc:', data.maKhoaHoc);
-    this.maKhoaHoc = data.maKhoaHoc; // Initialize maLoaiLop from the data passed to the dialog
+    // console.log('maLichHoc:', data.maLichHoc);
+    this.maDangKy = data.maDangKy; // Initialize maLoaiLop from the data passed to the dialog
   }
 
   closedialog() {
     this.dialogRef.close('Closed using function');
   }
-
   accept() {
     // Call the API service to delete the type class
-    this.khoahocService.deleteKhoaHoc(this.maKhoaHoc).subscribe({
+    this.dangKyKhoaHocService.xoaDangKyKhoaHoc(this.maDangKy).subscribe({
       next: (data: any) => {
         if (data.message === 'cant-delete') {
           // Handle the case where the deletion is not allowed
-          this.toastr.warning('Không thể xóa Khóa học này.');
+          this.toastr.warning('Không thể xóa Khóa học đã đăng ký.');
         } else {
           // Handle other cases or errors
           this.toastr.success('Bạn đã xóa thành công!');

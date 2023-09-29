@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { KhoaHoc } from 'src/app/models/KhoaHoc';
 import { KhoaHocService } from 'src/app/services/khoa-hoc.service';
+import { DeleteQldkComponent } from './delete-qldk/delete-qldk.component';
 
 @Component({
   selector: 'app-qldk',
@@ -69,7 +70,6 @@ export class QldkComponent {
     this.dangKyKhoaHocService
       .getAllDangKyKhoaHoc(page, size, sortBy, sortDir, this.searchTerm)
       .subscribe((data: any) => {
-        console.log(data);
         this.danhSachDKKhoaHoc = new MatTableDataSource<DangKyKH>(data.content);
         this.paginator.length = data.totalElements;
         this.length = data.totalElements;
@@ -86,5 +86,21 @@ export class QldkComponent {
       this.paginator.firstPage();
     }
     this.loadDanhSachDKKhoaHoc();
+  }
+
+  modeleteqldk(maDangKy: number): void {
+    const dialogRef = this.dialog.open(DeleteQldkComponent, {
+      width: '350px',
+      data: { maDangKy }, // Pass the maLoaiLop value to the dialog
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'accept') {
+        // Handle any further actions if needed after deletion
+      }
+      this.loadDanhSachDKKhoaHoc();
+    });
   }
 }
