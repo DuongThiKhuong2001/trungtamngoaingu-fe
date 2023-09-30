@@ -38,6 +38,14 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header>Tên khóa học</mat-header-cell>
       <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.khoaHoc.tenKhoaHoc }}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="ngayDangKy">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Ngày đăng ký</mat-header-cell>
+      <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.ngayDangKy  | date : "HH:mm:ss dd/MM/yyyy" }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="TrangThaiHocPhi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Học phí</mat-header-cell>
+      <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.TrangThaiHocPhi }}</mat-cell>
+    </ng-container>
 
     <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
@@ -45,19 +53,21 @@
         <button mat-icon-button>
           <mat-icon>info</mat-icon>
         </button>
-        <button mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
-       <button mat-icon-button (click)="modeleteqldk(DangKyKH.maDangKy)">
+       <!-- <button mat-icon-button (click)="modeleteqldk(DangKyKH.maDangKy)">
       <mat-icon class="delete">delete</mat-icon>
-    </button>
+    </button> -->
+     <button
+          mat-stroked-button
+          color="warn"
+         (click)="modeleteqldk(DangKyKH.maDangKy)"
+        >
+          Hủy
+        </button>
       </mat-cell>
     </ng-container>
-
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
-
   <mat-paginator
     [length]="length"
     [pageSize]="5"

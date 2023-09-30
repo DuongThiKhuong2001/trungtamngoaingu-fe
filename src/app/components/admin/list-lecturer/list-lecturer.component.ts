@@ -20,11 +20,11 @@ export class ListLecturerComponent implements OnInit {
   danhSachGiaoVien: MatTableDataSource<GiaoVien> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
-    'hoTen',
-    'tenDangNhap',
-    'soDienThoai',
-    'gioiTinh',
-    'trangThai',
+    'taiKhoan.hoTen',
+    'taiKhoan.tenDangNhap',
+    'taiKhoan.soDienThoai',
+    'taiKhoan.gioiTinh',
+    'taiKhoan.trangThai',
     'actions',
   ];
   length: number = 0;

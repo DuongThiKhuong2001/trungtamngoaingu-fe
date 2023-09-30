@@ -19,7 +19,7 @@
       <mat-cell *matCellDef="let i = index">{{ i + 1 }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="hoTen">
+    <ng-container matColumnDef="taiKhoan.hoTen">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Họ tên</mat-header-cell
       >
@@ -27,7 +27,7 @@
         nhanVien.taiKhoan?.hoTen
       }}</mat-cell>
     </ng-container>
-     <ng-container matColumnDef="tenDangNhap">
+     <ng-container matColumnDef="taiKhoan.tenDangNhap">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Tên đăng nhập</mat-header-cell
       >
@@ -35,19 +35,19 @@
         nhanVien.taiKhoan?.tenDangNhap
       }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="gioiTinh">
+    <ng-container matColumnDef="taiKhoan.gioiTinh">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Giới tính</mat-header-cell>
       <mat-cell *matCellDef="let nhanVien">
         {{ nhanVien.taiKhoan?.gioiTinh }}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="soDienThoai">
+    <ng-container matColumnDef="taiKhoan.soDienThoai">
       <mat-header-cell *matHeaderCellDef mat-sort-header>SĐT</mat-header-cell>
       <mat-cell *matCellDef="let nhanVien">
         {{ nhanVien.taiKhoan?.soDienThoai }}
       </mat-cell>
     </ng-container>
-     <ng-container matColumnDef="trangThai">
+     <ng-container matColumnDef="taiKhoan.trangThai">
       <mat-header-cell *matHeaderCellDef
         >Trạng thái</mat-header-cell
       >

@@ -10,8 +10,8 @@
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-stroked-button  color="warn" (click)="onCancel()">Hủy</button>
-  <button mat-raised-button color="primary" [disabled]="!editForm.valid" (click)="onSubmit()">
+  <button mat-stroked-button  color="warn" type="submit" (click)="onCancel()">Hủy</button>
+  <button mat-raised-button color="primary" type="submit"  [disabled]="!editForm.valid" (click)="onSubmit()">
     Lưu
   </button>
 </div>

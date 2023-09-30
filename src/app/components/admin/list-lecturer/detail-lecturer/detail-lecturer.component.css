@@ -2,7 +2,7 @@
   border-top: 1px solid #2c2222;
   margin-top: 10px;
   margin-bottom: 10px;
-  
+
 }
 
 .table-container {
@@ -46,12 +46,10 @@
   font-weight: bold;
   padding: 8px 8px;
 }
-
-/* Định dạng cho nội dung cột */
 .table-cell {
   flex: 2;
   padding: 8px 8px;
 }
 
-/* Định dạng cho nút Đóng */
+
 

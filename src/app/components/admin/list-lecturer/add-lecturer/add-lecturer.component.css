@@ -25,17 +25,12 @@ button {
 }
 button[type="submit"] {
   font-weight: bold;
-  margin-left: 400px;
+  margin-left: 250px;
   margin-top: 20px;
-  /* Blue color */
-
 }
 
 
 button[color="warn"] {
-
   margin-top: 20px;
-  /* Orange color */
-
 }
 

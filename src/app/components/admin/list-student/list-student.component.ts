@@ -18,12 +18,12 @@ import { AddStudentComponent } from './add-student/add-student.component';
 export class ListStudentComponent implements OnInit {
   danhSachHocVien: MatTableDataSource<HocVien> = new MatTableDataSource();
   displayedColumns: string[] = [
-    'stt',
-    'hoTen',
-    'tenDangNhap',
-    'soDienThoai',
-    'gioiTinh',
-    'trangThai',
+    'STT',
+    'taiKhoan.hoTen',
+    'taiKhoan.tenDangNhap',
+    'taiKhoan.soDienThoai',
+    'taiKhoan.gioiTinh',
+    'taiKhoan.trangThai',
     'actions',
   ];
   length: number = 0;
@@ -68,7 +68,7 @@ export class ListStudentComponent implements OnInit {
     page: number = 0,
     size: number = 10,
     sortBy: string = 'taiKhoan.ngayTao',
-    sortDir: string = 'DESC'
+    sortDir: string = 'ASC'
   ) {
     this.taiKhoanService
       .getAllUsersByRole(

@@ -26,7 +26,7 @@ button {
 
 button[type="submit"] {
   font-weight: bold;
-  margin-left: 400px;
+  margin-left: 250px;
   margin-top: 20px;
   /* Blue color */
 
@@ -34,28 +34,20 @@ button[type="submit"] {
 
 
 button[color="warn"] {
-
   margin-top: 20px;
-  /* Orange color */
-
 }
 
 /* Đảm bảo rằng form không bị ảnh hưởng khi thu nhỏ màn hình */
 @media screen and (max-width: 768px) {
-
   .mat-mdc-form-field,
   .mat-50 {
     width: 100%;
-    /* Sử dụng 100% chiều rộng cho các trường form */
     margin: 0;
-    /* Không cần margin */
   }
 
   button[type="submit"],
   button[color="warn"] {
     margin-left: 0;
-    /* Loại bỏ margin-left */
     margin-top: 10px;
-    /* Điều chỉnh khoảng cách trên cùng */
   }
 }

@@ -11,7 +11,6 @@
     <mat-icon (click)="refresh()" matSuffix color="warn">refresh</mat-icon>
   </mat-form-field>
 
-
   <mat-table [dataSource]="danhSachKhoaHoc" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="stt">
       <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
@@ -28,34 +27,41 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Ngày bắt đầu</mat-header-cell
       >
-      <mat-cell *matCellDef="let KhoaHoc">{{ KhoaHoc.ngayBatDau  | date : " dd/MM/yyyy"}}</mat-cell>
+      <mat-cell *matCellDef="let KhoaHoc">{{
+        KhoaHoc.ngayBatDau | date : " dd/MM/yyyy"
+      }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="ngayKetThuc">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Ngày kết thúc</mat-header-cell
       >
       <mat-cell *matCellDef="let KhoaHoc">
-        {{ KhoaHoc.ngayKetThuc  | date : " dd/MM/yyyy"}}
+        {{ KhoaHoc.ngayKetThuc | date : " dd/MM/yyyy" }}
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="actions">
-  <mat-header-cell *matHeaderCellDef ></mat-header-cell>
-<mat-cell *matCellDef="let khoaHoc">
-  <button mat-raised-button color="primary"
-    (click)="dangkyKH(khoaHoc.maKhoaHoc)"
-  >Đăng ký
-  </button>
-  <!-- <button mat-raised-button color="warn"
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let khoaHoc">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="dangkyKH(khoaHoc.maKhoaHoc)"
+        >
+          Đăng ký
+        </button>
+        <!-- <button mat-raised-button color="warn"
     (click)="openHuyDK(khoaHoc.maKhoaHoc)"
   >Hủy đăng ký
   </button> -->
-  <button mat-raised-button color="warn"(click)="openHuyDK(khoaHoc.maKhoaHoc)">
-         Hủy
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="openHuyDK(khoaHoc.maKhoaHoc)"
+        >
+          Hủy
         </button>
-</mat-cell>
-
-
-</ng-container>
+      </mat-cell>
+    </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>

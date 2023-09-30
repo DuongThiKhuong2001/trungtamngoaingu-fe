@@ -14,12 +14,12 @@
   Thêm tài khoản <mat-icon>add_circle </mat-icon>
 </button>
   <mat-table [dataSource]="danhSachHocVien" matSort class="mat-elevation-z8">
-    <ng-container matColumnDef="stt">
+    <ng-container matColumnDef="STT">
       <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
       <mat-cell *matCellDef="let i = index">{{ i + 1 }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="hoTen">
+    <ng-container matColumnDef="taiKhoan.hoTen">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Họ tên</mat-header-cell
       >
@@ -27,7 +27,7 @@
         hocVien.taiKhoan?.hoTen
       }}</mat-cell>
     </ng-container>
-     <ng-container matColumnDef="tenDangNhap">
+     <ng-container matColumnDef="taiKhoan.tenDangNhap">
       <mat-header-cell *matHeaderCellDef mat-sort-header
         >Tên đăng nhập</mat-header-cell
       >
@@ -35,37 +35,37 @@
         hocVien.taiKhoan?.tenDangNhap
       }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="gioiTinh">
+    <ng-container matColumnDef="taiKhoan.gioiTinh">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Giới tính</mat-header-cell>
       <mat-cell *matCellDef="let hocVien">
         {{ hocVien.taiKhoan?.gioiTinh }}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="soDienThoai">
+    <ng-container matColumnDef="taiKhoan.soDienThoai">
       <mat-header-cell *matHeaderCellDef mat-sort-header>SĐT</mat-header-cell>
       <mat-cell *matCellDef="let hocVien">
         {{ hocVien.taiKhoan?.soDienThoai }}
       </mat-cell>
     </ng-container>
-     <ng-container matColumnDef="trangThai">
+     <ng-container matColumnDef="taiKhoan.trangThai">
       <mat-header-cell *matHeaderCellDef
         >Trạng thái</mat-header-cell
       >
-      <mat-cell *matCellDef="let giaoVien">
-        {{ giaoVien.taiKhoan?.trangThai }}
+      <mat-cell *matCellDef="let hocVien">
+        {{ hocVien.taiKhoan?.trangThai }}
         <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
           <button
             mat-menu-item
-            (click)="updateUserStatus('Mo', giaoVien.taiKhoan?.tenDangNhap)"
+            (click)="updateUserStatus('Mo', hocVien.taiKhoan?.tenDangNhap)"
           ><mat-icon>check_circle</mat-icon> Mở
 
           </button>
           <button
             mat-menu-item
-            (click)="updateUserStatus('Khoa', giaoVien.taiKhoan?.tenDangNhap)"
+            (click)="updateUserStatus('Khoa', hocVien.taiKhoan?.tenDangNhap)"
           >
           <mat-icon>lock</mat-icon> Khóa
           </button>

@@ -36,12 +36,16 @@ export class AddCourseComponent implements OnInit {
     this.dialogRef.close('Closed using function');
   }
 
+  isEndDateValid(startDate: Date, endDate: Date): boolean {
+    return endDate > startDate;
+  }
+
   myform = this.formBuilder.group({
     tenKhoaHoc: ['', [Validators.required]],
-    ngayBatDau: [''],
-    ngayKetThuc: [''],
-    maLoaiLop: [],
-    maLichHoc: [],
+    ngayBatDau: ['', [Validators.required]],
+    ngayKetThuc: ['', [Validators.required]],
+    maLoaiLop: ['', [Validators.required]],
+    maLichHoc: ['', [Validators.required]],
   });
   loadLoaiLop() {
     this.loailopService.layTatCaLoaiLop().subscribe((data) => {
@@ -53,13 +57,46 @@ export class AddCourseComponent implements OnInit {
       this.ListLichHoc = data;
     });
   }
+  // savetypeclass() {
+  //   if (this.myform.valid) {
+  //     const formData = this.myform.value;
+  //     console.log(formData);
+  //     this.khoahocService.createKhoaHoc(formData).subscribe({
+  //       next: (data) => {
+  //         console.log(data);
+  //         this.closePopup();
+  //         this.toastr.success('Thêm khóa học thành công!');
+  //       },
+  //       error: (err) => {
+  //         this.toastr.error(err);
+  //       },
+  //     });
+  //   }
+  // }
   savetypeclass() {
     if (this.myform.valid) {
       const formData = this.myform.value;
+      const startDateString = formData.ngayBatDau;
+      const endDateString = formData.ngayKetThuc;
+
+      if (!startDateString || !endDateString) {
+        this.toastr.error(
+          'Vui lòng nhập đầy đủ ngày bắt đầu và ngày kết thúc.'
+        );
+        return;
+      }
+
+      const startDate = new Date(startDateString);
+      const endDate = new Date(endDateString);
+
+      if (!this.isEndDateValid(startDate, endDate)) {
+        this.toastr.error('Ngày kết thúc phải sau ngày bắt đầu.');
+        return;
+      }
+
       console.log(formData);
       this.khoahocService.createKhoaHoc(formData).subscribe({
         next: (data) => {
-          console.log(data);
           this.closePopup();
           this.toastr.success('Thêm khóa học thành công!');
         },

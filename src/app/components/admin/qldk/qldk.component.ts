@@ -22,10 +22,13 @@ export class QldkComponent {
     'hocVien.taiKhoan.tenDangNhap',
     'hocVien.taiKhoan.hoTen',
     'khoaHoc.tenKhoaHoc',
+    'ngayDangKy',
+    'TrangThaiHocPhi',
     'action',
   ];
   length: number = 0;
   searchTerm: string = '';
+  currentDateTime: Date = new Date();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -38,6 +41,9 @@ export class QldkComponent {
 
   ngOnInit(): void {
     this.loadDanhSachDKKhoaHoc();
+     setInterval(() => {
+       this.currentDateTime = new Date();
+     }, 1000);
   }
   ngAfterViewInit() {
     this.danhSachDKKhoaHoc.paginator = this.paginator;

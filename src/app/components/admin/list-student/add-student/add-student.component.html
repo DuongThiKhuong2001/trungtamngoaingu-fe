@@ -7,7 +7,7 @@
       <mat-error
         *ngIf="formControls.hoTen.errors?.['required']"
       >
-        Họ tên bắt buộc 
+        Họ tên bắt buộc
       </mat-error>
         <mat-error *ngIf="formControls.hoTen.errors?.['pattern'] || formControls.hoTen.errors?.['minlength']">
         Họ tên không hợp lệ!
@@ -56,11 +56,6 @@
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Trường học</mat-label>
       <input formControlName="truong" matInput required />
-      <!-- <mat-error
-        *ngIf="formControls.truong.errors?.['required'] || formControls.truong.touched"
-      >
-        Chuyên ngành là bắt buộc!
-      </mat-error> -->
     </mat-form-field>
       <mat-form-field appearance="outline" class="full-width">
       <mat-label>Lớp</mat-label>
@@ -86,6 +81,9 @@
     <mat-form-field>
       <mat-label>Choose a date</mat-label>
       <input matInput formControlName="ngaySinh" [matDatepicker]="picker" />
+       <mat-error *ngIf="formControls.ngaySinh.errors?.['required']">
+      Ngày sinh là bắt buộc!
+      </mat-error>
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle
         matIconSuffix

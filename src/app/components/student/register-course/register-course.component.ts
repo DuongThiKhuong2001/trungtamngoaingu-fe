@@ -109,7 +109,7 @@ export class RegisterCourseComponent {
       tenDangNhap: this.loggedInUsername,
       maKhoaHoc: maKhoaHoc,
     };
-    this.dangkykhoahocService.themDangKyKhoaHoc(body).subscribe({
+    this.dangKyKhoaHocService.themDangKyKhoaHoc(body).subscribe({
       next: (data) => {
         if (data.message && data.message === 'exist') {
           this.toastr.warning('Bạn đã đăng ký khóa học này rồi!');

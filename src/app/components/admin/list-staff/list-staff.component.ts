@@ -22,11 +22,11 @@ export class ListStaffComponent implements OnInit {
   danhSachNhanVien: MatTableDataSource<NhanVien> = new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
-    'hoTen',
-    'tenDangNhap',
-    'soDienThoai',
-    'gioiTinh',
-    'trangThai',
+    'taiKhoan.hoTen',
+    'taiKhoan.tenDangNhap',
+    'taiKhoan.soDienThoai',
+    'taiKhoan.gioiTinh',
+    'taiKhoan.trangThai',
     'actions',
     'vaiTro',
   ];
