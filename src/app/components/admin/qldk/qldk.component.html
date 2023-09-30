@@ -10,11 +10,7 @@
     <mat-icon (click)="onSearch()" matSuffix color="primary">search</mat-icon>
     <mat-icon (click)="refresh()" matSuffix color="warn">refresh</mat-icon>
   </mat-form-field>
-  <button
-    mat-stroked-button
-    color="primary"
-    class="align-right-button"
-  >
+  <button mat-stroked-button color="primary" class="align-right-button">
     Thêm mới <mat-icon>add_circle </mat-icon>
   </button>
 
@@ -25,46 +21,63 @@
     </ng-container>
 
     <ng-container matColumnDef="hocVien.taiKhoan.tenDangNhap">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Mã học viên</mat-header-cell>
-      <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.hocVien.taiKhoan.tenDangNhap }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Mã học viên</mat-header-cell
+      >
+      <mat-cell *matCellDef="let DangKyKH">{{
+        DangKyKH.hocVien.taiKhoan.tenDangNhap
+      }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="hocVien.taiKhoan.hoTen">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Tên học viên</mat-header-cell>
-      <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.hocVien.taiKhoan.hoTen }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Tên học viên</mat-header-cell
+      >
+      <mat-cell *matCellDef="let DangKyKH">{{
+        DangKyKH.hocVien.taiKhoan.hoTen
+      }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="khoaHoc.tenKhoaHoc">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Tên khóa học</mat-header-cell>
-      <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.khoaHoc.tenKhoaHoc }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Tên khóa học</mat-header-cell
+      >
+      <mat-cell *matCellDef="let DangKyKH">{{
+        DangKyKH.khoaHoc.tenKhoaHoc
+      }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="ngayDangKy">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Ngày đăng ký</mat-header-cell>
-      <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.ngayDangKy  | date : "HH:mm:ss dd/MM/yyyy" }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Ngày đăng ký</mat-header-cell
+      >
+      <mat-cell *matCellDef="let DangKyKH">{{
+        DangKyKH.ngayDangKy | date : "HH:mm:ss dd/MM/yyyy"
+      }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="TrangThaiHocPhi">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Học phí</mat-header-cell>
-      <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.TrangThaiHocPhi }}</mat-cell>
+    <ng-container matColumnDef="trangThaiHocPhi">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Học phí</mat-header-cell
+      >
+      <mat-cell *matCellDef="let DangKyKH">{{
+        DangKyKH.trangThaiHocPhi
+      }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let DangKyKH">
-        <button mat-icon-button>
-          <mat-icon>info</mat-icon>
-        </button>
-       <!-- <button mat-icon-button (click)="modeleteqldk(DangKyKH.maDangKy)">
-      <mat-icon class="delete">delete</mat-icon>
-    </button> -->
-     <button
+        <button
           mat-stroked-button
-          color="warn"
-         (click)="modeleteqldk(DangKyKH.maDangKy)"
+          [color]="
+            DangKyKH.trangThaiHocPhi === 'CHUA_DONG' ? 'warn' : 'primary'
+          "
+          (click)="capNhatTrangThaiHocPhi(DangKyKH.maDangKy)"
         >
-          Hủy
+          {{ DangKyKH.trangThaiHocPhi === "CHUA_DONG" ? "Duyệt" : "Đã duyệt" }}
         </button>
       </mat-cell>
     </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>

@@ -23,7 +23,7 @@ export class QldkComponent {
     'hocVien.taiKhoan.hoTen',
     'khoaHoc.tenKhoaHoc',
     'ngayDangKy',
-    'TrangThaiHocPhi',
+    'trangThaiHocPhi',
     'action',
   ];
   length: number = 0;
@@ -41,9 +41,9 @@ export class QldkComponent {
 
   ngOnInit(): void {
     this.loadDanhSachDKKhoaHoc();
-     setInterval(() => {
-       this.currentDateTime = new Date();
-     }, 1000);
+    setInterval(() => {
+      this.currentDateTime = new Date();
+    }, 1000);
   }
   ngAfterViewInit() {
     this.danhSachDKKhoaHoc.paginator = this.paginator;
@@ -108,5 +108,23 @@ export class QldkComponent {
       }
       this.loadDanhSachDKKhoaHoc();
     });
+  }
+  capNhatTrangThaiHocPhi(maDangKy: number) {
+    const newTrangThai = 'DA_DONG'; // Trạng thái "Đã duyệt"
+
+    this.dangKyKhoaHocService
+      .capNhatTrangThaiDangKyKhoaHoc(maDangKy, {
+        trangThaiHocPhi: newTrangThai,
+      })
+      .subscribe({
+        next: (data) => {
+          console.log('Cập nhật thành công');
+          this.toastr.success('Cập nhật thành công!');
+          this.loadDanhSachDKKhoaHoc();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 }

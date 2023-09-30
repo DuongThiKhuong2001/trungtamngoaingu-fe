@@ -6,7 +6,7 @@ export interface DangKyKH {
   hocVien: HocVien;
   khoaHoc: KhoaHoc;
   ngayDangKy: Date;
-  
+
 }
 
 export enum TrangThaiHocPhi {
