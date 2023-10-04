@@ -20,23 +20,25 @@ export class DeleteRolesComponent {
     private storageService: StorageService,
     private router: Router,
     private toastr: ToastrService,
-    private nhanVienSerice: NhanVienService
+    private nhanVienService: NhanVienService
   ) {
-    this.maVaiTro = data.maVaiTro; // Initialize maLoaiLop from the data passed to the dialog
+    this.maVaiTro = data.maVaiTro;
+    console.log('maVaiTro:', data.maVaiTro); // Khởi tạo maLoaiLop từ dữ liệu được truyền vào dialog
   }
 
-  closedialog() {
-    this.dialogRef.close('Closed using function');
+  closeDialog() {
+    this.dialogRef.close('Đã đóng dialog bằng hàm');
   }
+
   accept() {
-    // Call the API service to delete the type class
-    this.nhanVienSerice.xoaVaiTro(this.maVaiTro).subscribe({
+    // Gọi dịch vụ API để xóa vai trò
+    this.nhanVienService.xoaVaiTro(this.maVaiTro).subscribe({
       next: (data: any) => {
-        if (data.message === 'cant-delete') {
-          // Handle the case where the deletion is not allowed
+        if (data.message && data.message === 'cant-delete') {
+          // Xử lý trường hợp không cho phép xóa
           this.toastr.warning('Không thể xóa vai trò này.');
         } else {
-          // Handle other cases or errors
+          // Xử lý khi xóa thành công hoặc các trường hợp khác
           this.toastr.success('Bạn đã xóa thành công!');
           this.dialogRef.close('accept');
         }

@@ -77,6 +77,7 @@ import { AddRolesComponent } from './components/admin/roles/add-roles/add-roles.
 import { EditRolesComponent } from './components/admin/roles/edit-roles/edit-roles.component';
 import { DeleteRolesComponent } from './components/admin/roles/delete-roles/delete-roles.component';
 import { ListNhanvienRolesComponent } from './components/admin/roles/list-nhanvien-roles/list-nhanvien-roles.component';
+import { ListHVHPComponent } from './components/admin/qldk/list-hvhp/list-hvhp.component';
 
 @NgModule({
   declarations: [
@@ -150,7 +151,8 @@ import { ListNhanvienRolesComponent } from './components/admin/roles/list-nhanvi
     AddRolesComponent,
     EditRolesComponent,
     DeleteRolesComponent,
-  ListNhanvienRolesComponent
+    ListNhanvienRolesComponent,
+  ListHVHPComponent
 
   ],
   imports: [

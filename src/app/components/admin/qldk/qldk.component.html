@@ -10,9 +10,10 @@
     <mat-icon (click)="onSearch()" matSuffix color="primary">search</mat-icon>
     <mat-icon (click)="refresh()" matSuffix color="warn">refresh</mat-icon>
   </mat-form-field>
-  <button mat-stroked-button color="primary" class="align-right-button">
-    Thêm mới <mat-icon>add_circle </mat-icon>
-  </button>
+  <button mat-stroked-button color="primary" class="align-right-button" (click)="listHVHP()" >
+  Danh sách học viên đã đăng ký <mat-icon >add_circle</mat-icon>
+</button>
+
 
   <mat-table [dataSource]="danhSachDKKhoaHoc" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="stt">

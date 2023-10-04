@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 import { KhoaHoc } from 'src/app/models/KhoaHoc';
 import { KhoaHocService } from 'src/app/services/khoa-hoc.service';
 import { DeleteQldkComponent } from './delete-qldk/delete-qldk.component';
+import { ListHVHPComponent } from './list-hvhp/list-hvhp.component';
 
 @Component({
   selector: 'app-qldk',
@@ -126,5 +127,16 @@ export class QldkComponent {
           console.log(err);
         },
       });
+  }
+  listHVHP(): void {
+    var popup = this.dialog.open(ListHVHPComponent, {
+      width: '45%',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+    popup.afterClosed().subscribe((item) => {
+      // console.log(item)
+      // this.loadDanhSachStaff();
+    });
   }
 }
