@@ -25,6 +25,8 @@ import { ScheduleComponent } from './components/admin/schedule/schedule.componen
 import { CourseComponent } from './components/admin/course/course.component';
 import { RegisterCourseComponent } from './components/student/register-course/register-course.component';
 import { QldkComponent } from './components/admin/qldk/qldk.component';
+import { ClassroomComponent } from './components/admin/classroom/classroom.component';
+import { RolesComponent } from './components/admin/roles/roles.component';
 
 const routes: Routes = [
   {
@@ -104,6 +106,22 @@ const routes: Routes = [
         data: {
           titulo: 'QL Đăng ký Khóa học',
           breadcrumbs: [{ label: 'Khóa học', url: '/' }],
+        },
+      },
+      {
+        path: 'quan-ly-phong-hoc',
+        component: ClassroomComponent,
+        data: {
+          titulo: 'Quản lí phòng học',
+          breadcrumbs: [{ label: 'Phòng học', url: '/' }],
+        },
+      },
+      {
+        path: 'danh-sach-vai-tro',
+        component: RolesComponent,
+        data: {
+          titulo: 'Quản lí vai trò',
+          breadcrumbs: [{ label: 'Vai trò', url: '/' }],
         },
       },
     ],

@@ -6,4 +6,5 @@ export interface NhanVien {
   taiKhoan: TaiKhoan;
   quyen: string;
   tenVaiTro: string;
+  vaiTros:string;
 }

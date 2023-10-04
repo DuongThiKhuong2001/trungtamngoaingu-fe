@@ -12,7 +12,7 @@ import { httpInterceptorProviders } from './services/http.interceptor';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { TestComponent } from './components/student/test/test.component';
-import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
+import { Roles, SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -68,6 +68,15 @@ import { QldkComponent } from './components/admin/qldk/qldk.component';
 import { DeleteQldkComponent } from './components/admin/qldk/delete-qldk/delete-qldk.component';
 import { HuyDangkyComponent } from './components/student/huy-dangky/huy-dangky.component';
 import { DetailDangkyComponent } from './components/student/detail-dangky/detail-dangky.component';
+import { ClassroomComponent } from './components/admin/classroom/classroom.component';
+import { AddClassroomComponent } from './components/admin/classroom/add-classroom/add-classroom.component';
+import { EditClassroomComponent } from './components/admin/classroom/edit-classroom/edit-classroom.component';
+import { DeleteClassroomComponent } from './components/admin/classroom/delete-classroom/delete-classroom.component';
+import { RolesComponent } from './components/admin/roles/roles.component';
+import { AddRolesComponent } from './components/admin/roles/add-roles/add-roles.component';
+import { EditRolesComponent } from './components/admin/roles/edit-roles/edit-roles.component';
+import { DeleteRolesComponent } from './components/admin/roles/delete-roles/delete-roles.component';
+import { ListNhanvienRolesComponent } from './components/admin/roles/list-nhanvien-roles/list-nhanvien-roles.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +141,16 @@ import { DetailDangkyComponent } from './components/student/detail-dangky/detail
     QldkComponent,
     DeleteQldkComponent,
     HuyDangkyComponent,
-    DetailDangkyComponent
+    DetailDangkyComponent,
+    ClassroomComponent,
+    AddClassroomComponent,
+    EditClassroomComponent,
+    DeleteClassroomComponent,
+    RolesComponent,
+    AddRolesComponent,
+    EditRolesComponent,
+    DeleteRolesComponent,
+  ListNhanvienRolesComponent
 
   ],
   imports: [
