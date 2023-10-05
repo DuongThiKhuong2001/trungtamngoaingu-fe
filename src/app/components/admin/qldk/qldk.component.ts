@@ -129,14 +129,15 @@ export class QldkComponent {
       });
   }
   listHVHP(): void {
-    var popup = this.dialog.open(ListHVHPComponent, {
+    const dialogRef = this.dialog.open(ListHVHPComponent, {
       width: '45%',
+      data: { danhSachDKKhoaHoc: this.danhSachDKKhoaHoc.data }, // Truyền danh sách học viên đã đóng học phí
       enterAnimationDuration: '300ms',
       exitAnimationDuration: '300ms',
     });
-    popup.afterClosed().subscribe((item) => {
-      // console.log(item)
-      // this.loadDanhSachStaff();
+
+    dialogRef.afterClosed().subscribe((item) => {
+      // Có thể thực hiện các thao tác sau khi dialog được đóng
     });
   }
 }

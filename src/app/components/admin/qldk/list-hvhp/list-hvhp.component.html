@@ -1,17 +1,14 @@
-<h1 mat-dialog-title>Thông tin chi tiết<hr></h1>
-
-<div mat-dialog-content class="table-container">
-  <div class="table-row">
-    <div class="table-header"><strong>Họ Tên:</strong></div>
-    <div class="table-cell">{{ data.dshvhp.taiKhoan?.hoTen }}</div>
-  </div>
-  <div class="table-row">
-    <div class="table-header"><strong>Học phí:</strong></div>
-    <div class="table-cell">{{ data.dshvhp.hocPhi}}</div>
-  </div>
-
-</div>
-
-<div mat-dialog-actions>
-  <button style="margin-left: 250px;margin-bottom: 8px;"  mat-raised-button color="warn" (click)="closePopup()">Đóng</button>
+<div class="mat-elevation-z4">
+  <mat-table [dataSource]="danhSachHocVien" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="tenHocVien">
+      <mat-header-cell *matHeaderCellDef>Tên học viên</mat-header-cell>
+      <mat-cell *matCellDef="let DangKyKH">{{ DangKyKH.hocVien.taiKhoan.hoTen}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="daDongHocPhi">
+      <mat-header-cell *matHeaderCellDef>Học phí</mat-header-cell>
+      <mat-cell *matCellDef="let DangKyKH">{{  DangKyKH.trangThaiHocPhi }}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
 </div>

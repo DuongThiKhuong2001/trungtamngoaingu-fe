@@ -1,3 +1,4 @@
+
 import { TypeClassComponent } from './components/admin/type-class/type-class.component';
 
 import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
@@ -12,7 +13,10 @@ import { httpInterceptorProviders } from './services/http.interceptor';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { TestComponent } from './components/student/test/test.component';
-import { Roles, SidebarComponent } from './components/admin/sidebar/sidebar.component';
+import {
+  Roles,
+  SidebarComponent,
+} from './components/admin/sidebar/sidebar.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -78,6 +82,9 @@ import { EditRolesComponent } from './components/admin/roles/edit-roles/edit-rol
 import { DeleteRolesComponent } from './components/admin/roles/delete-roles/delete-roles.component';
 import { ListNhanvienRolesComponent } from './components/admin/roles/list-nhanvien-roles/list-nhanvien-roles.component';
 import { ListHVHPComponent } from './components/admin/qldk/list-hvhp/list-hvhp.component';
+import { MyCourseComponent } from './components/student/my-course/my-course.component';
+import { ClassComponent } from './components/admin/class/class.component';
+import { EditHosoComponent } from './components/student/hoso-student/edit-hoso/edit-hoso.component';
 
 @NgModule({
   declarations: [
@@ -152,7 +159,10 @@ import { ListHVHPComponent } from './components/admin/qldk/list-hvhp/list-hvhp.c
     EditRolesComponent,
     DeleteRolesComponent,
     ListNhanvienRolesComponent,
-  ListHVHPComponent
+    ListHVHPComponent,
+    MyCourseComponent,
+    ClassComponent,
+    EditHosoComponent
 
   ],
   imports: [
@@ -160,7 +170,7 @@ import { ListHVHPComponent } from './components/admin/qldk/list-hvhp/list-hvhp.c
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-     HttpClientModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 1500,
       progressBar: true,

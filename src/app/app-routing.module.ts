@@ -27,6 +27,8 @@ import { RegisterCourseComponent } from './components/student/register-course/re
 import { QldkComponent } from './components/admin/qldk/qldk.component';
 import { ClassroomComponent } from './components/admin/classroom/classroom.component';
 import { RolesComponent } from './components/admin/roles/roles.component';
+import { MyCourseComponent } from './components/student/my-course/my-course.component';
+import { ClassComponent } from './components/admin/class/class.component';
 
 const routes: Routes = [
   {
@@ -117,6 +119,14 @@ const routes: Routes = [
         },
       },
       {
+        path: 'quan-ly-lop-hoc',
+        component: ClassComponent,
+        data: {
+          titulo: 'Quản lí lớp học',
+          breadcrumbs: [{ label: 'Lớp học', url: '/' }],
+        },
+      },
+      {
         path: 'danh-sach-vai-tro',
         component: RolesComponent,
         data: {
@@ -150,6 +160,14 @@ const routes: Routes = [
         component: RegisterCourseComponent,
         data: {
           titulo: 'Khóa học',
+          breadcrumbs: [{ label: 'Các khóa học', url: '/' }],
+        },
+      },
+      {
+        path: 'khoa-hoc-cua-toi',
+        component: MyCourseComponent,
+        data: {
+          titulo: 'Khóa học của tôi',
           breadcrumbs: [{ label: 'Các khóa học', url: '/' }],
         },
       },

@@ -34,16 +34,16 @@ export class DeleteRolesComponent {
     // Gọi dịch vụ API để xóa vai trò
     this.nhanVienService.xoaVaiTro(this.maVaiTro).subscribe({
       next: (data: any) => {
-        if (data.message && data.message === 'cant-delete') {
-          // Xử lý trường hợp không cho phép xóa
-          this.toastr.warning('Không thể xóa vai trò này.');
-        } else {
           // Xử lý khi xóa thành công hoặc các trường hợp khác
           this.toastr.success('Bạn đã xóa thành công!');
           this.dialogRef.close('accept');
-        }
+
       },
       error: (err) => {
+         if (err.error.message && err.error.message === 'cant-delete') {
+          // Xử lý trường hợp không cho phép xóa
+          this.toastr.warning('Không thể xóa vai trò này.');
+        }
         console.log(err);
       },
     });

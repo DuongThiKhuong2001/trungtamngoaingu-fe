@@ -11,6 +11,7 @@ import { DangKyKhoaHocService } from 'src/app/services/dang-ky-khoa-hoc.service'
 import { KhoaHocService } from 'src/app/services/khoa-hoc.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { HuyDangkyComponent } from '../huy-dangky/huy-dangky.component';
+import { DangKyKH } from 'src/app/models/DangKyKH';
 
 @Component({
   selector: 'app-register-course',
@@ -43,6 +44,7 @@ export class RegisterCourseComponent {
     private dangKyKhoaHocService: DangKyKhoaHocService
   ) {}
 
+  registrationStatus: { [key: string]: string } = {};
   ngOnInit(): void {
     const user = this.storageService.getUser();
     this.loggedInUsername = user.tenTaiKhoan;
@@ -88,6 +90,24 @@ export class RegisterCourseComponent {
         this.danhSachKhoaHoc = new MatTableDataSource<KhoaHoc>(data.content);
         this.paginator.length = data.totalElements;
         this.length = data.totalElements;
+        data.content.forEach((item: KhoaHoc) => {
+           const user = this.storageService.getUser();
+           const body = {
+          tenDangNhap: user.tenTaiKhoan,
+          maKhoaHoc: item.maKhoaHoc
+        };
+          this.dangKyKhoaHocService
+            .kiemTraDangKyKhoaHoc(body)
+            .subscribe({
+              next: (response) => {
+                console.log(response.message);
+                this.registrationStatus[item.maKhoaHoc] = response.message;
+              },
+              error: (error) => {
+                console.log(error)
+              },
+            });
+        });
       });
   }
 
