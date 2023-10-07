@@ -93,8 +93,7 @@ export class MyCourseComponent implements OnInit {
         sortBy,
         sortDir,
         this.searchTerm,
-
-        user.tenTaiKhoan // Sử dụng tên đăng nhập của người dùng để lọc theo học viên
+                user.tenTaiKhoan // Sử dụng tên đăng nhập của người dùng để lọc theo học viên
       )
       .subscribe((data: any) => {
         this.danhSachDangKy = new MatTableDataSource<DangKyKH>(data.content);

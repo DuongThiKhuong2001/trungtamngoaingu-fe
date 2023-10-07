@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DangKyKhoaHocService } from 'src/app/services/dang-ky-khoa-hoc.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-huy-dangky',
@@ -10,35 +11,30 @@ import { DangKyKhoaHocService } from 'src/app/services/dang-ky-khoa-hoc.service'
   styleUrls: ['./huy-dangky.component.css'],
 })
 export class HuyDangkyComponent {
-  maDangKy: number;
+  maKhoaHoc: number;
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data: { maDangKy: number },
+    public data: { maKhoaHoc: number },
     public dialogRef: MatDialogRef<HuyDangkyComponent>,
     private router: Router,
     private toastr: ToastrService,
-    private dangKyKhoaHocService: DangKyKhoaHocService
+    private dangKyKhoaHocService: DangKyKhoaHocService,
+    private storageService: StorageService
   ) {
-    console.log('maLichHoc:', data.maDangKy);
-    this.maDangKy = data.maDangKy; // Initialize maLoaiLop from the data passed to the dialog
+    console.log('maKhoaHoc:', data.maKhoaHoc);
+    this.maKhoaHoc = data.maKhoaHoc; // Initialize maLoaiLop from the data passed to the dialog
   }
 
   closedialog() {
-    this.dialogRef.close('Closed using function');
+    this.dialogRef.close();
   }
   accept() {
+    const user = this.storageService.getUser();
     // Call the API service to delete the type class
-    this.dangKyKhoaHocService.xoaDangKyKhoaHoc(this.maDangKy).subscribe({
+    this.dangKyKhoaHocService.huyDangKyKhoaHoc(this.maKhoaHoc, user.tenTaiKhoan).subscribe({
       next: (data: any) => {
-        if (data.message === 'cant-delete') {
-          // Handle the case where the deletion is not allowed
-          this.toastr.warning('Không thể hủy đăng ký này.');
-        } else {
-          // Handle other cases or errors
           this.toastr.success('Bạn đã hủy thành công!');
-          this.dialogRef.close('accept');
-        }
       },
       error: (err) => {
         console.log(err);

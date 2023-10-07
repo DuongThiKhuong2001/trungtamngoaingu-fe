@@ -8,7 +8,16 @@ import { Observable } from 'rxjs';
 export class DangKyKhoaHocService {
   private baseUrl = '/api/dang-ky-khoa-hoc'; // Điều này phụ thuộc vào cấu hình proxy trong Angular CLI (angular.json)
   constructor(private http: HttpClient) {}
-getAllDangKyKhoaHoc(page: number, size: number, sortBy: string, sortDir: string, searchTerm: string, maKhoaHoc?: number, tenDangNhap?: string): Observable<any> {
+  getAllDangKyKhoaHoc(
+    page: number,
+    size: number,
+    sortBy: string,
+    sortDir: string,
+    searchTerm: string,
+    tenDangNhap?: string,
+    maKhoaHoc?: number,
+
+  ): Observable<any> {
     let params = new HttpParams()
       .set('page', page.toString())
       .set('size', size.toString())
@@ -25,8 +34,7 @@ getAllDangKyKhoaHoc(page: number, size: number, sortBy: string, sortDir: string,
     }
 
     return this.http.get(`${this.baseUrl}/lay-danh-sach`, { params });
-}
-
+  }
 
   // Kiểm tra đăng ký khóa học
   kiemTraDangKyKhoaHoc(data: any): Observable<any> {
@@ -55,7 +63,12 @@ getAllDangKyKhoaHoc(page: number, size: number, sortBy: string, sortDir: string,
   xoaDangKyKhoaHoc(maDangKy: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/huy/${maDangKy}`);
   }
+  huyDangKyKhoaHoc(maKhoaHoc: number, tenDangNhap: string): Observable<any> {
+    const url = `${this.baseUrl}/huy-theo-khoa-hoc-hoc-vien/${maKhoaHoc}?tenDangNhap=${tenDangNhap}`;
 
+    // Thực hiện yêu cầu DELETE
+    return this.http.delete(url);
+  }
   // Lấy danh sách học viên đã đóng học phí
   getDanhSachHocVienDaDongHocPhi(maKhoaHoc: number): Observable<any> {
     return this.http.get(

@@ -55,20 +55,29 @@
         >
           {{
             registrationStatus[khoaHoc.maKhoaHoc] === "chuadong"
-              ? "Đã Đăng Ký"
+              ? "Đã đăng ký"
               : registrationStatus[khoaHoc.maKhoaHoc] === "dadong"
-              ? "Đã Duyệt"
+              ? "Đã duyệt"
               : "Đăng ký"
+
           }}
         </button>
 
+      </mat-cell>
+    </ng-container>
+      <ng-container matColumnDef="actions1">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let khoaHoc">
+
         <button
-          mat-raised-button
-          color="warn"
-          (click)="openHuyDK(khoaHoc.maKhoaHoc)"
-        >
-          Hủy
-        </button>
+      *ngIf="registrationStatus[khoaHoc.maKhoaHoc] === 'chuadong'"
+
+      mat-raised-button
+      color="warn"
+      (click)="openHuyDK(khoaHoc.maKhoaHoc)"
+    >
+      Hủy
+    </button>
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

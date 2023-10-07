@@ -13,14 +13,6 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Lịch học</mat-label>
-      <mat-select formControlName="maLichHoc">
-        <mat-option *ngFor="let type of ListLichHoc" [value]="type.maLichHoc">
-          {{ type.moTa }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="full-width">
       <input matInput placeholder="Ngày bắt đầu" formControlName="ngayBatDau" [matDatepicker]="picker" required />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>

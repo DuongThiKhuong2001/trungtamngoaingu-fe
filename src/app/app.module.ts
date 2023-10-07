@@ -85,6 +85,8 @@ import { ListHVHPComponent } from './components/admin/qldk/list-hvhp/list-hvhp.c
 import { MyCourseComponent } from './components/student/my-course/my-course.component';
 import { ClassComponent } from './components/admin/class/class.component';
 import { EditHosoComponent } from './components/student/hoso-student/edit-hoso/edit-hoso.component';
+import { EditHosogvComponent } from './components/lecturer/hoso-lecturer/edit-hosogv/edit-hosogv.component';
+import { EditHosostaffComponent } from './components/staff/hoso-staff/edit-hosostaff/edit-hosostaff.component';
 
 @NgModule({
   declarations: [
@@ -162,7 +164,9 @@ import { EditHosoComponent } from './components/student/hoso-student/edit-hoso/e
     ListHVHPComponent,
     MyCourseComponent,
     ClassComponent,
-    EditHosoComponent
+    EditHosoComponent,
+    EditHosogvComponent,
+    EditHosostaffComponent
 
   ],
   imports: [

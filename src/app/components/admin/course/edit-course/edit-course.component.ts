@@ -13,11 +13,10 @@ import { LoaiLopService } from 'src/app/services/loai-lop.service';
 export class EditCourseComponent implements OnInit {
   editForm: FormGroup;
   ListLoaiLop: any[] = [];
-  ListLichHoc: any[] = [];
+
   constructor(
     private dialogRef: MatDialogRef<EditCourseComponent>,
     private formBuilder: FormBuilder,
-    private lichhocService: LichHocService,
     private loailopService: LoaiLopService,
     private khoaHocService: KhoaHocService,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -25,7 +24,6 @@ export class EditCourseComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       tenKhoaHoc: [this.data.tenKhoaHoc, [Validators.required]],
       maLoaiLop: [this.data.loaiLop.maLoaiLop], // Lấy lại giá trị maLoaiLop từ dữ liệu đã có
-      maLichHoc: [this.data.lichHoc.maLichHoc], // Lấy lại giá trị maLichHoc từ dữ liệu đã có
       ngayBatDau: [this.data.ngayBatDau],
       ngayKetThuc: [this.data.ngayKetThuc],
     });
@@ -34,7 +32,7 @@ export class EditCourseComponent implements OnInit {
   ngOnInit(): void {
     // Lấy dữ liệu loại lớp và lịch học để hiển thị trong dropdown
     this.loadLoaiLop();
-    this.loadLichHoc();
+
   }
 
   loadLoaiLop() {
@@ -43,18 +41,11 @@ export class EditCourseComponent implements OnInit {
     });
   }
 
-  loadLichHoc() {
-    this.lichhocService.getDanhSachLichHoc().subscribe((data) => {
-      this.ListLichHoc = data;
-    });
-  }
-
   onSubmit(): void {
     if (this.editForm.valid) {
       const updatedKhoaHoc = {
         tenKhoaHoc: this.editForm.value.tenKhoaHoc,
         maLoaiLop: this.editForm.value.maLoaiLop,
-        maLichHoc: this.editForm.value.maLichHoc,
         ngayBatDau: this.editForm.value.ngayBatDau,
         ngayKetThuc: this.editForm.value.ngayKetThuc,
       };

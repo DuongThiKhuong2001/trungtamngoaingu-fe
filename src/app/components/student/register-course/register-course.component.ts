@@ -27,6 +27,7 @@ export class RegisterCourseComponent {
     'ngayBatDau',
     'ngayKetThuc',
     'actions',
+    'actions1',
   ];
   length: number = 0;
   searchTerm: string = '';
@@ -91,22 +92,20 @@ export class RegisterCourseComponent {
         this.paginator.length = data.totalElements;
         this.length = data.totalElements;
         data.content.forEach((item: KhoaHoc) => {
-           const user = this.storageService.getUser();
-           const body = {
-          tenDangNhap: user.tenTaiKhoan,
-          maKhoaHoc: item.maKhoaHoc
-        };
-          this.dangKyKhoaHocService
-            .kiemTraDangKyKhoaHoc(body)
-            .subscribe({
-              next: (response) => {
-                console.log(response.message);
-                this.registrationStatus[item.maKhoaHoc] = response.message;
-              },
-              error: (error) => {
-                console.log(error)
-              },
-            });
+          const user = this.storageService.getUser();
+          const body = {
+            tenDangNhap: user.tenTaiKhoan,
+            maKhoaHoc: item.maKhoaHoc,
+          };
+          this.dangKyKhoaHocService.kiemTraDangKyKhoaHoc(body).subscribe({
+            next: (response) => {
+              console.log(response.message);
+              this.registrationStatus[item.maKhoaHoc] = response.message;
+            },
+            error: (error) => {
+              console.log(error);
+            },
+          });
         });
       });
   }
@@ -143,44 +142,16 @@ export class RegisterCourseComponent {
       },
     });
   }
-  // kiemTraDangKy(ma: any) {
-  //   const user = this.storageService.getUser();
-  //   this.loggedInUsername = user.tenTaiKhoan;
 
-  //   if (!user) {
-  //     this.toastr.error('Không tìm thấy tên đăng nhập', 'Lỗi');
-  //     return;
-  //   }
-  //   const body = {
-  //     tenDangNhap: this.loggedInUsername,
-  //     maKhoaHoc: ma,
-  //   };
-  //   this.dangkykhoahocService.kiemTraDangKyKhoaHoc(body).subscribe({
-  //     next: (data) => {
-  //       if (data.message && data.message === 'exist') {
-  //         this.isRegistered = true;
-  //       } else if (data.message && data.message === 'not-exist') {
-  //         this.isRegistered = false;
-  //       }
-  //     },
-  //     error: (err) => {
-  //       console.log(err);
-  //     },
-  //   });
-  // }
-
-  openHuyDK(maDangKy: number): void {
+  openHuyDK(maKhoaHoc: number): void {
     const dialogRef = this.dialog.open(HuyDangkyComponent, {
       width: '350px',
-      data: { maDangKy }, // Pass the maLoaiLop value to the dialog
+      data: { maKhoaHoc },
       enterAnimationDuration: '300ms',
       exitAnimationDuration: '300ms',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'accept') {
-        // Handle any further actions if needed after deletion
-      }
       this.loadDanhSachKhoaHoc();
     });
   }
