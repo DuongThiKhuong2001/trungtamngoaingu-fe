@@ -1,0 +1,58 @@
+<form [formGroup]="myform" (ngSubmit)="savetypeclass()">
+  <h1 mat-dialog-title>Thêm mới</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Ngày thi</mat-label>
+      <input formControlName="ngayThi" matInput required />
+      <mat-error
+        *ngIf="formControls.ngayThi.errors?.['required']"
+      >
+      Ngày thi là bắt buộc!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Ca thi</mat-label>
+      <input formControlName="caThi" matInput required />
+      <mat-error
+        *ngIf="formControls.caThi.errors?.['required']"
+      >
+   Ca thi là bắt buộc!
+      </mat-error>
+    </mat-form-field>
+     <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Phòng </mat-label>
+      <mat-select formControlName="maPhong">
+        <mat-option
+          *ngFor="let type of ListPhong"
+          [value]="type.maPhong"
+        >
+          {{ type.tenPhong }}
+        </mat-option>
+      </mat-select>
+       <mat-error *ngIf="formControls.maPhong.errors?.['required']">
+       Phòng là bắt buộc!
+      </mat-error>
+    </mat-form-field>
+     <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Chứng chỉ</mat-label>
+      <mat-select formControlName="maChungChi">
+        <mat-option
+          *ngFor="let type of ListChungChi"
+          [value]="type.maChungChi"
+        >
+          {{ type.tenChungChi }}
+        </mat-option>
+      </mat-select>
+       <mat-error *ngIf="formControls.maChungChi.errors?.['required']">
+      Chứng chỉ là bắt buộc!
+      </mat-error>
+    </mat-form-field>
+
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button type="submit" color="primary">Lưu</button>
+    <button (click)="closePopup()"  mat-stroked-button  color="warn">Đóng</button>
+  </div>
+</form>

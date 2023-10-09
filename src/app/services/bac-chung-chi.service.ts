@@ -36,7 +36,7 @@ export class BacChungChiService {
   }
 
   // Phương thức để xóa bậc chứng chỉ
-  deleteBacChungChi(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/xoa/${id}`);
+  deleteBacChungChi(maBacChungChi: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/xoa/${maBacChungChi}`);
   }
 }

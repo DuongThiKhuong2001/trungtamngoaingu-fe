@@ -31,6 +31,7 @@ import { MyCourseComponent } from './components/student/my-course/my-course.comp
 import { ClassComponent } from './components/admin/class/class.component';
 import { ChungChiComponent } from './components/admin/chung-chi/chung-chi.component';
 import { BacChungChiComponent } from './components/admin/bac-chung-chi/bac-chung-chi.component';
+import { LichThiComponent } from './components/admin/lich-thi/lich-thi.component';
 
 const routes: Routes = [
   {
@@ -126,6 +127,14 @@ const routes: Routes = [
         data: {
           titulo: 'Quản lí lớp học',
           breadcrumbs: [{ label: 'Lớp học', url: '/' }],
+        },
+      },
+      {
+        path: 'quan-ly-lich-thi',
+        component: LichThiComponent,
+        data: {
+          titulo: 'Quản lí lịch thi',
+          breadcrumbs: [{ label: 'Lịch thi', url: '/' }],
         },
       },
       {

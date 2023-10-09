@@ -10,6 +10,7 @@ import { AddBacChungChiComponent } from './add-bac-chung-chi/add-bac-chung-chi.c
 import { EditBacChungChiComponent } from './edit-bac-chung-chi/edit-bac-chung-chi.component';
 import { DeleteBacChungChiComponent } from './delete-bac-chung-chi/delete-bac-chung-chi.component';
 import { BacChungChi } from 'src/app/models/BacChungChi';
+import { DetailBacChungChiComponent } from './detail-bac-chung-chi/detail-bac-chung-chi.component';
 
 
 @Component({
@@ -18,7 +19,8 @@ import { BacChungChi } from 'src/app/models/BacChungChi';
   styleUrls: ['./bac-chung-chi.component.css'],
 })
 export class BacChungChiComponent implements OnInit {
-  danhSachBacChungChi: MatTableDataSource<BacChungChi> = new MatTableDataSource();
+  danhSachBacChungChi: MatTableDataSource<BacChungChi> =
+    new MatTableDataSource();
   displayedColumns: string[] = [
     'stt',
     'bac',
@@ -102,5 +104,17 @@ export class BacChungChiComponent implements OnInit {
       }
       this.loadDL();
     });
+  }
+  detailBacChungChi(bacChungChi: any | null): void {
+    if (bacChungChi) {
+      var popup = this.dialog.open(DetailBacChungChiComponent, {
+        data: {
+          lecturer: bacChungChi,
+        },
+        width: '40%',
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '300ms',
+      });
+    }
   }
 }

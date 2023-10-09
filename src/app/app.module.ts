@@ -98,6 +98,13 @@ import { BacChungChiComponent } from './components/admin/bac-chung-chi/bac-chung
 import { AddBacChungChiComponent } from './components/admin/bac-chung-chi/add-bac-chung-chi/add-bac-chung-chi.component';
 import { EditBacChungChiComponent } from './components/admin/bac-chung-chi/edit-bac-chung-chi/edit-bac-chung-chi.component';
 import { DeleteBacChungChiComponent } from './components/admin/bac-chung-chi/delete-bac-chung-chi/delete-bac-chung-chi.component';
+import { DetailBacChungChiComponent } from './components/admin/bac-chung-chi/detail-bac-chung-chi/detail-bac-chung-chi.component';
+import { DetailClassComponent } from './components/admin/class/detail-class/detail-class.component';
+import { LichThiComponent } from './components/admin/lich-thi/lich-thi.component';
+import { AddLichThiComponent } from './components/admin/lich-thi/add-lich-thi/add-lich-thi.component';
+import { EditLichThiComponent } from './components/admin/lich-thi/edit-lich-thi/edit-lich-thi.component';
+import { DeleteLichThiComponent } from './components/admin/lich-thi/delete-lich-thi/delete-lich-thi.component';
+import { DetailLichThiComponent } from './components/admin/lich-thi/detail-lich-thi/detail-lich-thi.component';
 
 @NgModule({
   declarations: [
@@ -180,6 +187,7 @@ import { DeleteBacChungChiComponent } from './components/admin/bac-chung-chi/del
     EditHosostaffComponent,
     AddClassComponent,
     EditClassComponent,
+    DetailClassComponent,
     DeleteClassComponent,
     ChungChiComponent,
     AddChungChiComponent,
@@ -188,7 +196,13 @@ import { DeleteBacChungChiComponent } from './components/admin/bac-chung-chi/del
     BacChungChiComponent,
     AddBacChungChiComponent,
     EditBacChungChiComponent,
-    DeleteBacChungChiComponent
+    DeleteBacChungChiComponent,
+    DetailBacChungChiComponent,
+    LichThiComponent,
+    AddLichThiComponent,
+    EditLichThiComponent,
+    DeleteLichThiComponent,
+    DetailLichThiComponent
 
   ],
   imports: [

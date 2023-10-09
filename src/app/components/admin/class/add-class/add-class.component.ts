@@ -21,7 +21,7 @@ export class AddClassComponent implements OnInit {
     private toastr: ToastrService,
     private lopHocService: LopHocService,
     private khoaHocService: KhoaHocService,
-    private phongHocService: PhongHocService
+    private phonghocService: PhongHocService
   ) {}
 
   get formControls() {
@@ -38,7 +38,7 @@ export class AddClassComponent implements OnInit {
   //   });
   // }
   loadPhongHoc() {
-    this.phongHocService.layDanhSachPhongHoc().subscribe((data) => {
+    this.phonghocService.layDanhSachPhongHoc().subscribe((data) => {
       this.ListPhongHoc = data;
     });
   }

@@ -9,6 +9,7 @@ import { LopHocService } from 'src/app/services/lop-hoc.service';
 import { AddClassComponent } from './add-class/add-class.component';
 import { EditClassComponent } from './edit-class/edit-class.component';
 import { DeleteClassComponent } from './delete-class/delete-class.component';
+import { DetailClassComponent } from './detail-class/detail-class.component';
 
 @Component({
   selector: 'app-class',
@@ -33,7 +34,7 @@ export class ClassComponent {
     private lopHocService: LopHocService,
     private toastr: ToastrService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadDanhSachLopHoc();
@@ -126,5 +127,17 @@ export class ClassComponent {
       }
       this.loadDanhSachLopHoc();
     });
+  }
+  detailClass(lopHoc: any | null): void {
+    if (lopHoc) {
+      var popup = this.dialog.open(DetailClassComponent, {
+        data: {
+          lopHoc: lopHoc,
+        },
+        width: '40%',
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '300ms',
+      });
+    }
   }
 }
