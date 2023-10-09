@@ -29,6 +29,8 @@ import { ClassroomComponent } from './components/admin/classroom/classroom.compo
 import { RolesComponent } from './components/admin/roles/roles.component';
 import { MyCourseComponent } from './components/student/my-course/my-course.component';
 import { ClassComponent } from './components/admin/class/class.component';
+import { ChungChiComponent } from './components/admin/chung-chi/chung-chi.component';
+import { BacChungChiComponent } from './components/admin/bac-chung-chi/bac-chung-chi.component';
 
 const routes: Routes = [
   {
@@ -124,6 +126,22 @@ const routes: Routes = [
         data: {
           titulo: 'Quản lí lớp học',
           breadcrumbs: [{ label: 'Lớp học', url: '/' }],
+        },
+      },
+      {
+        path: 'quan-ly-chung-chi',
+        component: ChungChiComponent,
+        data: {
+          titulo: 'Quản lí chứng chỉ',
+          breadcrumbs: [{ label: 'Chứng chỉ', url: '/' }],
+        },
+      },
+      {
+        path: 'quan-ly-bac-chung-chi',
+        component: BacChungChiComponent,
+        data: {
+          titulo: 'Quản lí bậc chứng chỉ',
+          breadcrumbs: [{ label: 'Bậc chứng chỉ', url: '/' }],
         },
       },
       {

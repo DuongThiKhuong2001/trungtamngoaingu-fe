@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoaiLopService } from 'src/app/services/loai-lop.service';
+import { ToastrService } from 'ngx-toastr';
 // Thay đường dẫn tới LoaiLopService
 
 @Component({
@@ -16,12 +17,13 @@ export class EditTypeclassComponent implements OnInit {
     private dialogRef: MatDialogRef<EditTypeclassComponent>,
     private formBuilder: FormBuilder,
     private loaiLopService: LoaiLopService,
+    private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.editForm = this.formBuilder.group({
       tenLoaiLop: ['', Validators.required],
-      deCuong: [''],
-      hocPhi: ['', Validators.required],
+      deCuong: ['', Validators.required],
+      hocPhi: ['', Validators.pattern(/^\d+(\.\d{1,2})?$/)],
     });
   }
 
@@ -48,6 +50,7 @@ export class EditTypeclassComponent implements OnInit {
         .subscribe((response) => {
           if (response) {
             // Cập nhật thành công, đóng dialog và thông báo
+            this.toastr.success('Bạn đã chỉnh sửa thành công!');
             this.dialogRef.close(response);
           } else {
             // Xử lý lỗi nếu cần

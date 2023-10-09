@@ -2,13 +2,13 @@
 <div mat-dialog-content>
   <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline" class="full-width">
-      <input matInput placeholder="Tên loại lớp" formControlName="tenLoaiLop" required />
+      <input matInput placeholder="Tên chứng chỉ" formControlName="tenChungChi" required />
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
-      <textarea matInput placeholder="Đề cương" formControlName="deCuong" required></textarea>
+      <textarea matInput placeholder="Mô tả" formControlName="moTa" required></textarea>
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
-      <input matInput placeholder="Học phí" formControlName="hocPhi" required />
+      <input matInput placeholder="Lệ phí thi" formControlName="lePhiThi" required />
     </mat-form-field>
   </form>
 </div>

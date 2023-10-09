@@ -1,14 +1,22 @@
 <h2 mat-dialog-title>Chỉnh sửa </h2>
 <div mat-dialog-content>
   <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="outline" class="full-width">
-      <input matInput placeholder="Tên loại lớp" formControlName="tenLoaiLop" required />
+     <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Chứng chỉ</mat-label>
+      <mat-select formControlName="maChungChi">
+        <mat-option *ngFor="let type of ListChungChi" [value]="type.maChungChi">
+          {{ type.tenChungChi }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
-      <textarea matInput placeholder="Đề cương" formControlName="deCuong" required></textarea>
+      <input matInput placeholder="Bậc chứng chỉ" formControlName="bac" required />
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
-      <input matInput placeholder="Học phí" formControlName="hocPhi" required />
+      <textarea matInput placeholder="Điểm tối thiểu" formControlName="diemToiThieu" required></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput placeholder="Điểm tối đa" formControlName="diemToiDa" required />
     </mat-form-field>
   </form>
 </div>

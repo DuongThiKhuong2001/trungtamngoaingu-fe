@@ -87,6 +87,17 @@ import { ClassComponent } from './components/admin/class/class.component';
 import { EditHosoComponent } from './components/student/hoso-student/edit-hoso/edit-hoso.component';
 import { EditHosogvComponent } from './components/lecturer/hoso-lecturer/edit-hosogv/edit-hosogv.component';
 import { EditHosostaffComponent } from './components/staff/hoso-staff/edit-hosostaff/edit-hosostaff.component';
+import { AddClassComponent } from './components/admin/class/add-class/add-class.component';
+import { EditClassComponent } from './components/admin/class/edit-class/edit-class.component';
+import { DeleteClassComponent } from './components/admin/class/delete-class/delete-class.component';
+import { ChungChiComponent } from './components/admin/chung-chi/chung-chi.component';
+import { AddChungChiComponent } from './components/admin/chung-chi/add-chung-chi/add-chung-chi.component';
+import { EditChungChiComponent } from './components/admin/chung-chi/edit-chung-chi/edit-chung-chi.component';
+import { DeleteChungChiComponent } from './components/admin/chung-chi/delete-chung-chi/delete-chung-chi.component';
+import { BacChungChiComponent } from './components/admin/bac-chung-chi/bac-chung-chi.component';
+import { AddBacChungChiComponent } from './components/admin/bac-chung-chi/add-bac-chung-chi/add-bac-chung-chi.component';
+import { EditBacChungChiComponent } from './components/admin/bac-chung-chi/edit-bac-chung-chi/edit-bac-chung-chi.component';
+import { DeleteBacChungChiComponent } from './components/admin/bac-chung-chi/delete-bac-chung-chi/delete-bac-chung-chi.component';
 
 @NgModule({
   declarations: [
@@ -166,7 +177,18 @@ import { EditHosostaffComponent } from './components/staff/hoso-staff/edit-hosos
     ClassComponent,
     EditHosoComponent,
     EditHosogvComponent,
-    EditHosostaffComponent
+    EditHosostaffComponent,
+    AddClassComponent,
+    EditClassComponent,
+    DeleteClassComponent,
+    ChungChiComponent,
+    AddChungChiComponent,
+    EditChungChiComponent,
+    DeleteChungChiComponent,
+    BacChungChiComponent,
+    AddBacChungChiComponent,
+    EditBacChungChiComponent,
+    DeleteBacChungChiComponent
 
   ],
   imports: [

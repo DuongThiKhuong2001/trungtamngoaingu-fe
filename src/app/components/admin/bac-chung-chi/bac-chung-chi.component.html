@@ -14,43 +14,50 @@
     mat-stroked-button
     color="primary"
     class="align-right-button"
-    (click)="addclass()"
+    (click)="addBacChungChi()"
   >
     Thêm mới <mat-icon>add_circle </mat-icon>
   </button>
 
-  <mat-table [dataSource]="danhSachLopHoc" matSort class="mat-elevation-z8">
+  <mat-table [dataSource]="danhSachBacChungChi" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="stt">
       <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
       <mat-cell *matCellDef="let i = index">{{ i + 1 }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="tenLop">
+
+    <ng-container matColumnDef="bac">
       <mat-header-cell *matHeaderCellDef mat-sort-header
-        >Tên lớp</mat-header-cell
+        >Bậc chứng chỉ
+        </mat-header-cell
       >
-      <mat-cell *matCellDef="let LopHoc">{{ LopHoc.tenLop }}</mat-cell>
+      <mat-cell *matCellDef="let BacChungChi">{{ BacChungChi.bac }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="soLuong">
+    <ng-container matColumnDef="diemToiThieu">
       <mat-header-cell *matHeaderCellDef mat-sort-header
-        >Số lượng</mat-header-cell
+        >Điểm tối thiểu</mat-header-cell
       >
-      <mat-cell *matCellDef="let LopHoc">
-        {{ LopHoc.soLuong }}
+      <mat-cell *matCellDef="let BacChungChi">{{ BacChungChi.diemToiThieu }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="diemToiDa">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Điểm tối đa</mat-header-cell
+      >
+      <mat-cell *matCellDef="let BacChungChi">
+        {{ BacChungChi.diemToiDa }}
       </mat-cell>
     </ng-container>
-<ng-container matColumnDef="actions">
-  <mat-header-cell *matHeaderCellDef ></mat-header-cell>
-  <mat-cell *matCellDef="let LopHoc">
-     <button mat-icon-button (click)="editclass(LopHoc)">
-      <mat-icon>edit</mat-icon>
-    </button>
-     <button mat-icon-button (click)="modeleteclass(LopHoc.maLop)">
-      <mat-icon class="delete">delete</mat-icon>
-    </button>
-  </mat-cell>
-</ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef ></mat-header-cell>
+      <mat-cell *matCellDef="let BacChungChi">
+        <button mat-icon-button (click)="editBacChungChi(BacChungChi)">
+          <mat-icon>edit</mat-icon>
+        </button>
 
-
+        <button mat-icon-button (click)="modeleteBacChungChi(BacChungChi.maChungChi)">
+          <mat-icon class="delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row
       matRipple
